@@ -1,0 +1,23 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!src
+!src/
+!src/**
+!libs
+!libs/
+!libs/**
+!Images
+!Images/
+!Images/**
+!HTMLDoc
+!HTMLDoc/
+!HTMLDoc/**
+!WebContent
+!WebContent/
+!WebContent/**
+!Web
+!*.txt
+!*.md
