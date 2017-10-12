@@ -67,130 +67,124 @@ public class LoginSessions extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-
-		out.println("<doctype html>");
-		out.println("<html lang=\"en\">");
-
-		out.println("<head>");
-		out.println("<meta charset=\"UTF-8\">");
-		out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">");
-		out.println(
-				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css\" integrity=\"sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ\"");
-		out.println("crossorigin=\"anonymous\">");
-		out.println("<title> Login Page </title>");
-		out.println("<style>");
-
-		out.println("</style>");
-		out.println("</head>");
-		out.println("<!-- Body of the page -->");
-
-		out.println("<body>");
-		out.println("<!-- Heading of the page -->");
-		out.println("<div class=\"container-fluid\">");
-		out.println("<div class=\"container-fluid text-center\">");
-		out.println("<!-- Header -->");
-		out.println("<div class=\"jumbotron\">");
-		out.println("<!-- Logo -->");
-		out.println("<div class=\"navbar-brand\">");
-		out.println("<h1> Login </h1>");
-		out.println("<aside title=\"Projects Logo\">");
-		out.println("<img src=\"Logo.png\" alt=\"Logo Picture.png\">");
-		out.println("</aside>");
-
-		out.println("</div>");
-		out.println("</div>");
-		out.println("<!-- Content -->");
-		out.println("<div class=\"container-fluid text-center\">");
-		out.println("<form action=\"Login\" method=\"post\">");
-		out.println("<div>");
-		out.println("<label>");
-		out.println("Username(Email Adress)");
-		out.println("</label>");
-		out.println("<input class=\"form-control\" type=\"text\" name=\"username\" placeholder=\"Email\">");
-		out.println("</div>");
-		out.println("<div class=\"form-group\">");
-		out.println("<label>");
-		out.println("Password");
-		out.println("</label>");
-		out.println("<input class=\"form-control\" type=\"password\" name=\"password\" placeholder=\"Password\">");
-		out.println("</div>");
-		out.println("<div class=\"checkbox\">");
-		out.println("<label>");
-		out.println("<input type=\"checkbox\" name=\"rememberMe\"> Remember Username");
-		out.println("</label>");
-		out.println("</div>");
-		out.println("<button type=\"submit\" class=\"btn btn-primary\">Login</button>");
-		out.println("</form>");
-		out.println("<form action=\"Register\" method=\"post\">");
-		out.println("<button type=\"submit\" class=\"btn btn-primary\">Register</button>");
-		out.println("</form>");
-		out.println("</div>");
-		out.println("<hr>");
-		out.println("</div>");
-		out.println("<!-- Footer of the page -->");
-		out.println("<div>");
-		out.println("<footer class=\"footer \">");
-		out.println("<!-- Mini Naviation-->");
-		out.println("<div class=\"container text-center\">");
-		out.println("<nav class=\"navbar navbar-toggleable-md navbar-light bg-faded\">");
-		out.println(
-				"<button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"");
-		out.println(
-				"aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">");
-		out.println("<span class=\"navbar-toggler-icon\"></span>");
-		out.println("</button>");
-		out.println("<!-- Logo -->");
-		out.println("<div class=\"navbar-brand\">");
-		out.println("<aside title=\"Projects Logo\">");
-		out.println("<img src=\"Logo.png\" alt=\"Logo Picture.png\">");
-		out.println("</aside>");
-		out.println("</div>");
-
-		out.println("<div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">");
-		out.println("<ul class=\"navbar-nav mr-auto\">");
-		out.println("<li class=\"nav-item active\">");
-		out.println("<a class=\"nav-link\" href=\"Login\">Login <span class=\"sr-only\">(current)</span></a>");
-		out.println("</li>");
-		out.println("<li class=\"nav-item\">");
-		out.println("<a class=\"nav-link\" href=\"Help\">Help</a>");
-		out.println("</li>");
-		out.println("<li class=\"nav-item\">");
-		out.println("<a class=\"nav-link\" href=\"ContactAlmanac\">Contact and Suggestions </a>");
-		out.println("</li>");
-		out.println("<li class=\"nav-item\">");
-		out.println("<a class=\"nav-link disabled\" href=\"Forum\">Forum</a>");
-		out.println("</li>");
-		out.println("<li class=\"nav-item\">");
-		out.println(
-				"<a class=\"nav-link disabled\" href=\"RecomendationsAndModifications\">Recomendations and Modifications</a>");
-		out.println("</li>");
-		out.println("<li class=\"nav-item\">");
-		out.println("<a class=\"nav-link disabled\" href=\"Calendar\">Calendar</a>");
-		out.println("</li>");
-		out.println("<li class=\"nav-item\">");
-		out.println("<a class=\"nav-link disabled\" href=\"Login\">Logout</a>");
-		out.println("</li>");
-		out.println("</ul>");
-		out.println("</div>");
-		out.println("</nav>");
-		out.println("<p class=\"p1\">&copy;2017 Almanac, All Rights Reserve.</p>");
-		out.println("</div>");
-		out.println("</div>");
-		out.println("<!-- Other Resources Needed By Bootstrap -->");
-		out.println(
-				" <script src=\"https://code.jquery.com/jquery-3.1.1.slim.min.js\" integrity=\"sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n\"");
-		out.println("crossorigin=\"anonymous\"></script>");
-		out.println(
-				"  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js\" integrity=\"sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb\"");
-		out.println("crossorigin=\"anonymous\"></script>");
-		out.println(
-				"  <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js\" integrity=\"sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn\"");
-		out.println("crossorigin=\"anonymous\"></script>");
-		out.println("</footer>");
-		out.println("</div>");
-		out.println("</body>");
-
-		out.println("</html>");
+		out.println("<doctype html>\r\n" + 
+				"    <html lang=\"en\">\r\n" + 
+				"\r\n" + 
+				"    <head>\r\n" + 
+				"        <meta charset=\"UTF-8\">\r\n" + 
+				"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n" + 
+				"        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css\" integrity=\"sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ\"\r\n" + 
+				"            crossorigin=\"anonymous\">\r\n" + 
+				"        <title> Login Page </title>\r\n" + 
+				"        <style>\r\n" + 
+				"\r\n" + 
+				"        </style>\r\n" + 
+				"    </head>\r\n" + 
+				"    <!-- Body of the page -->\r\n" + 
+				"\r\n" + 
+				"    <body>\r\n" + 
+				"        <!-- Heading of the page -->\r\n" + 
+				"        <div class=\"container-fluid\">\r\n" + 
+				"            <div class=\"container-fluid text-center\">\r\n" + 
+				"                <!-- Header -->\r\n" + 
+				"                <div class=\"jumbotron\">\r\n" + 
+				"                    <!-- Logo -->\r\n" + 
+				"                    <div class=\"navbar-brand\">\r\n" + 
+				"                        <h1> Login </h1>\r\n" + 
+				"                        <aside title=\"Projects Logo\">\r\n" + 
+				"                            <img src=\"Logo.png\" alt=\"Logo Picture.png\">\r\n" + 
+				"                        </aside>\r\n" + 
+				"\r\n" + 
+				"                    </div>\r\n" + 
+				"                </div>\r\n" + 
+				"                <!-- Content -->\r\n" + 
+				"                <div class=\"container-fluid text-center\">\r\n" + 
+				"                    <form action=\"Login\" method=\"post\">\r\n" + 
+				"                        <div>\r\n" + 
+				"                            <label>\r\n" + 
+				"                                Username(Email Adress)\r\n" + 
+				"                            </label>\r\n" + 
+				"                            <input class=\"form-control\" type=\"text\" name=\"username\" placeholder=\"Email\">\r\n" + 
+				"                        </div>\r\n" + 
+				"                        <div class=\"form-group\">\r\n" + 
+				"                            <label>\r\n" + 
+				"                                Password\r\n" + 
+				"                            </label>\r\n" + 
+				"                            <input class=\"form-control\" type=\"password\" name=\"password\" placeholder=\"Password\">\r\n" + 
+				"                        </div>\r\n" + 
+				"                        <div class=\"checkbox\">\r\n" + 
+				"                            <label>\r\n" + 
+				"                                <input type=\"checkbox\" name=\"rememberMe\"> Remember Username\r\n" + 
+				"                            </label>\r\n" + 
+				"                        </div>\r\n" + 
+				"                        <button type=\"submit\" class=\"btn btn-primary\">Login</button>\r\n" + 
+				"                    </form>\r\n" + 
+				"                    <form action=\"RegisterStudent\" method=\"post\">\r\n" + 
+				"                        <button type=\"submit\" class=\"btn btn-primary\">Register For Student</button>\r\n" + 
+				"                    </form>\r\n" + 
+				"                    <form action=\"RegisterFaculty\" method=\"post\">\r\n" + 
+				"                        <button type=\"submit\" class=\"btn btn-primary\">Register For Faculty</button>\r\n" + 
+				"                    </form>\r\n" + 
+				"                </div>\r\n" + 
+				"                <hr>\r\n" + 
+				"            </div>\r\n" + 
+				"\r\n" + 
+				"            <!-- Footer of the page -->\r\n" + 
+				"            <div>\r\n" + 
+				"                <footer class=\"footer \">\r\n" + 
+				"                    <!-- Mini Naviation-->\r\n" + 
+				"                    <div class=\"container text-center\">\r\n" + 
+				"                        <nav class=\"navbar navbar-toggleable-md navbar-light bg-faded\">\r\n" + 
+				"                            <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\r\n" + 
+				"                                aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n" + 
+				"                                <span class=\"navbar-toggler-icon\"></span>\r\n" + 
+				"                            </button>\r\n" + 
+				"                            <!-- Logo -->\r\n" + 
+				"                            <div class=\"navbar-brand\">\r\n" + 
+				"                                <aside title=\"Projects Logo\">\r\n" + 
+				"                                    <img src=\"Logo.png\" alt=\"Logo Picture.png\">\r\n" + 
+				"                                </aside>\r\n" + 
+				"                            </div>\r\n" + 
+				"                            <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
+				"                                <ul class=\"navbar-nav mr-auto\">\r\n" + 
+				"                                    <li class=\"nav-item active\">\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"Login\">Login\r\n" + 
+				"                                            <span class=\"sr-only\">(current)</span>\r\n" + 
+				"                                        </a>\r\n" + 
+				"                                    </li>\r\n" + 
+				"                                    <li class=\"nav-item\">\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"Help\">Help</a>\r\n" + 
+				"                                    </li>\r\n" + 
+				"                                    <li class=\"nav-item\">\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
+				"                                    </li>\r\n" + 
+				"                                    <li class=\"nav-item\">\r\n" + 
+				"                                        <a class=\"nav-link disabled\" >Forum</a>\r\n" + 
+				"                                    </li>\r\n" + 
+				"                                    <li class=\"nav-item\">\r\n" + 
+				"                                        <a class=\"nav-link disabled\" >Recomendations and Modifications</a>\r\n" + 
+				"                                    </li>\r\n" + 
+				"                                    <li class=\"nav-item\">\r\n" + 
+				"                                        <a class=\"nav-link disabled\" >Calendar</a>\r\n" + 
+				"                                    </li>\r\n" + 
+				"                                </ul>\r\n" + 
+				"                            </div>\r\n" + 
+				"                        </nav>\r\n" + 
+				"                        <p class=\"p1\">&copy;2017 Almanac, All Rights Reserve.</p>\r\n" + 
+				"                    </div>\r\n" + 
+				"            </div>\r\n" + 
+				"            <!-- Other Resources Needed By Bootstrap -->\r\n" + 
+				"            <script src=\"https://code.jquery.com/jquery-3.1.1.slim.min.js\" integrity=\"sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n\"\r\n" + 
+				"                crossorigin=\"anonymous\"></script>\r\n" + 
+				"            <script src=\"https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js\" integrity=\"sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb\"\r\n" + 
+				"                crossorigin=\"anonymous\"></script>\r\n" + 
+				"            <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js\" integrity=\"sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn\"\r\n" + 
+				"                crossorigin=\"anonymous\"></script>\r\n" + 
+				"            </footer>\r\n" + 
+				"        </div>\r\n" + 
+				"    </body>\r\n" + 
+				"\r\n" + 
+				"    </html>");
 	}
 
 	/**
