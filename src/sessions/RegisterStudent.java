@@ -46,7 +46,7 @@ public class RegisterStudent extends HttpServlet {
 				"        <!-- Heading of the page -->\r\n" + 
 				"        <div class=\"container-fluid\">\r\n" + 
 				"            <div class=\"container-fluid text-center\">\r\n" + 
-				"                <!-- Header -->\r\n" + 
+				"                <!-- Header -->\rw\n" + 
 				"                <div class=\"jumbotron\">\r\n" + 
 				"                    <!-- Logo -->\r\n" + 
 				"                    <div class=\"navbar-brand\">\r\n" + 
