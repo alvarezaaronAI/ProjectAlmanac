@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Calendar
  */
-@WebServlet("/Calendar")
+@WebServlet("/main/Calendar")
 public class Calendar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
