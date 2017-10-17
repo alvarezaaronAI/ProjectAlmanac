@@ -52,7 +52,7 @@ public class RegisterFaculty extends HttpServlet {
 				"                    <div class=\"navbar-brand\">\r\n" + 
 				"                        <h1> Register, <small> New Faculty </small> </h1>\r\n" + 
 				"                        <aside title=\"Projects Logo\">\r\n" + 
-				"                            <img src=\"Logo.png\" alt=\"Logo Picture.png\">\r\n" + 
+				"                            <img src=\"../../Images/Logo.png\" alt=\"Logo2.png\">\r\n" + 
 				"                        </aside>\r\n" + 
 				"\r\n" + 
 				"                    </div>\r\n" + 
@@ -100,7 +100,7 @@ public class RegisterFaculty extends HttpServlet {
 				"                                <!-- Logo -->\r\n" + 
 				"                                <div class=\"navbar-brand\">\r\n" + 
 				"                                    <aside title=\"Projects Logo\">\r\n" + 
-				"                                        <img src=\"Logo.png\" alt=\"Logo Picture.png\">\r\n" + 
+				"                                        <img src=\"../../Images/Logo.png\" alt=\"Logo2.png\">\r\n" + 
 				"                                    </aside>\r\n" + 
 				"                                </div>\r\n" + 
 				"                                <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
