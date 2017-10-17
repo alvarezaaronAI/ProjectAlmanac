@@ -46,13 +46,15 @@ public class RegisterStudent extends HttpServlet {
 				"        <!-- Heading of the page -->\r\n" + 
 				"        <div class=\"container-fluid\">\r\n" + 
 				"            <div class=\"container-fluid text-center\">\r\n" + 
-				"                <!-- Header -->\rw\n" + 
+				"                <!-- Header -->\r\n" + 
 				"                <div class=\"jumbotron\">\r\n" + 
 				"                    <!-- Logo -->\r\n" + 
 				"                    <div class=\"navbar-brand\">\r\n" + 
-				"                        <h1> Register, <small> New Student</small> </h1>\r\n" + 
+				"                        <h1> Register,\r\n" + 
+				"                            <small> New Student</small>\r\n" + 
+				"                        </h1>\r\n" + 
 				"                        <aside title=\"Projects Logo\">\r\n" + 
-				"                            <img src=\"Logo.png\" alt=\"Logo Picture.png\">\r\n" + 
+				"                            <img src=\"/../Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                        </aside>\r\n" + 
 				"\r\n" + 
 				"                    </div>\r\n" + 
@@ -65,19 +67,19 @@ public class RegisterStudent extends HttpServlet {
 				"                    </div>\r\n" + 
 				"                    <div class=\"form-group\">\r\n" + 
 				"                        <label class=\"control-label\"> Last Name</label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\"value=\"\" + lastName + \"\" name=\"lName\" placeholder=\" Enter Last Name\">\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"\" + lastName + \"\" name=\"lName\" placeholder=\" Enter Last Name\">\r\n" + 
 				"                    </div>\r\n" + 
 				"                    <div class=\"form-group\">\r\n" + 
 				"                        <label class=\"control-label\"> Your Email Adress </label>\r\n" + 
 				"                        <input class=\"form-control\" type=\"text\" value=\"\" + email + \"\" name=\"username\" placeholder=\"Enter New Email\">\r\n" + 
 				"                    </div>\r\n" + 
 				"                    <div class=\"form-group\">\r\n" + 
-				"                            <label class=\"control-label\"> Password </label>\r\n" + 
-				"                            <input class=\"form-control\" type=\"text\" value=\"\" + password1 + \"\" name=\"password1\" placeholder=\"Enter New Password\">\r\n" + 
+				"                        <label class=\"control-label\"> Password </label>\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"\" + password1 + \"\" name=\"password1\" placeholder=\"Enter New Password\">\r\n" + 
 				"                    </div>\r\n" + 
 				"                    <div class=\"form-group\">\r\n" + 
-				"                            <label class=\"control-label\"> Retype Password </label>\r\n" + 
-				"                            <input class=\"form-control\" type=\"text\" value=\"\" + password2 + \"\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n" + 
+				"                        <label class=\"control-label\"> Retype Password </label>\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"\" + password2 + \"\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n" + 
 				"                    </div>\r\n" + 
 				"                    <button type=\"submit\" class=\"btn btn-primary\">Register New Student</button>\r\n" + 
 				"                </forum>\r\n" + 
@@ -96,7 +98,7 @@ public class RegisterStudent extends HttpServlet {
 				"                                <!-- Logo -->\r\n" + 
 				"                                <div class=\"navbar-brand\">\r\n" + 
 				"                                    <aside title=\"Projects Logo\">\r\n" + 
-				"                                        <img src=\"Logo.png\" alt=\"Logo Picture.png\">\r\n" + 
+				"                                        <img src=\"/../Images/Logo.png\" alt=\"Logo Picture \">\r\n" + 
 				"                                    </aside>\r\n" + 
 				"                                </div>\r\n" + 
 				"                                <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
@@ -107,19 +109,19 @@ public class RegisterStudent extends HttpServlet {
 				"                                            </a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"Help\">Help</a>\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"/Almanac/Info/Help\">Help</a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"/Almanac/Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
-				"                                            <a class=\"nav-link disabled\" >Forum</a>\r\n" + 
+				"                                            <a class=\"nav-link disabled\">Forum</a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
 				"                                            <a class=\"nav-link disabled\">Recomendations and Modifications</a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
-				"                                            <a class=\"nav-link disabled\" >Calendar</a>\r\n" + 
+				"                                            <a class=\"nav-link disabled\">Calendar</a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                    </ul>\r\n" + 
 				"                                </div>\r\n" + 
