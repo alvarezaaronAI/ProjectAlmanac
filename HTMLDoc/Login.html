@@ -23,17 +23,41 @@
                     <div class="navbar-brand">
                         <h1> Login </h1>
                         <aside title="Projects Logo">
-                            <img src="Logo.png" alt="Logo Picture.png">
+                            <img src="/../Images/Logo.png" alt="Logo Picture">
                         </aside>
 
                     </div>
                 </div>
                 <!-- Content -->
                 <div class="container-fluid text-center">
+                    <span>
+                        <ul style="list-style-type: none; display: inline-block;">
+                            <li>
+                                <form action="RegisterStudent" method="post">
+                                    <button type="submit" class="btn btn-primary">Register For Student</button>
+                                </form>
+                            </li>
+                        </ul>
+
+                        <ul style="list-style-type: none; display: inline-block;">
+                            <li>
+                                <form action="RegisterFaculty" method="post">
+                                    <button type="submit" class="btn btn-primary">Register For Faculty</button>
+                                </form>
+                            </li>
+                        </ul>
+                        <ul style="list-style-type: none; display: inline-block;">
+                            <li>
+                                <form action="GuestProfile" method="post">
+                                    <a class="btn btn-primary" href="/Almanac/main/GuestProfile">Guest Profile</a>
+                                </form>
+                            </li>
+                        </ul>
+                    </span>
                     <form action="Login" method="post">
                         <div>
                             <label>
-                                Username(Email Adress)
+                                Username(Email Address)
                             </label>
                             <input class="form-control" type="text" name="username" placeholder="Email">
                         </div>
@@ -49,12 +73,6 @@
                             </label>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
-                    <form action="RegisterStudent" method="post">
-                        <button type="submit" class="btn btn-primary">Register For Student</button>
-                    </form>
-                    <form action="RegisterFaculty" method="post">
-                        <button type="submit" class="btn btn-primary">Register For Faculty</button>
                     </form>
                 </div>
                 <hr>
@@ -73,7 +91,7 @@
                             <!-- Logo -->
                             <div class="navbar-brand">
                                 <aside title="Projects Logo">
-                                    <img src="Logo.png" alt="Logo Picture.png">
+                                    <img src="/../Images/Logo.png" alt="Logo Picture">
                                 </aside>
                             </div>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -84,19 +102,19 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Help">Help</a>
+                                        <a class="nav-link" href="/Almanac/Info/Help">Help</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="ContactAlmanac">Contact and Suggestions </a>
+                                        <a class="nav-link" href="/Almanac/Info/ContactAlmanac">Contact and Suggestions </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link disabled" >Forum</a>
+                                        <a class="nav-link disabled">Forum</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link disabled" >Recomendations and Modifications</a>
+                                        <a class="nav-link disabled">Recomendations and Modifications</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link disabled" >Calendar</a>
+                                        <a class="nav-link disabled">Calendar</a>
                                     </li>
                                 </ul>
                             </div>

@@ -1,4 +1,4 @@
-package sessions;
+package Info;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Guest
+ * Servlet implementation class ContactAlmanac
  */
-@WebServlet("/Guest")
-public class GuestLogin extends HttpServlet {
+@WebServlet("/Info/ContactAlmanac")
+public class ContactAlmanac extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GuestLogin() {
+    public ContactAlmanac() {
         super();
         // TODO Auto-generated constructor stub
     }

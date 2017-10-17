@@ -17,12 +17,15 @@
             <!-- Heading of the Page -->
             <div class="jumbotron text-center">
                 <h1> My Profile: Name of the Student</h1>
+                <aside title="Projects Logo">
+                    <img src="/../Images/Logo.png" alt="Logo Picture">
+                </aside>
             </div>
             <!-- Content -->
             <!-- Log Out Button -->
             <div class="text-center">
                 <form action="LogoutSessions" method="get">
-                    <a class="btn btn-primary" href="LogoutSessions">Log Out</a>
+                    <a class="btn btn-primary" href="/Almanac/sessions/Logout">Log Out</a>
                 </form>
             </div>
             <!-- Footer of the page -->
@@ -33,24 +36,26 @@
                         <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
                             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
                             <!-- Logo -->
                             <div class="navbar-brand">
                                 <aside title="Projects Logo">
-                                    <img src="Logo.png" alt="Logo Picture.png">
+                                    <img src="/../Images/Logo.png" alt="Logo Picture ">
                                 </aside>
                             </div>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="Login">Login <span class="sr-only">(current)</span></a>
+                                        <a class="nav-link" href="Login">Login
+                                            <span class="sr-only">(current)</span>
+                                        </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Help">Help</a>
+                                        <a class="nav-link" href="/Almanac/Info/Help">Help</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="ContactAlmanac">Contact and Suggestions </a>
+                                        <a class="nav-link" href="/Almanac/Info/ContactAlmanac">Contact and Suggestions </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="Forum">Forum</a>
@@ -61,17 +66,13 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="Calendar">Calendar</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <form action="LogoutSessions" method="get">
-                                            <a class="nav-link" href="LogoutSessions">Log Out</a>
-                                        </form>
-                                    </li>
                                 </ul>
                             </div>
                         </nav>
                         <p class="p1">&copy;2017 Almanac, All Rights Reserve.</p>
                     </div>
             </div>
+            <!-- Other Resources Needed By Bootstrap -->
             <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
                 crossorigin="anonymous">
             </script>
