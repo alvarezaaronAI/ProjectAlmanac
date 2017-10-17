@@ -30,10 +30,34 @@
                 </div>
                 <!-- Content -->
                 <div class="container-fluid text-center">
+                    <span>
+                        <ul style="list-style-type: none; display: inline-block;">
+                            <li>
+                                <form action="RegisterStudent" method="post">
+                                    <button type="submit" class="btn btn-primary">Register For Student</button>
+                                </form>
+                            </li>
+                        </ul>
+
+                        <ul style="list-style-type: none; display: inline-block;">
+                            <li>
+                                <form action="RegisterFaculty" method="post">
+                                    <button type="submit" class="btn btn-primary">Register For Faculty</button>
+                                </form>
+                            </li>
+                        </ul>
+                        <ul style="list-style-type: none; display: inline-block;">
+                            <li>
+                                <form action="GuestProfile" method="post">
+                                    <a class="btn btn-primary" href="/Almanac/main/GuestProfile">Guest Profile</a>
+                                </form>
+                            </li>
+                        </ul>
+                    </span>
                     <form action="Login" method="post">
                         <div>
                             <label>
-                                Username(Email Adress)
+                                Username(Email Address)
                             </label>
                             <input class="form-control" type="text" name="username" placeholder="Email">
                         </div>
@@ -49,12 +73,6 @@
                             </label>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
-                    <form action="RegisterStudent" method="post">
-                        <button type="submit" class="btn btn-primary">Register For Student</button>
-                    </form>
-                    <form action="RegisterFaculty" method="post">
-                        <button type="submit" class="btn btn-primary">Register For Faculty</button>
                     </form>
                 </div>
                 <hr>

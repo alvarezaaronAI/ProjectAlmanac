@@ -71,7 +71,7 @@ public class StudentsProfile extends HttpServlet {
 				"            <!-- Log Out Button -->\r\n" + 
 				"            <div class=\"text-center\">\r\n" + 
 				"                <form action=\"LogoutSessions\" method=\"get\">\r\n" + 
-				"                    <a class=\"btn btn-primary\" href=\"/Almanac/sessions/LogoutSessions\">Log Out</a>\r\n" + 
+				"                    <a class=\"btn btn-primary\" href=\"/Almanac/sessions/Logout\">Log Out</a>\r\n" + 
 				"                </form>\r\n" + 
 				"            </div>\r\n" + 
 				"            <!-- Footer of the page -->\r\n" + 

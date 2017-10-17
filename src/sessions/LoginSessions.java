@@ -99,10 +99,34 @@ public class LoginSessions extends HttpServlet {
 				"                </div>\r\n" + 
 				"                <!-- Content -->\r\n" + 
 				"                <div class=\"container-fluid text-center\">\r\n" + 
+				"                    <span>\r\n" + 
+				"                        <ul style=\"list-style-type: none; display: inline-block;\">\r\n" + 
+				"                            <li>\r\n" + 
+				"                                <form action=\"RegisterStudent\" method=\"post\">\r\n" + 
+				"                                    <button type=\"submit\" class=\"btn btn-primary\">Register For Student</button>\r\n" + 
+				"                                </form>\r\n" + 
+				"                            </li>\r\n" + 
+				"                        </ul>\r\n" + 
+				"\r\n" + 
+				"                        <ul style=\"list-style-type: none; display: inline-block;\">\r\n" + 
+				"                            <li>\r\n" + 
+				"                                <form action=\"RegisterFaculty\" method=\"post\">\r\n" + 
+				"                                    <button type=\"submit\" class=\"btn btn-primary\">Register For Faculty</button>\r\n" + 
+				"                                </form>\r\n" + 
+				"                            </li>\r\n" + 
+				"                        </ul>\r\n" + 
+				"                        <ul style=\"list-style-type: none; display: inline-block;\">\r\n" + 
+				"                            <li>\r\n" + 
+				"                                <form action=\"GuestProfile\" method=\"post\">\r\n" + 
+				"                                    <a class=\"btn btn-primary\" href=\"/Almanac/main/GuestProfile\">Guest Profile</a>\r\n" + 
+				"                                </form>\r\n" + 
+				"                            </li>\r\n" + 
+				"                        </ul>\r\n" + 
+				"                    </span>\r\n" + 
 				"                    <form action=\"Login\" method=\"post\">\r\n" + 
 				"                        <div>\r\n" + 
 				"                            <label>\r\n" + 
-				"                                Username(Email Adress)\r\n" + 
+				"                                Username(Email Address)\r\n" + 
 				"                            </label>\r\n" + 
 				"                            <input class=\"form-control\" type=\"text\" name=\"username\" placeholder=\"Email\">\r\n" + 
 				"                        </div>\r\n" + 
@@ -118,12 +142,6 @@ public class LoginSessions extends HttpServlet {
 				"                            </label>\r\n" + 
 				"                        </div>\r\n" + 
 				"                        <button type=\"submit\" class=\"btn btn-primary\">Login</button>\r\n" + 
-				"                    </form>\r\n" + 
-				"                    <form action=\"RegisterStudent\" method=\"post\">\r\n" + 
-				"                        <button type=\"submit\" class=\"btn btn-primary\">Register For Student</button>\r\n" + 
-				"                    </form>\r\n" + 
-				"                    <form action=\"RegisterFaculty\" method=\"post\">\r\n" + 
-				"                        <button type=\"submit\" class=\"btn btn-primary\">Register For Faculty</button>\r\n" + 
 				"                    </form>\r\n" + 
 				"                </div>\r\n" + 
 				"                <hr>\r\n" + 
