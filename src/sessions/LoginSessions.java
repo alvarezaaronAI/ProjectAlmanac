@@ -2,9 +2,6 @@ package sessions;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
@@ -16,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.Faculty;
 import models.Student;
 
 /**
@@ -27,12 +25,20 @@ public class LoginSessions extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
+		//---------------------------------------------------------------------
 		// Create a few students
 		ArrayList<Student> students = new ArrayList<Student>();
 		students.add(new Student("harry", "potter", "h@p.com", "asdf"));
 		students.add(new Student("joe", "low", "j@l.com", "ghjk"));
 		// Add the students to the application scope (Servlet Context)
 		getServletContext().setAttribute("students", students);
+		//---------------------------------------------------------------------
+		//Create a few faculties
+		ArrayList<Faculty> faculties = new ArrayList<Faculty>();
+//		faculties.add(new Faculty("Pamula", "Pamula", "p@p.com", "asdf"));
+//		faculties.add(new Faculty("Jose", "Richard", "j@r.com", "ghjk"));
+//		// Add the students to the application scope (Servlet Context)
+		getServletContext().setAttribute("faculties", faculties);
 
 	}
 
@@ -42,8 +48,9 @@ public class LoginSessions extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
+		//---------------------------------------------------------------------
 		//Checking cookies first to see if a student wanted to stay logged in.
+		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
 		Cookie[] cookies = request.getCookies();
 		//For every cookie that it was requested we must athenticate the student log in and by pass the password.
 		if (cookies != null) {
@@ -64,9 +71,10 @@ public class LoginSessions extends HttpServlet {
 			}
 			//Onced checked every student, for those students not 
 		}
-		// TODO Auto-generated method stub
+		//---------------------------------------------------------------------
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		//---------------------------------------------------------------------
 		out.println("<doctype html>\r\n" + 
 				"    <html lang=\"en\">\r\n" + 
 				"\r\n" + 
@@ -215,16 +223,17 @@ public class LoginSessions extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String rememberMe = request.getParameter("rememberMe");
-		
+		//---------------------------------------------------------------------
 		// If the user submitted bad input, just redisplay the form
 		if (username == null || username.trim().length() == 0 || password == null || password.trim().length() == 0) {
 			//Refresh the page
 			doGet(request, response);
 			return;
 		}
-		//Get an array of students so we can check stuff.
+		//---------------------------------------------------------------------
+		//Here we going to check for students
 		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
-		//Got through all those students and check if the password matches with each username
+			//Login and Check and make cookie given students login info
 		for (Student student : students) {
 			if (student.getEmail().toLowerCase().equals(username.trim().toLowerCase())
 					&& student.getPassword().equals(password)) {
@@ -247,7 +256,14 @@ public class LoginSessions extends HttpServlet {
 			}
 
 		}
+		//---------------------------------------------------------------------
+		//Here we going to check for faculties.
+		ArrayList<Faculty> faculties = (ArrayList<Faculty>) getServletContext().getAttribute("facutlies");
+			//Login and Check and make cookie given faculties login info
+		//---------------------------------------------------------------------
+		//Got through all those students and check if the password matches with each username
 		request.setAttribute("error", "Invalid username and/or password");
+		//---------------------------------------------------------------------
 		doGet(request, response);
 	}
 }

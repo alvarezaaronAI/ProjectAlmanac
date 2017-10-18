@@ -28,8 +28,10 @@ public class RegisterStudent extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//---------------------------------------------------------------------
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		//---------------------------------------------------------------------
 		out.println("<doctype html>\r\n" + 
 				"    <html lang=\"en\">\r\n" + 
 				"\r\n" + 

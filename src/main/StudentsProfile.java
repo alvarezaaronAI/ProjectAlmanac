@@ -34,15 +34,17 @@ public class StudentsProfile extends HttpServlet {
 			throws ServletException, IOException {
 		// Let's get a reference to the student who is currently logged in
 		Student student = (Student) request.getSession().getAttribute("authenticatedStudent");
+		//---------------------------------------------------------------------
 		// Set the content type
 		response.setContentType("text/html");
-
 		// Get a reference to the PrintWriter that lets us talk to the client
 		PrintWriter out = response.getWriter();
+		//---------------------------------------------------------------------
 		if (student == null) {
 			response.sendRedirect("Login");
 			return;
 		}
+		//---------------------------------------------------------------------
 		// Generate the HTML
 		out.println("<doctype html>\r\n" + 
 				"    <html lang=\"en\">\r\n" + 
@@ -93,9 +95,14 @@ public class StudentsProfile extends HttpServlet {
 				"                            <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
 				"                                <ul class=\"navbar-nav mr-auto\">\r\n" + 
 				"                                    <li class=\"nav-item active\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"Login\">Login\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"/Almanac/sessions/Login\">Login\r\n" + 
 				"                                            <span class=\"sr-only\">(current)</span>\r\n" + 
 				"                                        </a>\r\n" + 
+				"                                    </li>\r\n" + 
+				"                                    <li class=\"nav-item\">\r\n" + 
+				"                                        <form action=\"LogoutSessions\" method=\"get\">\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"/Almanac/sessions/Logout\">Log Out</a>\r\n" + 
+				"                                        </form>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
 				"                                        <a class=\"nav-link\" href=\"/Almanac/Info/Help\">Help</a>\r\n" + 

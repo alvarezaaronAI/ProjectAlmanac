@@ -23,6 +23,7 @@ public class Student {
 		this.lastName = lastNameIn;
 		this.email = emailIn;
 		this.password = passwordIn;
+		//Make their unique Key once when they create a new account.
 		this.identy = uniqueIden();	
 	}
 	/**
@@ -33,14 +34,16 @@ public class Student {
 	 * We create the this given the students last name and email.
 	 */
 	private BigInteger uniqueIden() {
+		//Getting last name and email and converting into numbers
 		BigInteger lastname = getNumberId(this.lastName);
 		BigInteger email = getNumberId(this.email);
+		//Adding them up and that makes a unique Key for the user
 		BigInteger uniqueKey = lastname.add(email);
 		return uniqueKey;
 		
 	}
 	/*
-	 * Returns a big integer that was convereted from a string into a a big integer.
+	 * Returns a big integer that was converted from a string into a a big integer.
 	 */
 	public static BigInteger getNumberId(String value) {
 	    return new BigInteger(value.getBytes(Charset.availableCharsets().get("UTF-8")));
