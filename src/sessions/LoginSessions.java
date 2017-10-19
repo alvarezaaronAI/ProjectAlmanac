@@ -56,7 +56,7 @@ public class LoginSessions extends HttpServlet {
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
 				for (Student student : students) {
-					String uniqID = "" + student.getIdenty(); 
+					String uniqID = "" + student.getIdentity(); 
 					Cookie studentUniqueID = new Cookie("student", uniqID);
 					//Comparing the cookie in the array vs the cookie in the student
 					//This allows us to make sure that the student is who it is.
@@ -241,7 +241,7 @@ public class LoginSessions extends HttpServlet {
 				if (rememberMe == null) {
 
 				} else {
-					String uniqID = "" + student.getIdenty(); 
+					String uniqID = "" + student.getIdentity(); 
 					Cookie cookie = new Cookie("student",uniqID);
 					response.addCookie(cookie);
 				}
