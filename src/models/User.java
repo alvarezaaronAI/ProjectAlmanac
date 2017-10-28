@@ -26,7 +26,7 @@ public class User {
 	 * Creating Method that gives me a unique identity based on the user's information
 	 * We create this given the user's last name and email.
 	 */
-	protected BigInteger uniqueIden() { // protected for testing purposes
+	private BigInteger uniqueIden() {
 		BigInteger lastname = getNumberId(this.lastName);
 		BigInteger email = getNumberId(this.email);
 		BigInteger uniqueKey = lastname.add(email);
@@ -71,10 +71,6 @@ public class User {
 	/*
 	 * Mutators
 	 */
-	
-	public void setIdentity(BigInteger identity) {
-		this.identity = identity;
-	}
 	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
