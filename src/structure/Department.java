@@ -2,12 +2,12 @@ package structure;
 
 import java.util.ArrayList;
 
-public class School {
+public class Department {
 
 	private String name;
-	private ArrayList<Department> depts;
+	private ArrayList<Major> majors;
 	
-	public School(String name) {
+	public Department(String name) {
 		this.name = name;
 	}
 }
