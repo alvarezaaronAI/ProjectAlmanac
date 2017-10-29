@@ -2,12 +2,16 @@ package sessions;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import models.Student;
 
 /**
  * Servlet implementation class RegisterStudent
@@ -31,6 +35,17 @@ public class RegisterStudent extends HttpServlet {
 		//---------------------------------------------------------------------
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
+		String firstName=request.getParameter("firstName");
+		String lastName=request.getParameter("lastName");
+		String email=request.getParameter("email");
+		String password1=request.getParameter("password1");
+		String password2=request.getParameter("password2");
+		String nameError=(String) request.getAttribute("nameError");
+		String emailError=(String) request.getAttribute("emailError");
+		String passwordError=(String) request.getAttribute("passwordError");
+		
+		
 		//---------------------------------------------------------------------
 		out.println("<doctype html>\r\n" + 
 				"    <html lang=\"en\">\r\n" + 
@@ -60,28 +75,53 @@ public class RegisterStudent extends HttpServlet {
 				"                        </aside>\r\n" + 
 				"\r\n" + 
 				"                    </div>\r\n" + 
-				"                </div>\r\n" + 
+				"                </div>\r\n" +
 				"                <!-- Content -->\r\n" + 
-				"                <forum action \"RegisterStudent\" method \"post\">\r\n" + 
-				"                    <div class=\"form-group\">\r\n" + 
-				"                        <label class=\"control-label\"> First Name</label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + firstName + \"\" name=\"fName\" placeholder=\"Enter First Name\">\r\n" + 
+				"                <forum action \"RegisterStudent\" method \"post\">\r\n"); 
+		System.out.println("name error"+nameError);
+		if(nameError!=null){
+			out.println(" <div class=\"form-group has-error\">"+"<span class=\"help-block\">"+nameError+"</span>");
+		}
+		else
+			out.println("<div class=\"form-group\">");
+		firstName=firstName==null?"":firstName;
+		lastName=lastName==null?"":lastName;
+		out.println(                   
+		    	"                        <label class=\"control-label\"> First Name</label>\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + firstName + "\" name=\"fName\" placeholder=\"Enter First Name\">\r\n" + 
 				"                    </div>\r\n" + 
 				"                    <div class=\"form-group\">\r\n" + 
 				"                        <label class=\"control-label\"> Last Name</label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + lastName + \"\" name=\"lName\" placeholder=\" Enter Last Name\">\r\n" + 
-				"                    </div>\r\n" + 
-				"                    <div class=\"form-group\">\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + lastName + "\" name=\"lName\" placeholder=\" Enter Last Name\">\r\n" + 
+				"                    </div>\r\n" );
+		
+		
+		if(emailError!=null){
+			out.println("<div class=\"form-group has-error\">"+"<span class=\"help-block\">"+emailError+"</span>");
+		}
+		else
+			out.println("<div class=\"form-group\">");
+		email=email==null?"":email;
+		out.println(
 				"                        <label class=\"control-label\"> Your Email Adress </label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + email + \"\" name=\"username\" placeholder=\"Enter New Email\">\r\n" + 
-				"                    </div>\r\n" + 
-				"                    <div class=\"form-group\">\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + email + "\" name=\"username\" placeholder=\"Enter New Email\">\r\n" + 
+				"                    </div>\r\n" );
+		
+		
+		if(passwordError!=null){
+			out.println("<div class=\"form-group has-error\">"+"<span class=\"help-block\">"+passwordError+"</span>");
+		}
+		else
+			out.println("<div class=\"form-group\">");
+		password1=password1==null?"":password1;
+		password2=password2==null?"":password2;
+		out.println(
 				"                        <label class=\"control-label\"> Password </label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + password1 + \"\" name=\"password1\" placeholder=\"Enter New Password\">\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + password1 + "\" name=\"password1\" placeholder=\"Enter New Password\">\r\n" + 
 				"                    </div>\r\n" + 
 				"                    <div class=\"form-group\">\r\n" + 
 				"                        <label class=\"control-label\"> Retype Password </label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + password2 + \"\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + password2 + "\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n" + 
 				"                    </div>\r\n" + 
 				"                    <button type=\"submit\" class=\"btn btn-primary\">Register New Student</button>\r\n" + 
 				"                </forum>\r\n" + 
@@ -90,7 +130,7 @@ public class RegisterStudent extends HttpServlet {
 				"                <!-- Footer of the page -->\r\n" + 
 				"                <div>\r\n" + 
 				"                    <footer class=\"footer \">\r\n" + 
-				"                        <!-- Mini Naviation-->\r\n" + 
+			/*	"                        <!-- Mini Naviation-->\r\n" + 
 				"                        <div class=\"container text-center\">\r\n" + 
 				"                            <nav class=\"navbar navbar-toggleable-md navbar-light bg-faded\">\r\n" + 
 				"                                <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\r\n" + 
@@ -139,7 +179,7 @@ public class RegisterStudent extends HttpServlet {
 				"                <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js\" integrity=\"sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn\"\r\n" + 
 				"                    crossorigin=\"anonymous\"></script>\r\n" + 
 				"                </footer>\r\n" + 
-				"            </div>\r\n" + 
+				"            </div>\r\n" + */
 				"    </body>\r\n" + 
 				"\r\n" + 
 				"    </html>");
@@ -148,9 +188,61 @@ public class RegisterStudent extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	boolean emailInUse(String email){
+		ArrayList<Student>students=(ArrayList<Student>) getServletContext().getAttribute("students");
+		for (Student student: students){
+			if (student.getEmail().toLowerCase().matches(email.toLowerCase()))
+				return true;
+		}
+		return false;
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String firstName=request.getParameter("firstName");
+		String lastName=request.getParameter("lastName");
+		String email=request.getParameter("email");
+		String password1=request.getParameter("password1");
+		String password2=request.getParameter("password2");
+		
+		boolean hasError=false;
+		if (firstName==null||firstName.matches("[a-zA-Z]{2,} [a-zA-Z]{2,}")){
+			request.setAttribute("nameError","You must enter a first name");
+			hasError=true;
+		}
+		if (lastName==null||lastName.matches("[a-zA-Z]{2,} [a-zA-Z]{2,}")){
+			request.setAttribute("nameError","You must enter a last name");
+			hasError=true;
+		}
+		if (email==null||email.trim().length()==0){
+			request.setAttribute("emailError", "You must enter an email");
+			hasError=true;
+		}
+		else if(emailInUse(email)){
+			request.setAttribute("emailError", "This email is already registered");
+			hasError=true;
+		}
+		if (password1==null||password1.trim().length()==0){
+			request.setAttribute("passwordError", "You must enter a password");
+            hasError=true;
+		}
+		else if (password2==null||!password1.equals(password2)){
+			request.setAttribute("passwordError", "Passwords don't match");
+			hasError=true;
+		}
+		if (hasError){
 		doGet(request, response);
+		return;
+		}
+		else{
+			ArrayList<Student> students=(ArrayList<Student>) getServletContext().getAttribute("students");
+			Student newStudent=new Student(firstName, lastName, email, password1);
+			students.add(newStudent);
+			HttpSession session=request.getSession();
+			session.setAttribute("authenticatedStudent", newStudent);
+			response.sendRedirect("LoginSession");
+			return;
+			
+		}	
 	}
 
 }
