@@ -77,7 +77,21 @@ public class RegisterStudent extends HttpServlet {
 				"                    </div>\r\n" + 
 				"                </div>\r\n" +
 				"                <!-- Content -->\r\n" + 
-				"                <forum action \"RegisterStudent\" method \"post\">\r\n"); 
+		
+				
+				
+				
+				
+				
+				
+        "<form action=\"Register\" method=\"post\">"); 
+		
+		
+		
+		
+		
+		
+		
 		System.out.println("name error"+nameError);
 		if(nameError!=null){
 			out.println(" <div class=\"form-group has-error\">"+"<span class=\"help-block\">"+nameError+"</span>");
@@ -123,7 +137,23 @@ public class RegisterStudent extends HttpServlet {
 				"                        <label class=\"control-label\"> Retype Password </label>\r\n" + 
 				"                        <input class=\"form-control\" type=\"text\" value=\"" + password2 + "\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n" + 
 				"                    </div>\r\n" + 
-				"                    <button type=\"submit\" class=\"btn btn-primary\">Register New Student</button>\r\n" + 
+				
+				
+				
+				
+				
+				
+				
+"	<button type=\"submit\" class=\"btn btn-primary\">Register</button>\r\n"+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				"                </forum>\r\n" + 
 				"\r\n" + 
 				"\r\n" + 
@@ -239,7 +269,7 @@ public class RegisterStudent extends HttpServlet {
 			students.add(newStudent);
 			HttpSession session=request.getSession();
 			session.setAttribute("authenticatedStudent", newStudent);
-			response.sendRedirect("LoginSession");
+			response.sendRedirect("LoginSessions");
 			return;
 			
 		}	
