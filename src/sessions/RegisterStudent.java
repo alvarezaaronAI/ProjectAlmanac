@@ -77,7 +77,17 @@ public class RegisterStudent extends HttpServlet {
 				"                    </div>\r\n" + 
 				"                </div>\r\n" +
 				"                <!-- Content -->\r\n" + 
-				"                <forum action \"RegisterStudent\" method \"post\">\r\n"); 
+				
+				
+				
+				
+				"                <forum action \"Register\" method \"post\">"); 
+		
+		
+		
+		
+		
+		
 		System.out.println("name error"+nameError);
 		if(nameError!=null){
 			out.println(" <div class=\"form-group has-error\">"+"<span class=\"help-block\">"+nameError+"</span>");
@@ -122,8 +132,18 @@ public class RegisterStudent extends HttpServlet {
 				"                    <div class=\"form-group\">\r\n" + 
 				"                        <label class=\"control-label\"> Retype Password </label>\r\n" + 
 				"                        <input class=\"form-control\" type=\"text\" value=\"" + password2 + "\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n" + 
-				"                    </div>\r\n" + 
-				"                    <button type=\"submit\" class=\"btn btn-primary\">Register New Student</button>\r\n" + 
+		        "                    </div>\r\n" + 
+				
+		        
+				
+				
+				
+				"                    <button type=\"submit\" class=\"btn btn-primary\">Register New Student</button>" + 
+				
+				
+				
+				
+				
 				"                </forum>\r\n" + 
 				"\r\n" + 
 				"\r\n" + 
