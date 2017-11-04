@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Course {
 
-	String id;
-	String dept;
-	int courseNum;
-	String name;
-	int units;
-	ArrayList<Course> prereqs = new ArrayList<>();
+	private String id;
+	private String dept;
+	private int courseNum;
+	private String name;
+	private int units;
+	private ArrayList<Course> prereqs = new ArrayList<>();
 	
 	public Course(String dept, int courseNum, String name, int units) {
 		id = dept + courseNum;
