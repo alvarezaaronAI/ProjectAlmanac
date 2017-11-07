@@ -130,7 +130,7 @@ public class RegisterStudent extends HttpServlet {
 				"                <!-- Footer of the page -->\r\n" + 
 				"                <div>\r\n" + 
 				"                    <footer class=\"footer \">\r\n" + 
-			/*	"                        <!-- Mini Naviation-->\r\n" + 
+				"                        <!-- Mini Naviation-->\r\n" + 
 				"                        <div class=\"container text-center\">\r\n" + 
 				"                            <nav class=\"navbar navbar-toggleable-md navbar-light bg-faded\">\r\n" + 
 				"                                <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\r\n" + 
@@ -179,7 +179,7 @@ public class RegisterStudent extends HttpServlet {
 				"                <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js\" integrity=\"sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn\"\r\n" + 
 				"                    crossorigin=\"anonymous\"></script>\r\n" + 
 				"                </footer>\r\n" + 
-				"            </div>\r\n" + */
+				"            </div>\r\n" + 
 				"    </body>\r\n" + 
 				"\r\n" + 
 				"    </html>");
