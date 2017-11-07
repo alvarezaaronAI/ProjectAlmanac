@@ -1,0 +1,180 @@
+<doctype html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+            crossorigin="anonymous">
+        <title> Students Name Calendar's </title>
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <!-- Heading of the Page -->
+            <div class="jumbotron text-center">
+                <h1> My Profile: Name of the Student</h1>
+                <aside title="Projects Logo">
+                    <img src="/../Images/Logo.png" alt="Logo Picture">
+                </aside>
+            </div>
+            <!-- Content -->
+            <div class="container">
+
+                <h2>Agenda</h2>
+                <p class="lead">
+                   Allows you to see your calendar all cleanly organized!
+                </p>
+
+
+                <div class="agenda">
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Semester</th>
+                                    <th class="text-center">Classes</th>
+                                    <th class="text-center">Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Single event in a single day -->
+                                <tr>
+                                    <td class="agenda-date" class="active" rowspan="1">
+                                        <!-- <div class="dayofmonth">26</div>
+                                        <div class="dayofweek">Saturday</div>
+                                        <div class="shortdate text-muted">July, 2014</div> -->
+                                        <div>
+                                            <p class="text-center">
+                                                Summer/Fall/Spring
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td class="course text-center">
+                                        Course Name
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-time">
+                                            7:00 - 9:00 PM
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Multiple events in a single day (note the rowspan) -->
+                                <tr>
+                                    <td class="agenda-date" class="active" rowspan="3">
+                                        <!-- <div class="dayofmonth">24</div>
+                                        <div class="dayofweek">Thursday</div>
+                                        <div class="shortdate text-muted">July, 2014</div> -->
+                                        <div>
+                                            <p class="text-center">
+                                                Fall
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td class="course text-center">
+                                        CS 2013 Data Structures
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-time">
+                                            10:15 AM - 12:00 PM
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="course text-center">
+                                       CS 3112 Web Development
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-time">
+                                            10:15 AM - 12:00 PM
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="course text-center">
+                                        CS 3337 Software Engineer
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-time">
+                                            7:00 - 9:00 PM
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Log Out Button -->
+            <div class="text-center">
+                <form action="LogoutSessions" method="get">
+                    <a class="btn btn-primary" href="/Almanac/sessions/Logout">Log Out</a>
+                </form>
+            </div>
+            <!-- Footer of the page -->
+            <div>
+                <footer class="footer ">
+                    <!-- Mini Naviation-->
+                    <div class="container text-center">
+                        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <!-- Logo -->
+                            <div class="navbar-brand">
+                                <aside title="Projects Logo">
+                                    <img src="/../Images/Logo.png" alt="Logo Picture ">
+                                </aside>
+                            </div>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/Almanac/sessions/Login">Login
+                                            <span class="sr-only">(current)</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <form action="LogoutSessions" method="get">
+                                            <a class="nav-link" href="/Almanac/sessions/Logout">Log Out</a>
+                                        </form>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Almanac/Info/Help">Help</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Almanac/Info/ContactAlmanac">Contact and Suggestions </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="Forum">Forum</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="RecomendationsAndModifications">Recomendations and Modifications</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="Calendar">Calendar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <p class="p1">&copy;2017 Almanac, All Rights Reserve.</p>
+                    </div>
+            </div>
+            <!-- Other Resources Needed By Bootstrap -->
+            <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+                crossorigin="anonymous">
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+                crossorigin="anonymous">
+            </script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+                crossorigin="anonymous">
+            </script>
+        </div>
+    </body>
+
+    </html>
