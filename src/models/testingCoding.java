@@ -1,25 +1,23 @@
-package sessions;
+package models;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LogoutSesssions
+ * Servlet implementation class testingCoding
  */
-@WebServlet("/sessions/Logout")
-public class LogoutSesssions extends HttpServlet {
+@WebServlet("/testingCoding")
+public class testingCoding extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutSesssions() {
+    public testingCoding() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,14 +26,8 @@ public class LogoutSesssions extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Delete the cookie, since its only available if they dont hit log out.
-		Cookie cookie = new Cookie("student", "");
-		cookie.setMaxAge(0);
-		response.addCookie(cookie);
-		//Invalidate the session and redirect them to the log in page.
-		request.getSession().invalidate();
-		response.sendRedirect("Login");
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
