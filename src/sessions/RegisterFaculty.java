@@ -81,31 +81,52 @@ public class RegisterFaculty extends HttpServlet {
 		
 		if(nameError!=null){
 		out.println(		"                    <div class=\"form-group has-error\">"+"<span class=\"help-block\">"+nameError+"</span>");
-		
-		out.println(		"                        <label class=\"control-label\"> First Name</label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + firstName + \"\" name=\"fName\" placeholder=\"Enter First Name\">\r\n" + 
+		}
+		else
+		out.println("<div class =\"form-group\">");
+		firstName=firstName==null?"":firstName;
+		lastName=lastName==null?"":lastName;
+		out.println(
+				"                        <label class=\"control-label\"> First Name</label>\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + firstName + "\" name=\"fName\" placeholder=\"Enter First Name\">\r\n" + 
 				"                    </div>\r\n" + 
 				"                    <div class=\"form-group\">\r\n" + 
 				"                        <label class=\"control-label\"> Last Name</label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + lastName + \"\" name=\"lName\" placeholder=\" Enter Last Name\">\r\n" + 
-				"                    </div>\r\n" + 
-				"                    <div class=\"form-group\">\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + lastName + "\" name=\"lName\" placeholder=\" Enter Last Name\">\r\n" + 
+				"                    </div>\r\n");  
+		if(emailError!=null){
+			out.println("<div class=\"form-group has-error\">"+"<span class=\"help-block\">"+emailError+"</span>");
+		}
+		else
+				out.println("                    <div class=\"form-group\">\r\n"); 
+		email=email==null?"":email;
+		out.println(
 				"                        <label class=\"control-label\"> Your Email Adress </label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + email + \"\" name=\"username\" placeholder=\"Enter New Email\">\r\n" + 
-				"                    </div>\r\n" + 
-				"                    <div class=\"form-group\">\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + email + "\" name=\"username\" placeholder=\"Enter New Email\">\r\n" + 
+				"                    </div>\r\n"); 
+		if(passwordError!=null){
+          out.println("<div class=\"form-group has-error\">"+"<span class=\"help-block\">"+passwordError+"</span>");         
+		}
+		else{
+			out.println("<div class=\"form-group\">\r\n"); 
+		password1=password1==null?"":password1;
+		password2=password2==null?"":password2;
+        passwordByDeveloper=passwordByDeveloper==null?"":passwordByDeveloper;
+		out.println(
 				"                        <label class=\"control-label\"> Password </label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + password1 + \"\" name=\"password1\" placeholder=\"Enter New Password\">\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + password1 + "\" name=\"password1\" placeholder=\"Enter New Password\">\r\n" + 
 				"                    </div>\r\n" + 
 				"                    <div class=\"form-group\">\r\n" + 
 				"                        <label class=\"control-label\"> Retype Password </label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + password2 + \"\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + password2 + "\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n" + 
 				"                    </div>\r\n" + 
 				"                    <div class=\"form-group\">\r\n" + 
 				"                        <label class=\"control-label\"> Unique Faculty Password </label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"\" + uniqueFPass + \"\" name=\"uniqueFPass\" placeholder=\"Enter the Password Given By Developer\">\r\n" + 
-				"                    </div>\r\n" + 
-				"                    <button type=\"submit\" class=\"btn btn-primary\">Register New Faculty</button>\r\n" + 
+				"                        <input class=\"form-control\" type=\"text\" value=\"" + passwordByDeveloper + "\" name=\"passwordByDeveloper\" placeholder=\"Enter the Password Given By Developer\">\r\n" + 
+				"                    </div>\r\n"); 
+		}
+		out.println(
+				"                    <button type=\"submit\" class=\"btn btn-primary\">Register</button>\r\n" + 
 				"                </forum>\r\n" + 
 				"\r\n" + 
 				"\r\n" + 
@@ -167,9 +188,6 @@ public class RegisterFaculty extends HttpServlet {
 				"    </html>");
 		}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	boolean emailInUse(String email){
 		ArrayList<Student>students=(ArrayList<Student>) getServletContext().getAttribute("students");
 		for (Student student: students){

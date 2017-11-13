@@ -19,7 +19,7 @@ import models.Student;
 /**
  * Servlet implementation class LoginSessions
  */
-@WebServlet(urlPatterns = "/sessions/Login", loadOnStartup = 3)
+@WebServlet("/sessions/LoginSessions")
 public class LoginSessions extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -10,7 +10,7 @@ public class Student extends User {
 	 */
 	Forum forum;
 	RecomendationsAndModifications recsAndMods;
-	Calendar calendar;
+	CalendarModel calendar;
 	
 	/**
 	 * Constructor-When creating a student you want to create a unique identity
@@ -34,7 +34,7 @@ public class Student extends User {
 		return recsAndMods;
 	}
 	
-	public Calendar getCalendar() {
+	public CalendarModel getCalendar() {
 		return calendar;
 	}
 	
@@ -50,7 +50,7 @@ public class Student extends User {
 		this.recsAndMods = recsAndMods;
 	}
 	
-	public void setCalendar(Calendar calendar) {
+	public void setCalendarModel(CalendarModel calendar) {
 		this.calendar = calendar;
 	}
 	
