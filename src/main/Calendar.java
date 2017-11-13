@@ -65,7 +65,7 @@ public class Calendar extends HttpServlet {
 				"\r\n" + 
 				"                <h2>Agenda</h2>\r\n" + 
 				"                <p class=\"lead\">\r\n" + 
-				"                   Allows you to see your calendar all cleanly organized!\r\n" + 
+				"                    Allows you to see your calendar all cleanly organized!\r\n" + 
 				"                </p>\r\n" + 
 				"\r\n" + 
 				"\r\n" + 
@@ -125,7 +125,7 @@ public class Calendar extends HttpServlet {
 				"                                </tr>\r\n" + 
 				"                                <tr>\r\n" + 
 				"                                    <td class=\"course text-center\">\r\n" + 
-				"                                       CS 3112 Web Development\r\n" + 
+				"                                        CS 3112 Web Development\r\n" + 
 				"                                    </td>\r\n" + 
 				"                                    <td class=\"agenda-events\">\r\n" + 
 				"                                        <div class=\"agenda-time\">\r\n" + 
