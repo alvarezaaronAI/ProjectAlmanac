@@ -16,7 +16,7 @@ import models.Student;
 /**
  * Servlet implementation class RegisterStudent
  */
-@WebServlet("/sessions/RegisterStudent")
+@WebServlet("/sessions/Register")
 public class RegisterStudent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,17 +35,6 @@ public class RegisterStudent extends HttpServlet {
 		//---------------------------------------------------------------------
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		
-		String firstName=request.getParameter("firstName");
-		String lastName=request.getParameter("lastName");
-		String email=request.getParameter("email");
-		String password1=request.getParameter("password1");
-		String password2=request.getParameter("password2");
-		String nameError=(String) request.getAttribute("nameError");
-		String emailError=(String) request.getAttribute("emailError");
-		String passwordError=(String) request.getAttribute("passwordError");
-		
-		
 		//---------------------------------------------------------------------
 		out.println("<doctype html>\r\n" + 
 				"    <html lang=\"en\">\r\n" + 
@@ -77,23 +66,39 @@ public class RegisterStudent extends HttpServlet {
 				"                    </div>\r\n" + 
 				"                </div>\r\n" +
 				"                <!-- Content -->\r\n" + 
+<<<<<<< HEAD
+=======
+		
+				
+				
+>>>>>>> masterTestingBranch
 				
 				
 				
 				
+<<<<<<< HEAD
 				"                <forum action \"Register\" method \"post\">"); 
+=======
+        "<form action=\"Register\" method=\"post\">"); 
+>>>>>>> masterTestingBranch
 		
 		
 		
 		
 		
 		
+<<<<<<< HEAD
+=======
+		String nameError=(String) request.getAttribute("nameError");
+>>>>>>> masterTestingBranch
 		System.out.println("name error"+nameError);
 		if(nameError!=null){
 			out.println(" <div class=\"form-group has-error\">"+"<span class=\"help-block\">"+nameError+"</span>");
 		}
 		else
 			out.println("<div class=\"form-group\">");
+		String firstName=request.getParameter("firstName");
+		String lastName=request.getParameter("lastName");
 		firstName=firstName==null?"":firstName;
 		lastName=lastName==null?"":lastName;
 		out.println(                   
@@ -106,23 +111,28 @@ public class RegisterStudent extends HttpServlet {
 				"                    </div>\r\n" );
 		
 		
+		String emailError=(String) request.getAttribute("emailError");
 		if(emailError!=null){
 			out.println("<div class=\"form-group has-error\">"+"<span class=\"help-block\">"+emailError+"</span>");
 		}
 		else
 			out.println("<div class=\"form-group\">");
+		String email=request.getParameter("email");
 		email=email==null?"":email;
 		out.println(
 				"                        <label class=\"control-label\"> Your Email Adress </label>\r\n" + 
 				"                        <input class=\"form-control\" type=\"text\" value=\"" + email + "\" name=\"username\" placeholder=\"Enter New Email\">\r\n" + 
 				"                    </div>\r\n" );
 		
-		
+		String passwordError=(String) request.getAttribute("passwordError");
 		if(passwordError!=null){
 			out.println("<div class=\"form-group has-error\">"+"<span class=\"help-block\">"+passwordError+"</span>");
 		}
 		else
 			out.println("<div class=\"form-group\">");
+		String password1=request.getParameter("password1");
+		String password2=request.getParameter("password2");
+		
 		password1=password1==null?"":password1;
 		password2=password2==null?"":password2;
 		out.println(
@@ -132,6 +142,7 @@ public class RegisterStudent extends HttpServlet {
 				"                    <div class=\"form-group\">\r\n" + 
 				"                        <label class=\"control-label\"> Retype Password </label>\r\n" + 
 				"                        <input class=\"form-control\" type=\"text\" value=\"" + password2 + "\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n" + 
+<<<<<<< HEAD
 		        "                    </div>\r\n" + 
 				
 		        
@@ -139,6 +150,21 @@ public class RegisterStudent extends HttpServlet {
 				
 				
 				"                    <button type=\"submit\" class=\"btn btn-primary\">Register New Student</button>" + 
+=======
+				"                    </div>\r\n");  
+				
+				
+				
+				
+				
+				
+				out.println(
+"	<button type=\"submit\" class=\"btn btn-primary\">Register</button>\r\n"+				
+				
+				
+				
+				
+>>>>>>> masterTestingBranch
 				
 				
 				
@@ -150,7 +176,7 @@ public class RegisterStudent extends HttpServlet {
 				"                <!-- Footer of the page -->\r\n" + 
 				"                <div>\r\n" + 
 				"                    <footer class=\"footer \">\r\n" + 
-			/*	"                        <!-- Mini Naviation-->\r\n" + 
+				"                        <!-- Mini Naviation-->\r\n" + 
 				"                        <div class=\"container text-center\">\r\n" + 
 				"                            <nav class=\"navbar navbar-toggleable-md navbar-light bg-faded\">\r\n" + 
 				"                                <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\r\n" + 
@@ -166,7 +192,7 @@ public class RegisterStudent extends HttpServlet {
 				"                                <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
 				"                                    <ul class=\"navbar-nav mr-auto\">\r\n" + 
 				"                                        <li class=\"nav-item active\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"Login\">Login\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"LoginSessions\">Login\r\n" + 
 				"                                                <span class=\"sr-only\">(current)</span>\r\n" + 
 				"                                            </a>\r\n" + 
 				"                                        </li>\r\n" + 
@@ -199,7 +225,7 @@ public class RegisterStudent extends HttpServlet {
 				"                <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js\" integrity=\"sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn\"\r\n" + 
 				"                    crossorigin=\"anonymous\"></script>\r\n" + 
 				"                </footer>\r\n" + 
-				"            </div>\r\n" + */
+				"            </div>\r\n" + 
 				"    </body>\r\n" + 
 				"\r\n" + 
 				"    </html>");
@@ -259,7 +285,7 @@ public class RegisterStudent extends HttpServlet {
 			students.add(newStudent);
 			HttpSession session=request.getSession();
 			session.setAttribute("authenticatedStudent", newStudent);
-			response.sendRedirect("LoginSession");
+			response.sendRedirect("LoginSessions");
 			return;
 			
 		}	
