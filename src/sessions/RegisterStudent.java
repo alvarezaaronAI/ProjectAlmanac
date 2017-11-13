@@ -16,7 +16,7 @@ import models.Student;
 /**
  * Servlet implementation class RegisterStudent
  */
-@WebServlet("/sessions/RegisterStudent")
+@WebServlet("/sessions/Register")
 public class RegisterStudent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
