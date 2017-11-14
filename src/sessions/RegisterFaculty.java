@@ -241,6 +241,7 @@ public class RegisterFaculty extends HttpServlet {
 		else{
 			ArrayList<Faculty> faculties=(ArrayList<Faculty>) getServletContext().getAttribute("faculties");
 			Faculty newFaculty=new Faculty(firstName, lastName, email, password1);
+			//new faculty
 			faculties.add(newFaculty);
 			HttpSession session=request.getSession();
 			session.setAttribute("authenticatedFaculty", newFaculty);
