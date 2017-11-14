@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Major {
 
+	private int id;
 	private String name;
 	private ArrayList<Course> courses = new ArrayList<>();
 	
@@ -18,6 +19,10 @@ public class Major {
 	/*
 	 * Accessors
 	 */
+	
+	public int getID() {
+		return id;
+	}
 	
 	public String getName() {
 		return name;
@@ -49,6 +54,15 @@ public class Major {
 	
 	public void removeCourse(Course course) {
 		courses.remove(course);
+	}
+	
+	public Course findCourse(String courseID) {
+		for (Course c : courses) {
+			if (c.getID().equals(courseID)) {
+				return c;
+			}
+		}
+		return null;
 	}
 	
 	@Override

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class School {
 
+	private int id;
 	private String name;
 	private ArrayList<Department> depts = new ArrayList<>();
 	
@@ -18,6 +19,10 @@ public class School {
 	/*
 	 * Accessors
 	 */
+	
+	public int getID() {
+		return id;
+	}
 	
 	public String getName() {
 		return name;
@@ -51,6 +56,24 @@ public class School {
 		depts.remove(dept);
 	}
 	
+	public Department findDept(int deptID) {
+		for (Department d : depts) {
+			if (d.getID() == deptID) {
+				return d;
+			}
+		}
+		return null;
+	}
+	
+	public Department findDept(String deptName) {
+		for (Department d : depts) {
+			if (d.getName().equals(deptName)) {
+				return d;
+			}
+		}
+		return null;
+	}
+	
 	@Override
 	public String toString() {
 		String schoolInfo = new String(name);
@@ -76,5 +99,9 @@ public class School {
 		cs.addCourse(cs3112);
 
 		System.out.println(csula);
+		
+		// testing search methods
+		Course cs3337Found = csula.findDept("Engineering").findMajor("Computer Science").findCourse("CS3337");
+		System.out.println("found: " + cs3337Found);
 	}
 }
