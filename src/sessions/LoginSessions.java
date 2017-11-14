@@ -95,7 +95,7 @@ public class LoginSessions extends HttpServlet {
 				+ "                <div class=\"container-fluid text-center\">\r\n" + "                    <span>\r\n"
 				+ "                        <ul style=\"list-style-type: none; display: inline-block;\">\r\n"
 				+ "                            <li>\r\n"
-				+ "                                <form action=\"RegisterStudent\" method=\"post\">\r\n"
+				+ "                                <form action=\"Register\" method=\"post\">\r\n"
 				+ "                                    <button type=\"submit\" class=\"btn btn-primary\">Register For Student</button>\r\n"
 				+ "                                </form>\r\n" + "                            </li>\r\n"
 				+ "                        </ul>\r\n" + "\r\n"
