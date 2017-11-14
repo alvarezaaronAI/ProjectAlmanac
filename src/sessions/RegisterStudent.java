@@ -60,7 +60,7 @@ public class RegisterStudent extends HttpServlet {
 				"                            <small> New Student</small>\r\n" + 
 				"                        </h1>\r\n" + 
 				"                        <aside title=\"Projects Logo\">\r\n" + 
-				"                            <img src=\"/../Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                            <img src=\"../Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                        </aside>\r\n" + 
 				"\r\n" + 
 				"                    </div>\r\n" + 
@@ -73,7 +73,7 @@ public class RegisterStudent extends HttpServlet {
 				
 				
 				
-        "<form action=\"Register\" method=\"post\">"); 
+        "<form action=\"../sessions/Register\" method=\"post\">"); 
 		
 		
 		
@@ -166,21 +166,21 @@ public class RegisterStudent extends HttpServlet {
 				"                                <!-- Logo -->\r\n" + 
 				"                                <div class=\"navbar-brand\">\r\n" + 
 				"                                    <aside title=\"Projects Logo\">\r\n" + 
-				"                                        <img src=\"/../Images/Logo.png\" alt=\"Logo Picture \">\r\n" + 
+				"                                        <img src=\"../Images/Logo.png\" alt=\"Logo Picture \">\r\n" + 
 				"                                    </aside>\r\n" + 
 				"                                </div>\r\n" + 
 				"                                <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
 				"                                    <ul class=\"navbar-nav mr-auto\">\r\n" + 
 				"                                        <li class=\"nav-item active\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"LoginSessions\">Login\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"../sessions/Login\">Login\r\n" + 
 				"                                                <span class=\"sr-only\">(current)</span>\r\n" + 
 				"                                            </a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"/Almanac/Info/Help\">Help</a>\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"../Info/Help\">Help</a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"/Almanac/Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"../Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
 				"                                            <a class=\"nav-link disabled\">Forum</a>\r\n" + 

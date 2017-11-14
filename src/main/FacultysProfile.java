@@ -56,14 +56,14 @@ public class FacultysProfile extends HttpServlet {
 				"            <div class=\"jumbotron text-center\">\r\n" + 
 				"                <h1> My Profile: Name of the Faculty</h1>\r\n" + 
 				"                <aside title=\"Projects Logo\">\r\n" + 
-				"                    <img src=\"/../Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                    <img src=\"../Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                </aside>\r\n" + 
 				"            </div>\r\n" + 
 				"            <!-- Content -->\r\n" + 
 				"            <!-- Log Out Button -->\r\n" + 
 				"            <div class=\"text-center\">\r\n" + 
 				"                <form action=\"LogoutSessions\" method=\"get\">\r\n" + 
-				"                    <a class=\"btn btn-primary\" href=\"/Almanac/sessions/Logout\">Log Out</a>\r\n" + 
+				"                    <a class=\"btn btn-primary\" href=\"../sessions/Logout\">Log Out</a>\r\n" + 
 				"                </form>\r\n" + 
 				"            </div>\r\n" + 
 				"            <!-- Footer of the page -->\r\n" + 
@@ -79,26 +79,26 @@ public class FacultysProfile extends HttpServlet {
 				"                            <!-- Logo -->\r\n" + 
 				"                            <div class=\"navbar-brand\">\r\n" + 
 				"                                <aside title=\"Projects Logo\">\r\n" + 
-				"                                    <img src=\"/../Images/Logo.png\" alt=\"Logo Picture \">\r\n" + 
+				"                                    <img src=\"../Images/Logo.png\" alt=\"Logo Picture \">\r\n" + 
 				"                                </aside>\r\n" + 
 				"                            </div>\r\n" + 
 				"                            <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
 				"                                <ul class=\"navbar-nav mr-auto\">\r\n" + 
 				"                                    <li class=\"nav-item active\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"/Almanac/sessions/Login\">Login\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"../sessions/Login\">Login\r\n" + 
 				"                                            <span class=\"sr-only\">(current)</span>\r\n" + 
 				"                                        </a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
 				"                                        <form action=\"LogoutSessions\" method=\"get\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"/Almanac/sessions/Logout\">Log Out</a>\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"../sessions/Logout\">Log Out</a>\r\n" + 
 				"                                        </form>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"/Almanac/Info/Help\">Help</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"../Info/Help\">Help</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"/Almanac/Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"../Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
 				"                                        <a class=\"nav-link disabled\">Forum</a>\r\n" + 
