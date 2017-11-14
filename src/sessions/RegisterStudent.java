@@ -60,7 +60,7 @@ public class RegisterStudent extends HttpServlet {
 				"                            <small> New Student</small>\r\n" + 
 				"                        </h1>\r\n" + 
 				"                        <aside title=\"Projects Logo\">\r\n" + 
-				"                            <img src=\"../Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                             <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                        </aside>\r\n" + 
 				"\r\n" + 
 				"                    </div>\r\n" + 
