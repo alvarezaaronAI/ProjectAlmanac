@@ -71,7 +71,7 @@ public class RegisterFaculty extends HttpServlet {
 				"                            <small> New Faculty </small>\r\n" + 
 				"                        </h1>\r\n" + 
 				"                        <aside title=\"Projects Logo\">\r\n" + 
-				"                            <img src=\"/../Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                             <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                        </aside>\r\n" + 
 				"\r\n" + 
 				"                    </div>\r\n" + 
@@ -143,7 +143,7 @@ public class RegisterFaculty extends HttpServlet {
 				"                                <!-- Logo -->\r\n" + 
 				"                                <div class=\"navbar-brand\">\r\n" + 
 				"                                    <aside title=\"Projects Logo\">\r\n" + 
-				"                                        <img src=\"/../Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                                         <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                                    </aside>\r\n" + 
 				"                                </div>\r\n" + 
 				"                                <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
@@ -154,10 +154,10 @@ public class RegisterFaculty extends HttpServlet {
 				"                                            </a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"/Almanac/Info/Help\">Help</a>\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"../Info/Help\">Help</a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"/Almanac/Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"../Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
 				"                                            <a class=\"nav-link disabled\">Forum</a>\r\n" + 
@@ -240,11 +240,12 @@ public class RegisterFaculty extends HttpServlet {
 			}
 		else{
 			ArrayList<Faculty> faculties=(ArrayList<Faculty>) getServletContext().getAttribute("faculties");
-			Faculty newFaculty=new Faculty(firstName, lastName, email, password1, passwordByDeveloper);
+			Faculty newFaculty=new Faculty(firstName, lastName, email, password1);
+			//new faculty
 			faculties.add(newFaculty);
 			HttpSession session=request.getSession();
 			session.setAttribute("authenticatedFaculty", newFaculty);
-			response.sendRedirect("LoginSession");
+			response.sendRedirect("sessions/Login");
 			return;
 		}
 		

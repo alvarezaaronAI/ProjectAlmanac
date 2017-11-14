@@ -16,7 +16,7 @@ import models.Student;
 /**
  * Servlet implementation class RegisterStudent
  */
-@WebServlet("/sessions/RegisterStudent")
+@WebServlet("/sessions/Register")
 public class RegisterStudent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -60,7 +60,7 @@ public class RegisterStudent extends HttpServlet {
 				"                            <small> New Student</small>\r\n" + 
 				"                        </h1>\r\n" + 
 				"                        <aside title=\"Projects Logo\">\r\n" + 
-				"                            <img src=\"/../Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                             <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                        </aside>\r\n" + 
 				"\r\n" + 
 				"                    </div>\r\n" + 
@@ -73,7 +73,7 @@ public class RegisterStudent extends HttpServlet {
 				
 				
 				
-        "<form action=\"Register\" method=\"post\">"); 
+        "<form action=\"../sessions/Register\" method=\"post\">"); 
 		
 		
 		
@@ -81,14 +81,14 @@ public class RegisterStudent extends HttpServlet {
 		
 		
 		String nameError=(String) request.getAttribute("nameError");
-		System.out.println("name error"+nameError);
+		//System.out.println("name error"+nameError);
 		if(nameError!=null){
 			out.println(" <div class=\"form-group has-error\">"+"<span class=\"help-block\">"+nameError+"</span>");
 		}
 		else
 			out.println("<div class=\"form-group\">");
-		String firstName=request.getParameter("firstName");
-		String lastName=request.getParameter("lastName");
+		String firstName=request.getParameter("fName");
+		String lastName=request.getParameter("lName");
 		firstName=firstName==null?"":firstName;
 		lastName=lastName==null?"":lastName;
 		out.println(                   
@@ -166,21 +166,21 @@ public class RegisterStudent extends HttpServlet {
 				"                                <!-- Logo -->\r\n" + 
 				"                                <div class=\"navbar-brand\">\r\n" + 
 				"                                    <aside title=\"Projects Logo\">\r\n" + 
-				"                                        <img src=\"/../Images/Logo.png\" alt=\"Logo Picture \">\r\n" + 
+				"                                        <img src=\"../Images/Logo.png\" alt=\"Logo Picture \">\r\n" + 
 				"                                    </aside>\r\n" + 
 				"                                </div>\r\n" + 
 				"                                <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
 				"                                    <ul class=\"navbar-nav mr-auto\">\r\n" + 
 				"                                        <li class=\"nav-item active\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"LoginSessions\">Login\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"../sessions/Login\">Login\r\n" + 
 				"                                                <span class=\"sr-only\">(current)</span>\r\n" + 
 				"                                            </a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"/Almanac/Info/Help\">Help</a>\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"../Info/Help\">Help</a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"/Almanac/Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"../Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
 				"                                        </li>\r\n" + 
 				"                                        <li class=\"nav-item\">\r\n" + 
 				"                                            <a class=\"nav-link disabled\">Forum</a>\r\n" + 
@@ -224,9 +224,9 @@ public class RegisterStudent extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String firstName=request.getParameter("firstName");
-		String lastName=request.getParameter("lastName");
-		String email=request.getParameter("email");
+		String firstName=request.getParameter("fName");
+		String lastName=request.getParameter("lName");
+		String email=request.getParameter("username");
 		String password1=request.getParameter("password1");
 		String password2=request.getParameter("password2");
 		
@@ -265,7 +265,7 @@ public class RegisterStudent extends HttpServlet {
 			students.add(newStudent);
 			HttpSession session=request.getSession();
 			session.setAttribute("authenticatedStudent", newStudent);
-			response.sendRedirect("LoginSessions");
+			response.sendRedirect("sessions/Login");
 			return;
 			
 		}	

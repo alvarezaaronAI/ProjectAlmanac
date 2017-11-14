@@ -57,7 +57,7 @@ public class Calendar extends HttpServlet {
 				"            <div class=\"jumbotron text-center\">\r\n" + 
 				"                <h1> My Profile: Name of the Student</h1>\r\n" + 
 				"                <aside title=\"Projects Logo\">\r\n" + 
-				"                    <img src=\"/../Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                    <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                </aside>\r\n" + 
 				"            </div>\r\n" + 
 				"            <!-- Content -->\r\n" + 
@@ -65,7 +65,7 @@ public class Calendar extends HttpServlet {
 				"\r\n" + 
 				"                <h2>Agenda</h2>\r\n" + 
 				"                <p class=\"lead\">\r\n" + 
-				"                   Allows you to see your calendar all cleanly organized!\r\n" + 
+				"                    Allows you to see your calendar all cleanly organized!\r\n" + 
 				"                </p>\r\n" + 
 				"\r\n" + 
 				"\r\n" + 
@@ -125,7 +125,7 @@ public class Calendar extends HttpServlet {
 				"                                </tr>\r\n" + 
 				"                                <tr>\r\n" + 
 				"                                    <td class=\"course text-center\">\r\n" + 
-				"                                       CS 3112 Web Development\r\n" + 
+				"                                        CS 3112 Web Development\r\n" + 
 				"                                    </td>\r\n" + 
 				"                                    <td class=\"agenda-events\">\r\n" + 
 				"                                        <div class=\"agenda-time\">\r\n" + 
@@ -151,7 +151,7 @@ public class Calendar extends HttpServlet {
 				"            <!-- Log Out Button -->\r\n" + 
 				"            <div class=\"text-center\">\r\n" + 
 				"                <form action=\"LogoutSessions\" method=\"get\">\r\n" + 
-				"                    <a class=\"btn btn-primary\" href=\"/Almanac/sessions/Logout\">Log Out</a>\r\n" + 
+				"                    <a class=\"btn btn-primary\" href=\"../sessions/Logout\">Log Out</a>\r\n" + 
 				"                </form>\r\n" + 
 				"            </div>\r\n" + 
 				"            <!-- Footer of the page -->\r\n" + 
@@ -167,35 +167,35 @@ public class Calendar extends HttpServlet {
 				"                            <!-- Logo -->\r\n" + 
 				"                            <div class=\"navbar-brand\">\r\n" + 
 				"                                <aside title=\"Projects Logo\">\r\n" + 
-				"                                    <img src=\"/../Images/Logo.png\" alt=\"Logo Picture \">\r\n" + 
+				"                                    <img src=\"../Images/Logo.png\" alt=\"Logo Picture \">\r\n" + 
 				"                                </aside>\r\n" + 
 				"                            </div>\r\n" + 
 				"                            <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
 				"                                <ul class=\"navbar-nav mr-auto\">\r\n" + 
 				"                                    <li class=\"nav-item active\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"/Almanac/sessions/Login\">Login\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"../sessions/Login\">Login\r\n" + 
 				"                                            <span class=\"sr-only\">(current)</span>\r\n" + 
 				"                                        </a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <form action=\"LogoutSessions\" method=\"get\">\r\n" + 
-				"                                            <a class=\"nav-link\" href=\"/Almanac/sessions/Logout\">Log Out</a>\r\n" + 
+				"                                        <form action=\"../sessions/Login\" method=\"get\">\r\n" + 
+				"                                            <a class=\"nav-link\" href=\"../sessions/Logout\">Log Out</a>\r\n" + 
 				"                                        </form>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"/Almanac/Info/Help\">Help</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"../Info/Help\">Help</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"/Almanac/Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"../Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"Forum\">Forum</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"../main/Forum\">Forum</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"RecomendationsAndModifications\">Recomendations and Modifications</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"../main/RAndMod\">Recomendations and Modifications</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"Calendar\">Calendar</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"../main/Calendar\">Calendar</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                </ul>\r\n" + 
 				"                            </div>\r\n" + 
