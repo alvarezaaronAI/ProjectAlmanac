@@ -81,14 +81,14 @@ public class RegisterStudent extends HttpServlet {
 		
 		
 		String nameError=(String) request.getAttribute("nameError");
-		System.out.println("name error"+nameError);
+		//System.out.println("name error"+nameError);
 		if(nameError!=null){
 			out.println(" <div class=\"form-group has-error\">"+"<span class=\"help-block\">"+nameError+"</span>");
 		}
 		else
 			out.println("<div class=\"form-group\">");
-		String firstName=request.getParameter("firstName");
-		String lastName=request.getParameter("lastName");
+		String firstName=request.getParameter("fName");
+		String lastName=request.getParameter("lName");
 		firstName=firstName==null?"":firstName;
 		lastName=lastName==null?"":lastName;
 		out.println(                   
@@ -224,9 +224,9 @@ public class RegisterStudent extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String firstName=request.getParameter("firstName");
-		String lastName=request.getParameter("lastName");
-		String email=request.getParameter("email");
+		String firstName=request.getParameter("fName");
+		String lastName=request.getParameter("lName");
+		String email=request.getParameter("username");
 		String password1=request.getParameter("password1");
 		String password2=request.getParameter("password2");
 		
@@ -265,7 +265,7 @@ public class RegisterStudent extends HttpServlet {
 			students.add(newStudent);
 			HttpSession session=request.getSession();
 			session.setAttribute("authenticatedStudent", newStudent);
-			response.sendRedirect("LoginSessions");
+			response.sendRedirect("sessions/Login");
 			return;
 			
 		}	
