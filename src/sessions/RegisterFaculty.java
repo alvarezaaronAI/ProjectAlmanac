@@ -240,11 +240,11 @@ public class RegisterFaculty extends HttpServlet {
 			}
 		else{
 			ArrayList<Faculty> faculties=(ArrayList<Faculty>) getServletContext().getAttribute("faculties");
-			Faculty newFaculty=new Faculty(firstName, lastName, email, password1, passwordByDeveloper);
+			Faculty newFaculty=new Faculty(firstName, lastName, email, password1);
 			faculties.add(newFaculty);
 			HttpSession session=request.getSession();
 			session.setAttribute("authenticatedFaculty", newFaculty);
-			response.sendRedirect("LoginSession");
+			response.sendRedirect("sessions/Login");
 			return;
 		}
 		
