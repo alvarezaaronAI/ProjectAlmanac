@@ -3,7 +3,11 @@ package models;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 
+import structure.School;
+
 public class User {
+	
+	java.util.ArrayList<School> database = new java.util.ArrayList<>(); // temp; this belongs in GLOBAL CLASS
 
 	private BigInteger identity;
 	private String firstName;
@@ -86,6 +90,19 @@ public class User {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	/*
+	 * More
+	 */
+	
+	protected School determineSchool(String schoolName) {
+		for (School s : database) {
+			if (s.getName().equals(schoolName)) {
+				return s;
+			}
+		}
+		return null;
 	}
 	
 	@Override
