@@ -55,18 +55,40 @@ public class StudentsProfile extends HttpServlet {
 				"        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css\" integrity=\"sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ\"\r\n" + 
 				"            crossorigin=\"anonymous\">\r\n" + 
 				"        <title> Students Profile </title>\r\n" + 
-				"        <style>\r\n" + 
+				"        <style type=\"text/css\">\r\n" + 
+				"            .control-label {\r\n" + 
+				"                font-weight: bold;\r\n" + 
+				"            }\r\n" + 
 				"\r\n" + 
+				"            .legend-text {\r\n" + 
+				"                font-weight: bold;\r\n" + 
+				"            }\r\n" + 
+				"\r\n" + 
+				"            .body-main {\r\n" + 
+				"                background-color: beige;\r\n" + 
+				"            }\r\n" + 
+				"\r\n" + 
+				"            .mini-boxes {\r\n" + 
+				"                background-color: darkcyan;\r\n" + 
+				"            }\r\n" + 
+				"\r\n" + 
+				"            .nav-link {\r\n" + 
+				"                font-weight: bold;\r\n" + 
+				"            }\r\n" + 
+				"\r\n" + 
+				"            body {\r\n" + 
+				"                zoom: 80%;\r\n" + 
+				"            }\r\n" + 
 				"        </style>\r\n" + 
 				"    </head>\r\n" + 
 				"\r\n" + 
-				"    <body>\r\n" + 
-				"        <div>\r\n" + 
+				"    <body class=\"body-main\">\r\n" + 
+				"        <div class=\"container-fluid\">\r\n" + 
 				"            <!-- Heading of the Page -->\r\n" + 
-				"            <div class=\"jumbotron text-center\">\r\n" + 
+				"            <div class=\"jumbotron text-center mini-boxes\">\r\n" + 
 				"                <h1> My Profile: Name of the Student</h1>\r\n" + 
 				"                <aside title=\"Projects Logo\">\r\n" + 
-				"                   <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                    <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                </aside>\r\n" + 
 				"            </div>\r\n" + 
 				"            <!-- Content -->\r\n" + 
@@ -81,7 +103,7 @@ public class StudentsProfile extends HttpServlet {
 				"                <footer class=\"footer \">\r\n" + 
 				"                    <!-- Mini Naviation-->\r\n" + 
 				"                    <div class=\"container text-center\">\r\n" + 
-				"                        <nav class=\"navbar navbar-toggleable-md navbar-light bg-faded\">\r\n" + 
+				"                        <nav class=\"navbar navbar-toggleable-md navbar-light bg-faded mini-boxes\">\r\n" + 
 				"                            <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\r\n" + 
 				"                                aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n" + 
 				"                                <span class=\"navbar-toggler-icon\"></span>\r\n" + 
@@ -89,7 +111,7 @@ public class StudentsProfile extends HttpServlet {
 				"                            <!-- Logo -->\r\n" + 
 				"                            <div class=\"navbar-brand\">\r\n" + 
 				"                                <aside title=\"Projects Logo\">\r\n" + 
-				"                                     <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                                    <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                                </aside>\r\n" + 
 				"                            </div>\r\n" + 
 				"                            <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
@@ -111,13 +133,13 @@ public class StudentsProfile extends HttpServlet {
 				"                                        <a class=\"nav-link\" href=\"../Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"../main/Forum\">Forum</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"Forum\">Forum</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"../main/RAndMod\">Recomendations and Modifications</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"RAndMod\">Recomendations and Modifications</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"../main/Calendar\">Calendar</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"Calendar\">Calendar</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                </ul>\r\n" + 
 				"                            </div>\r\n" + 

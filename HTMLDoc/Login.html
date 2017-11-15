@@ -7,18 +7,35 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
             crossorigin="anonymous">
         <title> Login Page </title>
-        <style>
-
+        <style type="text/css">
+            .control-label{
+                font-weight: bold;
+            }
+            .legend-text{
+                font-weight: bold;
+            }
+            .body-main{
+                background-color: beige;
+            }
+            .mini-boxes{
+                background-color: darkcyan;
+            }
+            .nav-link{
+                font-weight: bold;
+            }
+            body{
+                zoom: 80%;
+            }
         </style>
     </head>
     <!-- Body of the page -->
 
-    <body>
+    <body class="body-main">
         <!-- Heading of the page -->
         <div class="container-fluid">
             <div class="container-fluid text-center">
                 <!-- Header -->
-                <div class="jumbotron">
+                <div class="jumbotron mini-boxes">
                     <!-- Logo -->
                     <div class="navbar-brand">
                         <h1> Login </h1>
@@ -33,7 +50,7 @@
                     <span>
                         <ul style="list-style-type: none; display: inline-block;">
                             <li>
-                                <form action="RegisterStudent" method="post">
+                                <form action="Register" method="get">
                                     <button type="submit" class="btn btn-primary">Register For Student</button>
                                 </form>
                             </li>
@@ -41,14 +58,14 @@
 
                         <ul style="list-style-type: none; display: inline-block;">
                             <li>
-                                <form action="RegisterFaculty" method="post">
+                                <form action="RegisterFaculty" method="get">
                                     <button type="submit" class="btn btn-primary">Register For Faculty</button>
                                 </form>
                             </li>
                         </ul>
                         <ul style="list-style-type: none; display: inline-block;">
                             <li>
-                                <form action="GuestProfile" method="post">
+                                <form action="GuestProfile" method="get">
                                     <a class="btn btn-primary" href="../main/GuestProfile">Guest Profile</a>
                                 </form>
                             </li>
@@ -83,7 +100,7 @@
                 <footer class="footer ">
                     <!-- Mini Naviation-->
                     <div class="container text-center">
-                        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                        <nav class="navbar navbar-toggleable-md navbar-light bg-faded mini-boxes">
                             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
