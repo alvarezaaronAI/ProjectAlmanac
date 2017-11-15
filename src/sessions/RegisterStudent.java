@@ -229,7 +229,7 @@ public class RegisterStudent extends HttpServlet {
 		String email=request.getParameter("username");
 		String password1=request.getParameter("password1");
 		String password2=request.getParameter("password2");
-		
+		//3 parameters(school, department, major)
 		boolean hasError=false;
 		if (firstName==null||firstName.matches("[a-zA-Z]{2,}")){
 			request.setAttribute("nameError","You must enter a first name");
@@ -262,8 +262,10 @@ public class RegisterStudent extends HttpServlet {
 		return;
 		}
 		else{
+			//make an array of strings
+			
 			ArrayList<Student> students=(ArrayList<Student>) getServletContext().getAttribute("students");
-			Student newStudent=new Student(firstName, lastName, email, password1);
+			Student newStudent=new Student(firstName, lastName, email, password1);//update
 			students.add(newStudent);
 			HttpSession session=request.getSession();
 			session.setAttribute("authenticatedStudent", newStudent);
