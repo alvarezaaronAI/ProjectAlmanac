@@ -34,7 +34,7 @@ public class LogoutSesssions extends HttpServlet {
 		response.addCookie(cookie);
 		//Invalidate the session and redirect them to the log in page.
 		request.getSession().invalidate();
-		response.sendRedirect("Login");
+		response.sendRedirect("../sessions/Login");
 		
 	}
 

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class RecomendationsAndModifications
  */
-@WebServlet("/main/RecomendationsAndModifications")
+@WebServlet("/main/RAndMod")
 public class RecomendationsAndModifications extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
