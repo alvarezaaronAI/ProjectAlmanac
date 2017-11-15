@@ -107,7 +107,7 @@ public class RegisterStudent extends HttpServlet {
 		}
 		else
 			out.println("<div class=\"form-group\">");
-		String email=request.getParameter("email");
+		String email=request.getParameter("username");
 		email=email==null?"":email;
 		out.println(
 				"                        <label class=\"control-label\"> Your Email Adress </label>\r\n" + 
@@ -231,11 +231,11 @@ public class RegisterStudent extends HttpServlet {
 		String password2=request.getParameter("password2");
 		
 		boolean hasError=false;
-		if (firstName==null||firstName.matches("[a-zA-Z]{2,} [a-zA-Z]{2,}")){
+		if (firstName==null||firstName.matches("[a-zA-Z]{2,}")){
 			request.setAttribute("nameError","You must enter a first name");
 			hasError=true;
 		}
-		if (lastName==null||lastName.matches("[a-zA-Z]{2,} [a-zA-Z]{2,}")){
+		if (lastName==null||lastName.matches("[a-zA-Z]{2,}")){
 			request.setAttribute("nameError","You must enter a last name");
 			hasError=true;
 		}
@@ -246,6 +246,8 @@ public class RegisterStudent extends HttpServlet {
 		else if(emailInUse(email)){
 			request.setAttribute("emailError", "This email is already registered");
 			hasError=true;
+			
+			
 		}
 		if (password1==null||password1.trim().length()==0){
 			request.setAttribute("passwordError", "You must enter a password");
