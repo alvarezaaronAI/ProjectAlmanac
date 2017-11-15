@@ -46,120 +46,143 @@ public class Calendar extends HttpServlet {
 				"        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css\" integrity=\"sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ\"\r\n" + 
 				"            crossorigin=\"anonymous\">\r\n" + 
 				"        <title> Students Name Calendar's </title>\r\n" + 
-				"        <style>\r\n" + 
+				"        <style type=\"text/css\">\r\n" + 
+				"            .control-label {\r\n" + 
+				"                font-weight: bold;\r\n" + 
+				"            }\r\n" + 
 				"\r\n" + 
+				"            .legend-text {\r\n" + 
+				"                font-weight: bold;\r\n" + 
+				"            }\r\n" + 
+				"\r\n" + 
+				"            .body-main {\r\n" + 
+				"                background-color: beige;\r\n" + 
+				"            }\r\n" + 
+				"\r\n" + 
+				"            .mini-boxes {\r\n" + 
+				"                background-color: darkcyan;\r\n" + 
+				"            }\r\n" + 
+				"\r\n" + 
+				"            .nav-link {\r\n" + 
+				"                font-weight: bold;\r\n" + 
+				"            }\r\n" + 
+				"\r\n" + 
+				"            body {\r\n" + 
+				"                zoom: 80%;\r\n" + 
+				"            }\r\n" + 
 				"        </style>\r\n" + 
 				"    </head>\r\n" + 
+				"    <body class=\"body-main\">\r\n" + 
+				"        <div class=\"container-fluid\">\r\n" + 
+				"            <div class=\"container-fluid text-center\">\r\n" + 
+				"                <!-- Heading of the Page -->\r\n" + 
+				"                <div class=\"jumbotron text-center mini-boxes\">\r\n" + 
+				"                    <h1> My Profile: Name of the Student</h1>\r\n" + 
+				"                    <aside title=\"Projects Logo\">\r\n" + 
+				"                        <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                    </aside>\r\n" + 
+				"                </div>\r\n" + 
+				"                <!-- Content -->\r\n" + 
+				"                <div class=\"container\">\r\n" + 
 				"\r\n" + 
-				"    <body>\r\n" + 
-				"        <div>\r\n" + 
-				"            <!-- Heading of the Page -->\r\n" + 
-				"            <div class=\"jumbotron text-center\">\r\n" + 
-				"                <h1> My Profile: Name of the Student</h1>\r\n" + 
-				"                <aside title=\"Projects Logo\">\r\n" + 
-				"                    <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
-				"                </aside>\r\n" + 
-				"            </div>\r\n" + 
-				"            <!-- Content -->\r\n" + 
-				"            <div class=\"container\">\r\n" + 
-				"\r\n" + 
-				"                <h2>Agenda</h2>\r\n" + 
-				"                <p class=\"lead\">\r\n" + 
-				"                    Allows you to see your calendar all cleanly organized!\r\n" + 
-				"                </p>\r\n" + 
+				"                    <h2>Agenda</h2>\r\n" + 
+				"                    <p class=\"lead\">\r\n" + 
+				"                        Allows you to see your calendar all cleanly organized!\r\n" + 
+				"                    </p>\r\n" + 
 				"\r\n" + 
 				"\r\n" + 
-				"                <div class=\"agenda\">\r\n" + 
-				"                    <div class=\"table-responsive\">\r\n" + 
-				"                        <table class=\"table table-condensed table-bordered\">\r\n" + 
-				"                            <thead>\r\n" + 
-				"                                <tr>\r\n" + 
-				"                                    <th class=\"text-center\">Semester</th>\r\n" + 
-				"                                    <th class=\"text-center\">Classes</th>\r\n" + 
-				"                                    <th class=\"text-center\">Time</th>\r\n" + 
-				"                                </tr>\r\n" + 
-				"                            </thead>\r\n" + 
-				"                            <tbody>\r\n" + 
-				"                                <!-- Single event in a single day -->\r\n" + 
-				"                                <tr>\r\n" + 
-				"                                    <td class=\"agenda-date\" class=\"active\" rowspan=\"1\">\r\n" + 
-				"                                        <!-- <div class=\"dayofmonth\">26</div>\r\n" + 
+				"                    <div class=\"agenda\">\r\n" + 
+				"                        <div class=\"table-responsive\">\r\n" + 
+				"                            <table class=\"table table-condensed table-bordered\">\r\n" + 
+				"                                <thead>\r\n" + 
+				"                                    <tr>\r\n" + 
+				"                                        <th class=\"text-center\">Semester</th>\r\n" + 
+				"                                        <th class=\"text-center\">Classes</th>\r\n" + 
+				"                                        <th class=\"text-center\">Time</th>\r\n" + 
+				"                                    </tr>\r\n" + 
+				"                                </thead>\r\n" + 
+				"                                <tbody>\r\n" + 
+				"                                    <!-- Single event in a single day -->\r\n" + 
+				"                                    <tr>\r\n" + 
+				"                                        <td class=\"agenda-date\" class=\"active\" rowspan=\"1\">\r\n" + 
+				"                                            <!-- <div class=\"dayofmonth\">26</div>\r\n" + 
 				"                                        <div class=\"dayofweek\">Saturday</div>\r\n" + 
 				"                                        <div class=\"shortdate text-muted\">July, 2014</div> -->\r\n" + 
-				"                                        <div>\r\n" + 
-				"                                            <p class=\"text-center\">\r\n" + 
-				"                                                Summer/Fall/Spring\r\n" + 
-				"                                            </p>\r\n" + 
-				"                                        </div>\r\n" + 
-				"                                    </td>\r\n" + 
-				"                                    <td class=\"course text-center\">\r\n" + 
-				"                                        Course Name\r\n" + 
-				"                                    </td>\r\n" + 
-				"                                    <td class=\"agenda-events\">\r\n" + 
-				"                                        <div class=\"agenda-time\">\r\n" + 
-				"                                            7:00 - 9:00 PM\r\n" + 
-				"                                        </div>\r\n" + 
-				"                                    </td>\r\n" + 
-				"                                </tr>\r\n" + 
+				"                                            <div>\r\n" + 
+				"                                                <p class=\"text-center\">\r\n" + 
+				"                                                    Summer/Fall/Spring\r\n" + 
+				"                                                </p>\r\n" + 
+				"                                            </div>\r\n" + 
+				"                                        </td>\r\n" + 
+				"                                        <td class=\"course text-center\">\r\n" + 
+				"                                            Course Name\r\n" + 
+				"                                        </td>\r\n" + 
+				"                                        <td class=\"agenda-events\">\r\n" + 
+				"                                            <div class=\"agenda-time\">\r\n" + 
+				"                                                7:00 - 9:00 PM\r\n" + 
+				"                                            </div>\r\n" + 
+				"                                        </td>\r\n" + 
+				"                                    </tr>\r\n" + 
 				"\r\n" + 
-				"                                <!-- Multiple events in a single day (note the rowspan) -->\r\n" + 
-				"                                <tr>\r\n" + 
-				"                                    <td class=\"agenda-date\" class=\"active\" rowspan=\"3\">\r\n" + 
-				"                                        <!-- <div class=\"dayofmonth\">24</div>\r\n" + 
+				"                                    <!-- Multiple events in a single day (note the rowspan) -->\r\n" + 
+				"                                    <tr>\r\n" + 
+				"                                        <td class=\"agenda-date\" class=\"active\" rowspan=\"3\">\r\n" + 
+				"                                            <!-- <div class=\"dayofmonth\">24</div>\r\n" + 
 				"                                        <div class=\"dayofweek\">Thursday</div>\r\n" + 
 				"                                        <div class=\"shortdate text-muted\">July, 2014</div> -->\r\n" + 
-				"                                        <div>\r\n" + 
-				"                                            <p class=\"text-center\">\r\n" + 
-				"                                                Fall\r\n" + 
-				"                                            </p>\r\n" + 
-				"                                        </div>\r\n" + 
-				"                                    </td>\r\n" + 
-				"                                    <td class=\"course text-center\">\r\n" + 
-				"                                        CS 2013 Data Structures\r\n" + 
-				"                                    </td>\r\n" + 
-				"                                    <td class=\"agenda-events\">\r\n" + 
-				"                                        <div class=\"agenda-time\">\r\n" + 
-				"                                            10:15 AM - 12:00 PM\r\n" + 
-				"                                        </div>\r\n" + 
-				"                                    </td>\r\n" + 
-				"                                </tr>\r\n" + 
-				"                                <tr>\r\n" + 
-				"                                    <td class=\"course text-center\">\r\n" + 
-				"                                        CS 3112 Web Development\r\n" + 
-				"                                    </td>\r\n" + 
-				"                                    <td class=\"agenda-events\">\r\n" + 
-				"                                        <div class=\"agenda-time\">\r\n" + 
-				"                                            10:15 AM - 12:00 PM\r\n" + 
-				"                                        </div>\r\n" + 
-				"                                    </td>\r\n" + 
-				"                                </tr>\r\n" + 
-				"                                <tr>\r\n" + 
-				"                                    <td class=\"course text-center\">\r\n" + 
-				"                                        CS 3337 Software Engineer\r\n" + 
-				"                                    </td>\r\n" + 
-				"                                    <td class=\"agenda-events\">\r\n" + 
-				"                                        <div class=\"agenda-time\">\r\n" + 
-				"                                            7:00 - 9:00 PM\r\n" + 
-				"                                        </div>\r\n" + 
-				"                                    </td>\r\n" + 
-				"                                </tr>\r\n" + 
-				"                            </tbody>\r\n" + 
-				"                        </table>\r\n" + 
+				"                                            <div>\r\n" + 
+				"                                                <p class=\"text-center\">\r\n" + 
+				"                                                    Fall\r\n" + 
+				"                                                </p>\r\n" + 
+				"                                            </div>\r\n" + 
+				"                                        </td>\r\n" + 
+				"                                        <td class=\"course text-center\">\r\n" + 
+				"                                            CS 2013 Data Structures\r\n" + 
+				"                                        </td>\r\n" + 
+				"                                        <td class=\"agenda-events\">\r\n" + 
+				"                                            <div class=\"agenda-time\">\r\n" + 
+				"                                                10:15 AM - 12:00 PM\r\n" + 
+				"                                            </div>\r\n" + 
+				"                                        </td>\r\n" + 
+				"                                    </tr>\r\n" + 
+				"                                    <tr>\r\n" + 
+				"                                        <td class=\"course text-center\">\r\n" + 
+				"                                            CS 3112 Web Development\r\n" + 
+				"                                        </td>\r\n" + 
+				"                                        <td class=\"agenda-events\">\r\n" + 
+				"                                            <div class=\"agenda-time\">\r\n" + 
+				"                                                10:15 AM - 12:00 PM\r\n" + 
+				"                                            </div>\r\n" + 
+				"                                        </td>\r\n" + 
+				"                                    </tr>\r\n" + 
+				"                                    <tr>\r\n" + 
+				"                                        <td class=\"course text-center\">\r\n" + 
+				"                                            CS 3337 Software Engineer\r\n" + 
+				"                                        </td>\r\n" + 
+				"                                        <td class=\"agenda-events\">\r\n" + 
+				"                                            <div class=\"agenda-time\">\r\n" + 
+				"                                                7:00 - 9:00 PM\r\n" + 
+				"                                            </div>\r\n" + 
+				"                                        </td>\r\n" + 
+				"                                    </tr>\r\n" + 
+				"                                </tbody>\r\n" + 
+				"                            </table>\r\n" + 
+				"                        </div>\r\n" + 
 				"                    </div>\r\n" + 
 				"                </div>\r\n" + 
-				"            </div>\r\n" + 
-				"            <!-- Log Out Button -->\r\n" + 
-				"            <div class=\"text-center\">\r\n" + 
-				"                <form action=\"LogoutSessions\" method=\"get\">\r\n" + 
-				"                    <a class=\"btn btn-primary\" href=\"../sessions/Logout\">Log Out</a>\r\n" + 
-				"                </form>\r\n" + 
+				"                <!-- Log Out Button -->\r\n" + 
+				"                <div class=\"text-center\">\r\n" + 
+				"                    <form action=\"LogoutSessions\" method=\"get\">\r\n" + 
+				"                        <a class=\"btn btn-primary\" href=\"../sessions/Logout\">Log Out</a>\r\n" + 
+				"                    </form>\r\n" + 
+				"                </div>\r\n" + 
 				"            </div>\r\n" + 
 				"            <!-- Footer of the page -->\r\n" + 
 				"            <div>\r\n" + 
 				"                <footer class=\"footer \">\r\n" + 
 				"                    <!-- Mini Naviation-->\r\n" + 
 				"                    <div class=\"container text-center\">\r\n" + 
-				"                        <nav class=\"navbar navbar-toggleable-md navbar-light bg-faded\">\r\n" + 
+				"                        <nav class=\"navbar navbar-toggleable-md navbar-light bg-faded mini-boxes\">\r\n" + 
 				"                            <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\r\n" + 
 				"                                aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n" + 
 				"                                <span class=\"navbar-toggler-icon\"></span>\r\n" + 
@@ -167,7 +190,7 @@ public class Calendar extends HttpServlet {
 				"                            <!-- Logo -->\r\n" + 
 				"                            <div class=\"navbar-brand\">\r\n" + 
 				"                                <aside title=\"Projects Logo\">\r\n" + 
-				"                                     <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
+				"                                    <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                                </aside>\r\n" + 
 				"                            </div>\r\n" + 
 				"                            <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n" + 
@@ -178,7 +201,7 @@ public class Calendar extends HttpServlet {
 				"                                        </a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <form action=\"../sessions/Login\" method=\"get\">\r\n" + 
+				"                                        <form action=\"LogoutSessions\" method=\"get\">\r\n" + 
 				"                                            <a class=\"nav-link\" href=\"../sessions/Logout\">Log Out</a>\r\n" + 
 				"                                        </form>\r\n" + 
 				"                                    </li>\r\n" + 
@@ -189,13 +212,13 @@ public class Calendar extends HttpServlet {
 				"                                        <a class=\"nav-link\" href=\"../Info/ContactAlmanac\">Contact and Suggestions </a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"../main/Forum\">Forum</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"Forum\">Forum</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"../main/RAndMod\">Recomendations and Modifications</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"RAndMod\">Recomendations and Modifications</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                    <li class=\"nav-item\">\r\n" + 
-				"                                        <a class=\"nav-link\" href=\"../main/Calendar\">Calendar</a>\r\n" + 
+				"                                        <a class=\"nav-link\" href=\"Calendar\">Calendar</a>\r\n" + 
 				"                                    </li>\r\n" + 
 				"                                </ul>\r\n" + 
 				"                            </div>\r\n" + 

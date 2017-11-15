@@ -7,120 +7,143 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
             crossorigin="anonymous">
         <title> Students Name Calendar's </title>
-        <style>
+        <style type="text/css">
+            .control-label {
+                font-weight: bold;
+            }
 
+            .legend-text {
+                font-weight: bold;
+            }
+
+            .body-main {
+                background-color: beige;
+            }
+
+            .mini-boxes {
+                background-color: darkcyan;
+            }
+
+            .nav-link {
+                font-weight: bold;
+            }
+
+            body {
+                zoom: 80%;
+            }
         </style>
     </head>
+    <body class="body-main">
+        <div class="container-fluid">
+            <div class="container-fluid text-center">
+                <!-- Heading of the Page -->
+                <div class="jumbotron text-center mini-boxes">
+                    <h1> My Profile: Name of the Student</h1>
+                    <aside title="Projects Logo">
+                        <img width="150px" height="150px" src="http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png" alt="Logo Picture">
+                    </aside>
+                </div>
+                <!-- Content -->
+                <div class="container">
 
-    <body>
-        <div>
-            <!-- Heading of the Page -->
-            <div class="jumbotron text-center">
-                <h1> My Profile: Name of the Student</h1>
-                <aside title="Projects Logo">
-                    <img width="150px" height="150px" src="http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png" alt="Logo Picture">
-                </aside>
-            </div>
-            <!-- Content -->
-            <div class="container">
-
-                <h2>Agenda</h2>
-                <p class="lead">
-                    Allows you to see your calendar all cleanly organized!
-                </p>
+                    <h2>Agenda</h2>
+                    <p class="lead">
+                        Allows you to see your calendar all cleanly organized!
+                    </p>
 
 
-                <div class="agenda">
-                    <div class="table-responsive">
-                        <table class="table table-condensed table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">Semester</th>
-                                    <th class="text-center">Classes</th>
-                                    <th class="text-center">Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Single event in a single day -->
-                                <tr>
-                                    <td class="agenda-date" class="active" rowspan="1">
-                                        <!-- <div class="dayofmonth">26</div>
+                    <div class="agenda">
+                        <div class="table-responsive">
+                            <table class="table table-condensed table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Semester</th>
+                                        <th class="text-center">Classes</th>
+                                        <th class="text-center">Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Single event in a single day -->
+                                    <tr>
+                                        <td class="agenda-date" class="active" rowspan="1">
+                                            <!-- <div class="dayofmonth">26</div>
                                         <div class="dayofweek">Saturday</div>
                                         <div class="shortdate text-muted">July, 2014</div> -->
-                                        <div>
-                                            <p class="text-center">
-                                                Summer/Fall/Spring
-                                            </p>
-                                        </div>
-                                    </td>
-                                    <td class="course text-center">
-                                        Course Name
-                                    </td>
-                                    <td class="agenda-events">
-                                        <div class="agenda-time">
-                                            7:00 - 9:00 PM
-                                        </div>
-                                    </td>
-                                </tr>
+                                            <div>
+                                                <p class="text-center">
+                                                    Summer/Fall/Spring
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="course text-center">
+                                            Course Name
+                                        </td>
+                                        <td class="agenda-events">
+                                            <div class="agenda-time">
+                                                7:00 - 9:00 PM
+                                            </div>
+                                        </td>
+                                    </tr>
 
-                                <!-- Multiple events in a single day (note the rowspan) -->
-                                <tr>
-                                    <td class="agenda-date" class="active" rowspan="3">
-                                        <!-- <div class="dayofmonth">24</div>
+                                    <!-- Multiple events in a single day (note the rowspan) -->
+                                    <tr>
+                                        <td class="agenda-date" class="active" rowspan="3">
+                                            <!-- <div class="dayofmonth">24</div>
                                         <div class="dayofweek">Thursday</div>
                                         <div class="shortdate text-muted">July, 2014</div> -->
-                                        <div>
-                                            <p class="text-center">
-                                                Fall
-                                            </p>
-                                        </div>
-                                    </td>
-                                    <td class="course text-center">
-                                        CS 2013 Data Structures
-                                    </td>
-                                    <td class="agenda-events">
-                                        <div class="agenda-time">
-                                            10:15 AM - 12:00 PM
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="course text-center">
-                                        CS 3112 Web Development
-                                    </td>
-                                    <td class="agenda-events">
-                                        <div class="agenda-time">
-                                            10:15 AM - 12:00 PM
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="course text-center">
-                                        CS 3337 Software Engineer
-                                    </td>
-                                    <td class="agenda-events">
-                                        <div class="agenda-time">
-                                            7:00 - 9:00 PM
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                            <div>
+                                                <p class="text-center">
+                                                    Fall
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="course text-center">
+                                            CS 2013 Data Structures
+                                        </td>
+                                        <td class="agenda-events">
+                                            <div class="agenda-time">
+                                                10:15 AM - 12:00 PM
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="course text-center">
+                                            CS 3112 Web Development
+                                        </td>
+                                        <td class="agenda-events">
+                                            <div class="agenda-time">
+                                                10:15 AM - 12:00 PM
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="course text-center">
+                                            CS 3337 Software Engineer
+                                        </td>
+                                        <td class="agenda-events">
+                                            <div class="agenda-time">
+                                                7:00 - 9:00 PM
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Log Out Button -->
-            <div class="text-center">
-                <form action="LogoutSessions" method="get">
-                    <a class="btn btn-primary" href="../sessions/Logout">Log Out</a>
-                </form>
+                <!-- Log Out Button -->
+                <div class="text-center">
+                    <form action="LogoutSessions" method="get">
+                        <a class="btn btn-primary" href="../sessions/Logout">Log Out</a>
+                    </form>
+                </div>
             </div>
             <!-- Footer of the page -->
             <div>
                 <footer class="footer ">
                     <!-- Mini Naviation-->
                     <div class="container text-center">
-                        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                        <nav class="navbar navbar-toggleable-md navbar-light bg-faded mini-boxes">
                             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
@@ -153,7 +176,7 @@
                                         <a class="nav-link" href="Forum">Forum</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="RecomendationsAndModifications">Recomendations and Modifications</a>
+                                        <a class="nav-link" href="RAndMod">Recomendations and Modifications</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="Calendar">Calendar</a>

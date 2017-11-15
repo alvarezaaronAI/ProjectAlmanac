@@ -7,15 +7,35 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
             crossorigin="anonymous">
         <title> Register </title>
+        <style type="text/css">
+            .control-label{
+                font-weight: bold;
+            }
+            .legend-text{
+                font-weight: bold;
+            }
+            .body-main{
+                background-color: beige;
+            }
+            .mini-boxes{
+                background-color: darkcyan;
+            }
+            .nav-link{
+                font-weight: bold;
+            }
+            body{
+                zoom: 80%;
+            }
+        </style>
     </head>
     <!-- Body of the page -->
 
-    <body>
+    <body class="body-main">
         <!-- Heading of the page -->
         <div class="container-fluid">
             <div class="container-fluid text-center">
                 <!-- Header -->
-                <div class="jumbotron">
+                <div class="jumbotron mini-boxes">
                     <!-- Logo -->
                     <div class="navbar-brand">
                         <h1> Register,
@@ -24,15 +44,14 @@
                         <aside title="Projects Logo">
                             <img width="150px" height="150px" src="http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png" alt="Logo Picture">
                         </aside>
-
+                        <p> Welcome to the Student Registration, Please provide some info about your Self</p>
                     </div>
                 </div>
                 <!-- Content -->
-                <forum action "RegisterStudent" method "post">
+                <forum action "Register" method "post">
                     <div class="form-group">
                         <label class="control-label"> First Name</label>
                         <input class="form-control" type="text" value="" + firstName + "" name="fName" placeholder="Enter First Name">
-                        <p class="text-warning text-left"> Invalid First Name</p>
                     </div>
                     <div class="form-group">
                         <label class="control-label"> Last Name</label>
@@ -50,16 +69,75 @@
                         <label class="control-label"> Retype Password </label>
                         <input class="form-control" type="text" value="" + password2 + "" name="password2" placeholder="Enter New Password Again">
                     </div>
+                    <fieldset class="form-group">
+                        <div class="container-fluid ">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <legend class="legend-text">School Selection</legend>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="" + schoolOption + name="schoolOption" id="schoolOption" checked> One School
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="" + schoolOption2 + name="schoolOption" id="schoolOption"> Second School
+                                        </label>
+                                    </div>
+                                    <div class="form-check disabled">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="" + schoolOption3 + name="schoolOption" id="schoolOption" disabled> Not an Option School
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <legend class="legend-text">Department Selection</legend>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="" + deptOption + name="deptOption" id="deptOption" checked> One Department
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="" + deptOption2 + name="deptOption" id="deptOption2"> Second Department
+                                        </label>
+                                    </div>
+                                    <div class="form-check disabled">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="" + deptOption3 + name="deptOption" id="deptOption3" disabled> Not an Option Department
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <legend class="legend-text">Major Selection</legend>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="" + majOption + name="majOption" id="majOption" checked> One Major
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="" + majOption2 + name="majOption" id="majOption2"> Second Major
+                                        </label>
+                                    </div>
+                                    <div class="form-check disabled">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="" + majOption3 + name="majOption" id="majOption3" disabled> Not an Option Major
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
                     <button type="submit" class="btn btn-primary">Register</button>
                 </forum>
 
-
                 <!-- Footer of the page -->
                 <div>
-                    <footer class="footer ">
+                    <footer class="footer">
                         <!-- Mini Naviation-->
                         <div class="container text-center">
-                            <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                            <nav class="navbar navbar-toggleable-md navbar-light bg-faded  mini-boxes">
                                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
