@@ -3,6 +3,7 @@ package sessions;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -62,54 +63,81 @@ public class RegisterStudent extends HttpServlet {
 				+ "                        <p> Welcome to the Student Registration, Please provide some info about your Self</p>\r\n"
 				+ "                    </div>\r\n" + "                </div>\r\n"
 				+ "                <!-- Content -->\r\n"
-				+ "                <forum action \"Register\" method \"post\">");
-		String nameError = (String) request.getAttribute("nameError");
-		// System.out.println("name error"+nameError);
-		if (nameError != null) {
-			out.println(
-					" <div class=\"form-group has-error\">" + "<span class=\"help-block\">" + nameError + "</span>");
-		} else
-			out.println("<div class=\"form-group\">");
+				+ "                <form action=\"Register\" method=\"post\">");
+	
+		
+			
+		out.println("<div class=\"form-group\">");
 		String firstName = request.getParameter("fName");
 		String lastName = request.getParameter("lName");
 		firstName = firstName == null ? "" : firstName;
 		lastName = lastName == null ? "" : lastName;
-		out.println("                        <label class=\"control-label\"> First Name</label>\r\n"
-				+ "                        <input class=\"form-control\" type=\"text\" value=\"" + firstName
-				+ "\" name=\"fName\" placeholder=\"Enter First Name\">\r\n" + "                    </div>\r\n"
-				+ "                    <div class=\"form-group\">\r\n"
-				+ "                        <label class=\"control-label\"> Last Name</label>\r\n"
-				+ "                        <input class=\"form-control\" type=\"text\" value=\"" + lastName
-				+ "\" name=\"lName\" placeholder=\" Enter Last Name\">\r\n" + "                    </div>\r\n");
+		String fError = (String) request.getAttribute("fError");
+		String lError=(String) request.getAttribute("lError");
+		//System.out.println(nameError);
+		if (fError != null) {
+			out.println("                        <label class=\"control-label text-danger\"> First Name</label>\r\n"
+					+"<p class =\"text-danger\">"+fError +" </p>");
+		} else{
+		out.println("                        <label class=\"control-label\"> First Name</label>\r\n");
+		}
+		out.println("<input class=\"form-control\" type=\"text\" value=\"" + firstName
+				+ "\" name=\"fName\" placeholder=\"Enter First Name\">\r\n"+"</div>\r\n" );
+		
+		
+		out.println("<div class=\"form-group\">");
+		if(lError !=null){
+			out.println(" <label class=\"control-label text-danger\"> Last Name</label>\r\n"
+					+"<p class =\"text-danger\">"+lError +" </p>"); 
+		}else{
+			out.println("                        <label class=\"control-label\"> Last Name</label>\r\n");
+		}	
+			out.println("       <input class=\"form-control\" type=\"text\" value=\"" + lastName  
+					+   "\" name=\"lName\" placeholder=\"Enter Last Name\">\r\n" +"</div>\r\n");
+			
+			
+		out.println("<div class=\"form-group\">");	
+		String email = request.getParameter("username");
 		String emailError = (String) request.getAttribute("emailError");
+		 
 		if (emailError != null) {
 			out.println(
-					"<div class=\"form-group has-error\">" + "<span class=\"help-block\">" + emailError + "</span>");
-		} else
-			out.println("<div class=\"form-group\">");
-		String email = request.getParameter("username");
+					    "<label class=\"control-label text-danger\"> Email</label>\r\n"
+							+"<p class =\"text-danger\">"+emailError +" </p>");
+		}
+		else{
+			out.println("<label class=\"control-label\"> Email</label>\r\n");
+	    }
+	    
 		email = email == null ? "" : email;
-		out.println("                        <label class=\"control-label\"> Your Email Adress </label>\r\n"
-				+ "                        <input class=\"form-control\" type=\"text\" value=\"" + email
-				+ "\" name=\"username\" placeholder=\"Enter New Email\">\r\n" + "                    </div>\r\n");
+		out.println( "                        <input class=\"form-control\" type=\"text\" value=\"" + email
+				+ "\" name=\"username\" placeholder=\"Enter New Email\">\r\n" + "</div>\r\n");
+		
+		
+		
+		out.println("<div class=\"form-group\">");
 		String passwordError = (String) request.getAttribute("passwordError");
 		if (passwordError != null) {
 			out.println(
-					"<div class=\"form-group has-error\">" + "<span class=\"help-block\">" + passwordError + "</span>");
-		} else 
-				out.println("<div class=\"form-group\">");
+					"<label class=\"control-label text-danger\"> Password</label>\r\n"
+							+"<p class =\"text-danger\">"+passwordError +" </p>");
+		} else {
+				out.println("<label class=\"control-label\"> Password</label>\r\n");
+		}
 			String password1 = request.getParameter("password1");
 			String password2 = request.getParameter("password2");
 			password1 = password1 == null ? "" : password1;
 			password2 = password2 == null ? "" : password2;
-			out.println("                        <label class=\"control-label\"> Password </label>\r\n"
-					+ "                        <input class=\"form-control\" type=\"text\" value=\"" + password1
-					+ "\" name=\"password1\" placeholder=\"Enter New Password\">\r\n" + "                    </div>\r\n"
+			out.println(
+					    "                        <input class=\"form-control\" type=\"text\" value=\"" + password1
+					+ "\" name=\"password1\" placeholder=\"Enter New Password\">\r\n" + "  </div>\r\n"
 					+ "                    <div class=\"form-group\">\r\n"
 					+ "                        <label class=\"control-label\"> Retype Password </label>\r\n"
 					+ "                        <input class=\"form-control\" type=\"text\" value=\"" + password2
 					+ "\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n"
 					+ "                    </div>\r\n");
+			
+			
 		out.println(" <fieldset class=\"form-group\">\r\n"
 				+ "                        <div class=\"container-fluid \">\r\n"
 				+ "                            <div class=\"row\">\r\n"
@@ -167,7 +195,7 @@ public class RegisterStudent extends HttpServlet {
 				+ "                            </div>\r\n" + "                        </div>\r\n"
 				+ "                    </fieldset>");
 		out.println("<button type=\"submit\" class=\"btn btn-primary\">Register</button>\r\n"
-				+ "                </forum>\r\n" + "\r\n" + "                <!-- Footer of the page -->\r\n"
+				+ "                </form>\r\n" + "\r\n" + "                <!-- Footer of the page -->\r\n"
 				+ "                <div>\r\n" + "                    <footer class=\"footer\">\r\n"
 				+ "                        <!-- Mini Naviation-->\r\n"
 				+ "                        <div class=\"container text-center\">\r\n"
@@ -219,7 +247,7 @@ public class RegisterStudent extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	boolean emailInUse(String email) {
+    boolean emailInUse(String email) {
 		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
 		for (Student student : students) {
 			if (student.getEmail().toLowerCase().matches(email.toLowerCase()))
@@ -231,70 +259,47 @@ public class RegisterStudent extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
-		String firstName=request.getParameter("fName");
-		String lastName=request.getParameter("lName");
-		String email=request.getParameter("username");
-		String password1=request.getParameter("password1");
-		String password2=request.getParameter("password2");
-		//3 parameters(school, department, major)
-		boolean hasError=false;
-		if (firstName==null||firstName.matches("[a-zA-Z]{2,}")){
-			request.setAttribute("nameError","You must enter a first name");
-			hasError=true;
-=======
 		String firstName = request.getParameter("fName");
 		String lastName = request.getParameter("lName");
+		
 		String email = request.getParameter("username");
+		
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
-
+        
 		boolean hasError = false;
-		if (firstName == null || firstName.matches("[a-zA-Z]{2,}")) {
-			request.setAttribute("nameError", "You must enter a first name");
-			hasError = true;
->>>>>>> masterServer
-		}
-		if (lastName == null || lastName.matches("[a-zA-Z]{2,}")) {
-			request.setAttribute("nameError", "You must enter a last name");
+		if (firstName.isEmpty() || firstName.matches("[A-Za-z]")) {
+			request.setAttribute("fError", "You must enter a first name");
 			hasError = true;
 		}
-		if (email == null || email.trim().length() == 0) {
+		if (lastName.isEmpty() || lastName.matches("[A-Za-z]")) {
+			request.setAttribute("lError", "You must enter a last name");
+			hasError = true;
+		}
+		if (email==null || email.trim().length() == 0) {
 			request.setAttribute("emailError", "You must enter an email");
 			hasError = true;
 		} else if (emailInUse(email)) {
 			request.setAttribute("emailError", "This email is already registered");
 			hasError = true;
-
 		}
-		if (password1 == null || password1.trim().length() == 0) {
+		if (password1.isEmpty() || password1.trim().length() == 0) {
 			request.setAttribute("passwordError", "You must enter a password");
 			hasError = true;
-		} else if (password2 == null || !password1.equals(password2)) {
+		} else if (password2.isEmpty() || !password1.equals(password2)) {
 			request.setAttribute("passwordError", "Passwords don't match");
 			hasError = true;
 		}
-<<<<<<< HEAD
-		if (hasError){
-		doGet(request, response);
-		return;
-		}
-		else{
-			//make an array of strings
-			
-			ArrayList<Student> students=(ArrayList<Student>) getServletContext().getAttribute("students");
-			Student newStudent=new Student(firstName, lastName, email, password1);//update
-=======
 		if (hasError) {
 			doGet(request, response);
 			return;
 		} else {
 			ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
-			Student newStudent = new Student(firstName, lastName, email, password1);
->>>>>>> masterServer
-			students.add(newStudent);
+			
+			//Student newStudent = new Student(firstName, lastName, email, password1);
+		    //students.add(newStudent);
 			HttpSession session = request.getSession();
-			session.setAttribute("authenticatedStudent", newStudent);
+			//session.setAttribute("authenticatedStudent", newStudent);
 			response.sendRedirect("sessions/Login");
 			return;
 
