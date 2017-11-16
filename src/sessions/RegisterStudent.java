@@ -62,7 +62,7 @@ public class RegisterStudent extends HttpServlet {
 				+ "                        <p> Welcome to the Student Registration, Please provide some info about your Self</p>\r\n"
 				+ "                    </div>\r\n" + "                </div>\r\n"
 				+ "                <!-- Content -->\r\n"
-				+ "                <forum action \"Register\" method \"post\">");
+				+ "                <form action=\"Register\" method=\"post\">");
 		String nameError = (String) request.getAttribute("nameError");
 		// System.out.println("name error"+nameError);
 		if (nameError != null) {
@@ -167,7 +167,7 @@ public class RegisterStudent extends HttpServlet {
 				+ "                            </div>\r\n" + "                        </div>\r\n"
 				+ "                    </fieldset>");
 		out.println("<button type=\"submit\" class=\"btn btn-primary\">Register</button>\r\n"
-				+ "                </forum>\r\n" + "\r\n" + "                <!-- Footer of the page -->\r\n"
+				+ "                </form>\r\n" + "\r\n" + "                <!-- Footer of the page -->\r\n"
 				+ "                <div>\r\n" + "                    <footer class=\"footer\">\r\n"
 				+ "                        <!-- Mini Naviation-->\r\n"
 				+ "                        <div class=\"container text-center\">\r\n"
@@ -231,7 +231,7 @@ public class RegisterStudent extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String firstName = request.getParameter("fName");
+		String firstName = request.getParameter("fName"); 
 		String lastName = request.getParameter("lName");
 		String email = request.getParameter("username");
 		String password1 = request.getParameter("password1");
@@ -266,10 +266,11 @@ public class RegisterStudent extends HttpServlet {
 			return;
 		} else {
 			ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
-			Student newStudent = new Student(firstName, lastName, email, password1);
-			students.add(newStudent);
+			//Fix code here, in the indented comments
+				//Student newStudent = new Student(firstName, lastName, email, password1);
+				//students.add(newStudent);
 			HttpSession session = request.getSession();
-			session.setAttribute("authenticatedStudent", newStudent);
+				//session.setAttribute("authenticatedStudent", newStudent);
 			response.sendRedirect("sessions/Login");
 			return;
 

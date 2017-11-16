@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import models.Faculty;
 import models.Student;
+import models.User;
 
 /**
  * Servlet implementation class LoginSessions
@@ -27,10 +28,20 @@ public class LoginSessions extends HttpServlet {
 		super.init(config);
 		// ---------------------------------------------------------------------
 		// Create a few students
-		ArrayList<Student> students = new ArrayList<Student>();
-		students.add(new Student("harry", "potter", "h@p.com", "asdf"));
-		students.add(new Student("joe", "low", "j@l.com", "ghjk"));
+		
+		ArrayList<User> students = new ArrayList<User>();
+		String[] info1 = new String[3];
+		info1[1] = "CSULA";
+		info1[2] = "Engr";
+		info1[3] = "Computer Science";
+		String[] info2 = new String[3];
+		info2[1] = "CSULA";
+		info2[2] = "Engr";
+		info2[3] = "Computer Science";
+		students.add(new Student("harry", "potter", "h@p.com", "asdf", info1));
+		students.add(new Student("joe", "low", "j@l.com", "ghjk", info2));
 		// Add the students to the application scope (Servlet Context)
+		//Global bla = new Global(students);
 		getServletContext().setAttribute("students", students);
 		// ---------------------------------------------------------------------
 		// Create a few faculties

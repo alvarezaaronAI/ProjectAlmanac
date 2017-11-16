@@ -101,7 +101,7 @@ public class RegisterFaculty extends HttpServlet {
 				"                    </div>\r\n" + 
 				"                </div>\r\n" + 
 				"                <!-- Content -->\r\n" + 
-				"                <forum action \"RegisterFaculty\" method \"post\">");
+				"                <form action=\"RegisterFaculty\" method=\"post\">");
 				if(nameError!=null){
 				out.println(		"                    <div class=\"form-group has-error\">"+"<span class=\"help-block\">"+nameError+"</span>");
 				}
@@ -209,7 +209,7 @@ public class RegisterFaculty extends HttpServlet {
 						"                        </div>\r\n" + 
 						"                    </fieldset>");
 				out.println(" <button type=\"submit\" class=\"btn btn-primary\">Register</button>\r\n" + 
-						"                </forum>\r\n" + 
+						"                </form>\r\n" + 
 						"                <!-- Footer of the page -->\r\n" + 
 						"                <div>\r\n" + 
 						"                    <footer class=\"footer \">\r\n" + 
@@ -320,11 +320,12 @@ public class RegisterFaculty extends HttpServlet {
 			}
 		else{
 			ArrayList<Faculty> faculties=(ArrayList<Faculty>) getServletContext().getAttribute("faculties");
-			Faculty newFaculty=new Faculty(firstName, lastName, email, password1);
+			//Fix Code here in the indented comments
+				//Faculty newFaculty=new Faculty(firstName, lastName, email, password1);
 			//new faculty
-			faculties.add(newFaculty);
+				//faculties.add(newFaculty);
 			HttpSession session=request.getSession();
-			session.setAttribute("authenticatedFaculty", newFaculty);
+				//session.setAttribute("authenticatedFaculty", newFaculty);
 			response.sendRedirect("sessions/Login");
 			return;
 		}
