@@ -320,20 +320,12 @@ public class RegisterFaculty extends HttpServlet {
 			}
 		else{
 			ArrayList<Faculty> faculties=(ArrayList<Faculty>) getServletContext().getAttribute("faculties");
-<<<<<<< HEAD
 			//Fix Code here in the indented comments
 				//Faculty newFaculty=new Faculty(firstName, lastName, email, password1);
 			//new faculty
 				//faculties.add(newFaculty);
 			HttpSession session=request.getSession();
 				//session.setAttribute("authenticatedFaculty", newFaculty);
-=======
-//			Faculty newFaculty=new Faculty(firstName, lastName, email, password1);
-			//new faculty
-//			faculties.add(newFaculty);
-			HttpSession session=request.getSession();
-//			session.setAttribute("authenticatedFaculty", newFaculty);
->>>>>>> a20f7e5688fa4a46fb319a643774673b77c29338
 			response.sendRedirect("sessions/Login");
 			return;
 		}

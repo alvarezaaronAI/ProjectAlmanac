@@ -28,7 +28,6 @@ public class LoginSessions extends HttpServlet {
 		super.init(config);
 		// ---------------------------------------------------------------------
 		// Create a few students
-<<<<<<< HEAD
 		
 		ArrayList<User> students = new ArrayList<User>();
 		String[] info1 = new String[3];
@@ -41,11 +40,6 @@ public class LoginSessions extends HttpServlet {
 		info2[3] = "Computer Science";
 		students.add(new Student("harry", "potter", "h@p.com", "asdf", info1));
 		students.add(new Student("joe", "low", "j@l.com", "ghjk", info2));
-=======
-		ArrayList<Student> students = new ArrayList<Student>();
-//		students.add(new Student("harry", "potter", "h@p.com", "asdf"));
-//		students.add(new Student("joe", "low", "j@l.com", "ghjk"));
->>>>>>> a20f7e5688fa4a46fb319a643774673b77c29338
 		// Add the students to the application scope (Servlet Context)
 		//Global bla = new Global(students);
 		getServletContext().setAttribute("students", students);
