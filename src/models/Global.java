@@ -7,8 +7,12 @@ import structure.School;
 
 public class Global {
 
-	ArrayList<User> users;
-	ArrayList<School> database;
+	public static ArrayList<User> users;
+	public static ArrayList<Student> students;
+	public static ArrayList<Faculty> faculty;
+	public static ArrayList<School> databases = new ArrayList<>();
+	private ArrayList<File> databasesFile;
+	private File defaultFile = new File("name goes here"); // csula
 	
 	/*
 	 * Constructors
@@ -17,10 +21,55 @@ public class Global {
 	public Global() {}
 	
 	public Global(ArrayList<User> users) {
+		setUsers(users);
 		
+		// make default database for csula
+		School csula = generateSchool(defaultFile);
+		databases.add(csula);
 	}
 	
-	public Global(ArrayList<User> users, File input) {
+	public Global(ArrayList<User> users, ArrayList<File> databasesFile) {
+		setUsers(users);
 		
+		this.databasesFile = databasesFile;
+		for (File f : databasesFile) {
+			databases.add(generateSchool(f));
+		}
+	}
+	
+	/*
+	 * Accessors
+	 */
+	
+	public ArrayList<File> getDatabasesFile() {
+		return databasesFile;
+	}
+	
+	public File getDefaultFile() {
+		return defaultFile;
+	}
+	
+	/*
+	 * Mutators
+	 */
+	
+	public void setUsers(ArrayList<User> users) {
+		Global.users = users;
+		for (User u : users) {
+			if (u instanceof Student) {
+				students.add((Student) u);
+			} else if (u instanceof Faculty) {
+				faculty.add((Faculty) u);
+			}
+		}
+	}
+	
+	/*
+	 * More
+	 */
+	
+	public School generateSchool(File schoolFile) {
+		// Levi's work goes here
+		return null;
 	}
 }

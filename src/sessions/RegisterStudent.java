@@ -261,10 +261,10 @@ public class RegisterStudent extends HttpServlet {
 		}
 		else{
 			ArrayList<Student> students=(ArrayList<Student>) getServletContext().getAttribute("students");
-			Student newStudent=new Student(firstName, lastName, email, password1);
-			students.add(newStudent);
+//			Student newStudent=new Student(firstName, lastName, email, password1);
+//			students.add(newStudent);
 			HttpSession session=request.getSession();
-			session.setAttribute("authenticatedStudent", newStudent);
+//			session.setAttribute("authenticatedStudent", newStudent);
 			response.sendRedirect("sessions/Login");
 			return;
 			
