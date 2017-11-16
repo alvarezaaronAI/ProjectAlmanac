@@ -6,8 +6,6 @@ import java.nio.charset.Charset;
 import structure.School;
 
 public class User {
-	
-	java.util.ArrayList<School> database = new java.util.ArrayList<>(); // temp; this belongs in GLOBAL CLASS
 
 	private BigInteger identity;
 	private String firstName;
@@ -97,7 +95,7 @@ public class User {
 	 */
 	
 	protected School determineSchool(String schoolName) {
-		for (School s : database) {
+		for (School s : Global.databases) {
 			if (s.getName().equals(schoolName)) {
 				return s;
 			}

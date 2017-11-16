@@ -261,6 +261,7 @@ public class RegisterStudent extends HttpServlet {
 			request.setAttribute("passwordError", "Passwords don't match");
 			hasError = true;
 		}
+<<<<<<< HEAD
 		if (hasError) {
 			doGet(request, response);
 			return;
@@ -271,6 +272,18 @@ public class RegisterStudent extends HttpServlet {
 				//students.add(newStudent);
 			HttpSession session = request.getSession();
 				//session.setAttribute("authenticatedStudent", newStudent);
+=======
+		if (hasError){
+		doGet(request, response);
+		return;
+		}
+		else{
+			ArrayList<Student> students=(ArrayList<Student>) getServletContext().getAttribute("students");
+//			Student newStudent=new Student(firstName, lastName, email, password1);
+//			students.add(newStudent);
+			HttpSession session=request.getSession();
+//			session.setAttribute("authenticatedStudent", newStudent);
+>>>>>>> a20f7e5688fa4a46fb319a643774673b77c29338
 			response.sendRedirect("sessions/Login");
 			return;
 
