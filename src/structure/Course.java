@@ -17,6 +17,10 @@ public class Course {
 	 * Constructors
 	 */
 	
+	public Course(String id) {
+		this.id = id;
+	}
+	
 	public Course(String dept, int courseNum, String name, int units, ArrayList<String> semesters) {
 		id = dept + courseNum;
 		this.dept = dept;
