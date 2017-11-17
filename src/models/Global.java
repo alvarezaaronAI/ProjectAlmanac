@@ -12,7 +12,8 @@ public class Global {
 	public static ArrayList<Faculty> faculty = new ArrayList<>();
 	public static ArrayList<School> databases = new ArrayList<>();
 	private ArrayList<File> databasesFile = new ArrayList<>();
-	private File defaultFile = new File("name goes here"); // csula
+	private File defaultFile = new File("name goes here"); // CSULA data file
+	private School defaultSchool; // CSULA
 	
 	/*
 	 * Constructors
@@ -23,9 +24,9 @@ public class Global {
 	public Global(ArrayList<User> users) {
 		setUsers(users);
 		
-		// make default database for csula
-		School csula = generateSchool(defaultFile);
-		databases.add(csula);
+		// make default database for CSULA
+		defaultSchool = generateSchool(defaultFile);
+		databases.add(defaultSchool);
 	}
 	
 	public Global(ArrayList<User> users, ArrayList<File> databasesFile) {
