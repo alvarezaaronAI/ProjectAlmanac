@@ -77,12 +77,12 @@ public class Major {
 	}
 	
 	/*
-	 * Removes a course by name
+	 * Removes a course by ID
 	 * Returns false if the course does not exist
 	 */
-	public boolean removeCourse(String courseName) {
+	public boolean removeCourse(String courseID) {
 		for (int i = 0; i < courses.size(); i++) {
-			if (courses.get(i).getName().equals(courseName)) {
+			if (courses.get(i).getID().equals(courseID)) {
 				courses.remove(i);
 				return true;
 			}
