@@ -48,12 +48,37 @@ public class School {
 	 * Others
 	 */
 	
-	public void addDept(Department dept) {
-		depts.add(dept);
+	/*
+	 * Adds a department
+	 * Returns false if a department already exists with the same name
+	 */
+	public boolean addDept(Department dept) {
+		if (findDept(dept.getName()) == null) {
+			return depts.add(dept);
+		}
+		return false;
 	}
 	
-	public void removeDept(Department dept) {
-		depts.remove(dept);
+	/*
+	 * Removes a department
+	 * Returns false if the department does not exist
+	 */
+	public boolean removeDept(Department dept) {
+		return depts.remove(dept);
+	}
+	
+	/*
+	 * Removes a department by name
+	 * Returns false if the department does not exist
+	 */
+	public boolean removeDept(String deptName) {
+		for (int i = 0; i < depts.size(); i++) {
+			if (depts.get(i).getName().equals(deptName)) {
+				depts.remove(i);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public Department findDept(int deptID) {

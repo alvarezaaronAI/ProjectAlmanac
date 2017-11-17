@@ -28,8 +28,8 @@ public class LoginSessions extends HttpServlet {
 		// ---------------------------------------------------------------------
 		// Create a few students
 		ArrayList<Student> students = new ArrayList<Student>();
-		students.add(new Student("harry", "potter", "h@p.com", "asdf"));
-		students.add(new Student("joe", "low", "j@l.com", "ghjk"));
+//		students.add(new Student("harry", "potter", "h@p.com", "asdf"));
+//		students.add(new Student("joe", "low", "j@l.com", "ghjk"));
 		// Add the students to the application scope (Servlet Context)
 		getServletContext().setAttribute("students", students);
 		// ---------------------------------------------------------------------
