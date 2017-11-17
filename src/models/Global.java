@@ -7,11 +7,11 @@ import structure.School;
 
 public class Global {
 
-	public static ArrayList<User> users;
-	public static ArrayList<Student> students;
-	public static ArrayList<Faculty> faculty;
+	public static ArrayList<User> users = new ArrayList<>();
+	public static ArrayList<Student> students = new ArrayList<>();
+	public static ArrayList<Faculty> faculty = new ArrayList<>();
 	public static ArrayList<School> databases = new ArrayList<>();
-	private ArrayList<File> databasesFile;
+	private ArrayList<File> databasesFile = new ArrayList<>();
 	private File defaultFile = new File("name goes here"); // csula
 	
 	/*

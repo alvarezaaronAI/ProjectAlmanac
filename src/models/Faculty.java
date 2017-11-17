@@ -85,11 +85,11 @@ public class Faculty extends User {
 	
 	/*
 	 * Creates a new department and adds it to the specified school
-	 * Returns false if faculty doesn't have access to the specified parameters
+	 * Returns true if added; false if access denied or if department already exists
 	 */
 	public boolean addDept(String schoolStr, String deptStr) {
 		if (level == 'D') {
-			if (school != null && school.getName().equals(schoolStr)) { // validate school
+			if (school != null && school.getName().equals(schoolStr)) { // validate school for D
 				return school.addDept(new Department(deptStr));
 			}
 		}
@@ -98,11 +98,16 @@ public class Faculty extends User {
 	
 	/*
 	 * Creates a new major and adds it to the specified department
+	 * Returns true is added; false if access denied or if major already exists
 	 */
 	public boolean addMajor(String schoolStr, String deptStr, String majorStr) {
 		if (level == 'D' || level == 'M') {
-			if (school != null && school.getName().equals(schoolStr)) { // validate school
-				if (dept != null && dept.getName().equals(deptStr)) { // validate department
+			if (school != null && school.getName().equals(schoolStr)) { // validate school for D,M
+				if (level == 'D') { // find department for D
+					Department deptFound = school.findDept(deptStr);
+					return deptFound.addMajor(new Major(majorStr));
+				}
+				else if (dept != null && dept.getName().equals(deptStr)) { // validate department for M
 					return dept.addMajor(new Major(majorStr));
 				}
 			}
@@ -110,9 +115,17 @@ public class Faculty extends User {
 		return false;
 	}
 	
+	/*
+	 * Creates a new course and adds it to the specified major
+	 * Returns true is added; false if access denied or if course already exists
+	 */
 	public boolean addCourse(String schoolStr, String deptStr, String majorStr, String courseStr) {
 		if (level == 'D' || level == 'M' || level == 'C') {
-			if (school != null && school.getName().equals(schoolStr)) { // validate school
+			if (school != null && school.getName().equals(schoolStr)) { // validate school for D,M,C
+				if (level == 'D' || level == 'M') { // find department for D,M
+					Department deptFound = school.findDept(deptStr);
+					// ...
+				}
 				if (dept != null && dept.getName().equals(deptStr)) { // validate department
 					if (major != null && major.getName().equals(majorStr)) { // validate major
 						//return major.addCourse(new Course(courseStr));
