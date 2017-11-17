@@ -51,7 +51,7 @@ public class RegisterStudent extends HttpServlet {
 				+ "                background-color: darkcyan;\r\n" + "            }\r\n" + "            .nav-link{\r\n"
 				+ "                font-weight: bold;\r\n" + "            }\r\n" + "            body{\r\n"
 				+ "                zoom: 80%;\r\n" + "            }\r\n" + "        </style>\r\n" + "    </head>\r\n"
-				+ "    <!-- Body of the page -->\r\n" + "\r\n" + "    <body class=\"body-main\">\r\n"
+				+ "    <!-- Body of the page -->\r\n" + "\r\n"  + "    <body class=\"body-main\">\r\n"
 				+ "        <!-- Heading of the page -->\r\n" + "        <div class=\"container-fluid\">\r\n"
 				+ "            <div class=\"container-fluid text-center\">\r\n" + "                <!-- Header -->\r\n"
 				+ "                <div class=\"jumbotron mini-boxes\">\r\n" + "                    <!-- Logo -->\r\n"
@@ -151,10 +151,10 @@ public class RegisterStudent extends HttpServlet {
 		
 		//Here print just one school for demo
 			out.println("                                      <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + " + mainDB.getClass().getName() + " name=\"schoolOption\" id=\"schoolOption\" checked> One School\r\n"
+				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + " + mainDB.getDefaultFile().getName() + " name=\"schoolOption\" id=\"schoolOption\" checked> "+ mainDB.getDefaultFile().getName()+"l\r\n"
 				+ "                                        </label>\r\n"
 				);
-		
+			
 				out.println("                                    </div>\r\n"
 				+ "                                    <div class=\"form-check\">\r\n"
 				+ "                                        <label class=\"form-check-label\">\r\n"
@@ -310,9 +310,9 @@ public class RegisterStudent extends HttpServlet {
 			return;
 		} else {
 			ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
-			ArrayList<Student> mainDB = (ArrayList<Student>) getServletContext().getAttribute("mainDB");
-			//Student newStudent = new Student(firstName, lastName, email, password1,);
-		    //students.add(newStudent);
+			Global mainDB = (Global) getServletContext().getAttribute("mainDB");
+			//Student newStudent = new Student(firstName, lastName, email, password1,info[]);
+			//students.add(newStudent);
 			HttpSession session = request.getSession();
 			//session.setAttribute("authenticatedStudent", newStudent);
 			response.sendRedirect("sessions/Login");

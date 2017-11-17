@@ -11,7 +11,7 @@ public class Global {
 	public static ArrayList<Student> students = new ArrayList<>();
 	public static ArrayList<Faculty> faculty = new ArrayList<>();
 	public static ArrayList<School> databases = new ArrayList<>();
-	private ArrayList<File> databasesFile = new ArrayList<>();
+	private ArrayList<File> databasesFiles = new ArrayList<>();
 	private File defaultFile = new File("name goes here"); // CSULA data file
 	private School defaultSchool; // CSULA
 	
@@ -32,7 +32,7 @@ public class Global {
 	public Global(ArrayList<User> users, ArrayList<File> databasesFile) {
 		setUsers(users);
 		
-		this.databasesFile = databasesFile;
+		this.databasesFiles = databasesFile;
 		for (File f : databasesFile) {
 			databases.add(generateSchool(f));
 		}
@@ -43,11 +43,15 @@ public class Global {
 	 */
 	
 	public ArrayList<File> getDatabasesFile() {
-		return databasesFile;
+		return databasesFiles;
 	}
 	
 	public File getDefaultFile() {
 		return defaultFile;
+	}
+	
+	public School defaultSchool() {
+		return defaultSchool;
 	}
 	
 	/*
@@ -63,6 +67,18 @@ public class Global {
 				faculty.add((Faculty) u);
 			}
 		}
+	}
+	
+	public void setDatabasesFile(ArrayList<File> databasesFile) {
+		this.databasesFiles = databasesFile;
+	}
+	
+	public void setDefaultFile(File defaultFile) {
+		this.defaultFile = defaultFile;
+	}
+	
+	public void setDefaultSchool(School defaultSchool) {
+		this.defaultSchool = defaultSchool;
 	}
 	
 	/*
