@@ -12,7 +12,7 @@ public class Global {
 	public static ArrayList<Faculty> faculty;
 	public static ArrayList<School> databases = new ArrayList<>();
 	private ArrayList<File> databasesFile;
-	private File defaultFile = new File("name goes here"); // csula
+	private File defaultFile = new File("California State Univer"); // csula
 	
 	/*
 	 * Constructors

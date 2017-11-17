@@ -249,6 +249,12 @@ public class RegisterStudent extends HttpServlet {
 	 */
     boolean emailInUse(String email) {
 		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
+		if(students == null) {
+			System.out.println("Theres nothing in students");
+		}
+		for (int i = 0; i < students.size(); i++) {
+			System.out.println("Student " + i + " is -" + students.get(i));
+		}
 		for (Student student : students) {
 			if (student.getEmail().toLowerCase().matches(email.toLowerCase()))
 				return true;
@@ -263,6 +269,7 @@ public class RegisterStudent extends HttpServlet {
 		String lastName = request.getParameter("lName");
 		
 		String email = request.getParameter("username");
+		System.out.println("This is an email" + email);
 		
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");

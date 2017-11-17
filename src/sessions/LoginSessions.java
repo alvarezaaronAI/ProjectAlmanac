@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import models.Faculty;
+import models.Global;
 import models.Student;
 import models.User;
 
@@ -29,7 +30,7 @@ public class LoginSessions extends HttpServlet {
 		// ---------------------------------------------------------------------
 		// Create a few students
 		
-		ArrayList<User> students = new ArrayList<User>();
+		ArrayList<User> students = new ArrayList<User>(); // -- harry -joe
 		String[] info1 = new String[3];
 		info1[0] = "CSULA";
 		info1[1] = "Engr";
@@ -40,9 +41,13 @@ public class LoginSessions extends HttpServlet {
 		info2[2] = "Computer Science";
 		students.add(new Student("harry", "potter", "h@p.com", "asdf", info1));
 		students.add(new Student("joe", "low", "j@l.com", "ghjk", info2));
+		for (int i = 0; i < students.size(); i++) {
+			System.out.println("Student " + i + " is -" + students.get(i).getFirstName());
+		}
 		// Add the students to the application scope (Servlet Context)
-		//Global bla = new Global(students);
+		Global mainDB = new Global(students);
 		getServletContext().setAttribute("students", students);
+		
 		// ---------------------------------------------------------------------
 		// Create a few faculties
 		ArrayList<Faculty> faculties = new ArrayList<Faculty>();
@@ -50,6 +55,8 @@ public class LoginSessions extends HttpServlet {
 		// faculties.add(new Faculty("Jose", "Richard", "j@r.com", "ghjk"));
 		// // Add the students to the application scope (Servlet Context)
 		getServletContext().setAttribute("faculties", faculties);
+		//Create a global database from where i can access every thing
+		//getServletContext().setAttribute("mainDB",mainDB);
 
 	}
 
@@ -262,6 +269,7 @@ public class LoginSessions extends HttpServlet {
 		// ---------------------------------------------------------------------
 		// Here we going to check for students
 		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
+		Global tempDataBase = (Global) getServletContext().getAttribute("mainDB");
 		// Login and Check and make cookie given students login info
 		for (Student student : students) {
 			if (student.getEmail().toLowerCase().equals(username.trim().toLowerCase())
