@@ -12,10 +12,9 @@ public class Faculty extends User {
 	 */
 	
 	private char level; // D,M,C
-	// Only one of these three will not be null, depending on the faculty level
-	private School school;
-	private Department dept;
-	private Major major;
+	private School school; // for all levels D,M,C
+	private Department dept; // for levels M,C; null otherwise
+	private Major major; // for level C; null otherwise
 	
 	/*
 	 * Constructor
@@ -31,16 +30,16 @@ public class Faculty extends User {
 			school = determineSchool(info[0]);
 			break;
 		case 'M':
-			School tempSchool = determineSchool(info[0]);
-			if (tempSchool != null) {
+			school = determineSchool(info[0]);
+			if (school != null) {
 				dept = school.findDept(info[1]);
 			}
 			break;
 		case 'C':
-			tempSchool = determineSchool(info[0]);
-			if (tempSchool != null) {
-				Department tempDept = school.findDept(info[1]);
-				if (tempDept != null) {
+			school = determineSchool(info[0]);
+			if (school != null) {
+				dept = school.findDept(info[1]);
+				if (dept != null) {
 					major = dept.findMajor(info[2]);
 				}
 			}
@@ -84,50 +83,144 @@ public class Faculty extends User {
 	 * More
 	 */
 	
-	public boolean addDept(Department dept) {
+	/*
+	 * Creates a new department and adds it to the specified school
+	 * Returns true if added; false if access denied / department already exists / invalid parameters
+	 */
+	public boolean addDept(String schoolStr, String deptStr) {
 		if (level == 'D') {
-			school.addDept(dept); // make this return a bool
-			return true;
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				return school.addDept(new Department(deptStr));
+			}
 		}
 		return false;
 	}
 	
-	public boolean addMajor(Major major) {
-		if (level == 'M') {
-			dept.addMajor(major);
-			return true;
-		}
-		return false;
-	}
-	
-	public boolean addCourse(Course course) {
-		if (level == 'C') {
-			major.addCourse(course);
-			return true;
-		}
-		return false;
-	}
-	
-	public boolean removeDept(Department dept) {
+	/*
+	 * Creates a new major and adds it to the specified department
+	 * Returns true if added; false if access denied / major already exists / invalid parameters
+	 */
+	public boolean addMajor(String schoolStr, String deptStr, String majorStr) {		
 		if (level == 'D') {
-			school.removeDept(dept);
-			return true;
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				Department deptFound = school.findDept(deptStr); // find department
+				if (deptFound != null) {
+					return deptFound.addMajor(new Major(majorStr));
+				}
+			}
+		} else if (level == 'M') {
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				if (dept != null && dept.getName().equals(deptStr)) { // validate department
+					return dept.addMajor(new Major(majorStr));
+				}
+			}
 		}
 		return false;
 	}
 	
-	public boolean removeMajor(Major major) {
-		if (level == 'M') {
-			dept.removeMajor(major);
-			return true;
+	/*
+	 * Creates a new course and adds it to the specified major
+	 * Returns true if added; false if access denied / course already exists / invalid parameters
+	 */
+	public boolean addCourse(String schoolStr, String deptStr, String majorStr, String courseStr) {		
+		if (level == 'D') {
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				Department deptFound = school.findDept(deptStr); // find department
+				if (deptFound != null) {
+					Major majorFound = deptFound.findMajor(majorStr); // find major
+					if (majorFound != null) {
+						//return majorFound.addCourse(new Course(courseStr));
+					}
+				}
+			}
+		} else if (level == 'M') {
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				if (dept != null && dept.getName().equals(deptStr)) { // validate department
+					Major majorFound = dept.findMajor(majorStr); // find major
+					if (majorFound != null) {
+						//return majorFound.addCourse(new Course(courseStr));
+					}
+				}
+			}
+		} else if (level == 'C') {
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				if (dept != null && dept.getName().equals(deptStr)) { // validate department
+					if (major != null && major.getName().equals(majorStr)) { // validate major
+						//return major.addCourse(new Course(courseStr));
+					}
+				}
+			}
 		}
 		return false;
 	}
 	
-	public boolean removeCourse(Course course) {
-		if (level == 'C') {
-			major.removeCourse(course);
-			return true;
+	/*
+	 * Removes a department from a specified school
+	 * Returns true if removed; false if access denied / department not found / invalid parameters
+	 */
+	public boolean removeDept(String schoolStr, String deptStr) {
+		if (level == 'D') {
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				return school.removeDept(deptStr);
+			}
+		}
+		return false;
+	}
+	
+	/*
+	 * Removes a major from a specified department
+	 * Returns true if removed; false if access denied / major not found / invalid parameters
+	 */
+	public boolean removeMajor(String schoolStr, String deptStr, String majorStr) {		
+		if (level == 'D') {
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				Department deptFound = school.findDept(deptStr); // find department
+				if (deptFound != null) {
+					return deptFound.removeMajor(majorStr);
+				}
+			}
+		} else if (level == 'M') {
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				if (dept != null && dept.getName().equals(deptStr)) { // validate department
+					return dept.removeMajor(majorStr);
+				}
+			}
+		}
+		return false;
+	}
+	
+	/*
+	 * Removes a course from a specified major
+	 * Returns true if removed; false if access denied / course not found / invalid parameters
+	 */
+	public boolean removeCourse(String schoolStr, String deptStr, String majorStr, String courseStr) {
+		if (level == 'D') {
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				Department deptFound = school.findDept(deptStr); // find department
+				if (deptFound != null) {
+					Major majorFound = deptFound.findMajor(majorStr); // find major
+					if (majorFound != null) {
+						return majorFound.removeCourse(courseStr);
+					}
+				}
+			}
+		} else if (level == 'M') {
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				if (dept != null && dept.getName().equals(deptStr)) { // validate department
+					Major majorFound = dept.findMajor(majorStr); // find major
+					if (majorFound != null) {
+						return majorFound.removeCourse(courseStr);
+					}
+				}
+			}
+		} else if (level == 'C') {
+			if (school != null && school.getName().equals(schoolStr)) { // validate school
+				if (dept != null && dept.getName().equals(deptStr)) { // validate department
+					if (major != null && major.getName().equals(majorStr)) { // validate major
+						return major.removeCourse(courseStr);
+					}
+				}
+			}
 		}
 		return false;
 	}

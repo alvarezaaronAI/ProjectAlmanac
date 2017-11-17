@@ -3,7 +3,6 @@ package sessions;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.Global;
 import models.Student;
 
 /**
@@ -137,17 +137,25 @@ public class RegisterStudent extends HttpServlet {
 					+ "\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n"
 					+ "                    </div>\r\n");
 			
-			
+		Global mainDB = (Global) getServletContext().getAttribute("mainDB");
+		//An ArrayList of Schools
+			//mainDB ArrayList
 		out.println(" <fieldset class=\"form-group\">\r\n"
 				+ "                        <div class=\"container-fluid \">\r\n"
 				+ "                            <div class=\"row\">\r\n"
 				+ "                                <div class=\"col-sm-4\">\r\n"
 				+ "                                    <legend class=\"legend-text\">School Selection</legend>\r\n"
 				+ "                                    <div class=\"form-check\">\r\n"
-				+ "                                        <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + schoolOption + name=\"schoolOption\" id=\"schoolOption\" checked> One School\r\n"
+				);
+		//do a for loop that goes through the arraylost of Databases and prints out the schools
+		
+		//Here print just one school for demo
+			out.println("                                      <label class=\"form-check-label\">\r\n"
+				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + " + mainDB.getClass().getName() + " name=\"schoolOption\" id=\"schoolOption\" checked> One School\r\n"
 				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n"
+				);
+		
+				out.println("                                    </div>\r\n"
 				+ "                                    <div class=\"form-check\">\r\n"
 				+ "                                        <label class=\"form-check-label\">\r\n"
 				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + schoolOption2 + name=\"schoolOption\" id=\"schoolOption\"> Second School\r\n"
@@ -194,6 +202,7 @@ public class RegisterStudent extends HttpServlet {
 				+ "                                    </div>\r\n" + "                                </div>\r\n"
 				+ "                            </div>\r\n" + "                        </div>\r\n"
 				+ "                    </fieldset>");
+		
 		out.println("<button type=\"submit\" class=\"btn btn-primary\">Register</button>\r\n"
 				+ "                </form>\r\n" + "\r\n" + "                <!-- Footer of the page -->\r\n"
 				+ "                <div>\r\n" + "                    <footer class=\"footer\">\r\n"
@@ -273,7 +282,6 @@ public class RegisterStudent extends HttpServlet {
 		
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
-        
 		boolean hasError = false;
 		if (firstName.isEmpty() || firstName.matches("[A-Za-z]")) {
 			request.setAttribute("fError", "You must enter a first name");
@@ -302,8 +310,8 @@ public class RegisterStudent extends HttpServlet {
 			return;
 		} else {
 			ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
-			
-			//Student newStudent = new Student(firstName, lastName, email, password1);
+			ArrayList<Student> mainDB = (ArrayList<Student>) getServletContext().getAttribute("mainDB");
+			//Student newStudent = new Student(firstName, lastName, email, password1,);
 		    //students.add(newStudent);
 			HttpSession session = request.getSession();
 			//session.setAttribute("authenticatedStudent", newStudent);

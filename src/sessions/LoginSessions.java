@@ -55,8 +55,9 @@ public class LoginSessions extends HttpServlet {
 		// faculties.add(new Faculty("Jose", "Richard", "j@r.com", "ghjk"));
 		// // Add the students to the application scope (Servlet Context)
 		getServletContext().setAttribute("faculties", faculties);
-		//Create a global database from where i can access every thing
-		//getServletContext().setAttribute("mainDB",mainDB);
+		//Create a global database from where I can access every thing
+		getServletContext().setAttribute("mainDB",mainDB);
+		
 
 	}
 
@@ -269,7 +270,6 @@ public class LoginSessions extends HttpServlet {
 		// ---------------------------------------------------------------------
 		// Here we going to check for students
 		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
-		Global tempDataBase = (Global) getServletContext().getAttribute("mainDB");
 		// Login and Check and make cookie given students login info
 		for (Student student : students) {
 			if (student.getEmail().toLowerCase().equals(username.trim().toLowerCase())
