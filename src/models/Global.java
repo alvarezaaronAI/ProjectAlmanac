@@ -68,6 +68,24 @@ public class Global {
 	 * More
 	 */
 	
+	public void addUser(User user) {
+		users.add(user);
+		if (user instanceof Student) {
+			students.add((Student) user);
+		} else if (user instanceof Faculty) {
+			faculty.add((Faculty) user);
+		}
+	}
+	
+	public void removeUser(User user) {
+		users.remove(user);
+		if (user instanceof Student) {
+			students.remove((Student) user);
+		} else if (user instanceof Faculty) {
+			faculty.remove((Faculty) user);
+		}
+	}
+	
 	public School generateSchool(File schoolFile) {
 		// Levi's work goes here
 		return null;

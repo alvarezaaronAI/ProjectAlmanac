@@ -31,13 +31,13 @@ public class LoginSessions extends HttpServlet {
 		
 		ArrayList<User> students = new ArrayList<User>();
 		String[] info1 = new String[3];
-		info1[1] = "CSULA";
-		info1[2] = "Engr";
-		info1[3] = "Computer Science";
+		info1[0] = "CSULA";
+		info1[1] = "Engr";
+		info1[2] = "Computer Science";
 		String[] info2 = new String[3];
-		info2[1] = "CSULA";
-		info2[2] = "Engr";
-		info2[3] = "Computer Science";
+		info2[0] = "CSULA";
+		info2[1] = "Engr";
+		info2[2] = "Computer Science";
 		students.add(new Student("harry", "potter", "h@p.com", "asdf", info1));
 		students.add(new Student("joe", "low", "j@l.com", "ghjk", info2));
 		// Add the students to the application scope (Servlet Context)
