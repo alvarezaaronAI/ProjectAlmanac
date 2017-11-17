@@ -9,6 +9,7 @@ public class Course {
 	private int courseNum;
 	private String name;
 	private int units;
+	private int difficulty;
 	private ArrayList<Course> prereqs = new ArrayList<>();
 	private ArrayList<String> semesters = new ArrayList<>();
 	
@@ -49,6 +50,10 @@ public class Course {
 		return units;
 	}
 	
+	public int getDifficulty() {
+		return difficulty;
+	}
+	
 	public ArrayList<Course> getPrereqs() {
 		return prereqs;
 	}
@@ -79,6 +84,10 @@ public class Course {
 	
 	public void setUnits(int units) {
 		this.units = units;
+	}
+	
+	public void setDifficulty(int difficulty) {
+		this.difficulty = difficulty;
 	}
 	
 	public void setPrereqs(ArrayList<Course> prereqs) {
