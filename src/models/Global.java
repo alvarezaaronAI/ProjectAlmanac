@@ -68,6 +68,11 @@ public class Global {
 	 * More
 	 */
 	
+	public School generateSchool(File schoolFile) {
+		// Levi's work goes here
+		return null;
+	}
+	
 	public void addUser(User user) {
 		users.add(user);
 		if (user instanceof Student) {
@@ -86,8 +91,12 @@ public class Global {
 		}
 	}
 	
-	public School generateSchool(File schoolFile) {
-		// Levi's work goes here
+	public static School findSchool(String name) {
+		for (School s : databases) {
+			if (s.getName().equals(name)) {
+				return s;
+			}
+		}
 		return null;
 	}
 }

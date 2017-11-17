@@ -48,12 +48,37 @@ public class Major {
 	 * Others
 	 */
 	
-	public void addCourse(Course course) {
-		courses.add(course);
+	/*
+	 * Adds a course
+	 * Returns false if a course already exists with the same name
+	 */
+	public boolean addCourse(Course course) {
+		if (findCourse(course.getName()) == null) {
+			return courses.add(course);
+		}
+		return false;
 	}
 	
-	public void removeCourse(Course course) {
-		courses.remove(course);
+	/*
+	 * Removes a course
+	 * Returns false if the course does not exist
+	 */
+	public boolean removeCourse(Course course) {
+		return courses.remove(course);
+	}
+	
+	/*
+	 * Removes a course by name
+	 * Returns false if the course does not exist
+	 */
+	public boolean removeCourse(String courseName) {
+		for (int i = 0; i < courses.size(); i++) {
+			if (courses.get(i).getName().equals(courseName)) {
+				courses.remove(i);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public Course findCourse(String courseID) {
