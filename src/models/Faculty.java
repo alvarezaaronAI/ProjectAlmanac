@@ -255,15 +255,33 @@ public class Faculty extends User {
 		System.out.println(csula);
 		System.out.println();
 		
-		String[] infoD = new String[1];
-		infoD[0] = "CSULA";
-		Faculty fD = new Faculty("sdfd", "sfdfg", "fdsfdf", "fdgewer", infoD, 'D');
-		fD.setSchool(csula);
-		fD.addDept("CSULA", new Department("Science"));
-		fD.addMajor("CSULA", "Science", new Major("Bio"));
-		fD.addCourse("CSULA", "Science", "Bio", cs3337);
-		fD.removeCourse("CSULA", "Science", "Bio", "Software Engineering");
+//		String[] infoD = new String[1];
+//		infoD[0] = "CSULA";
+//		Faculty fD = new Faculty("sdfd", "sfdfg", "fdsfdf", "fdgewer", infoD, 'D');
+//		fD.setSchool(csula);
+//		fD.addDept("CSULA", new Department("Science"));
+//		fD.addMajor("CSULA", "Science", new Major("Bio"));
+//		fD.addCourse("CSULA", "Science", "Bio", cs3337);
+//		System.out.println(csula);
+//		fD.removeCourse("CSULA", "Science", "Bio", "CS3337");
+//		fD.removeMajor("CSULA", "Science", "Bio");
+//		fD.removeDept("CSULA", "Science");
+//		System.out.println(csula);
+		
+		String[] infoM = new String[2];
+		infoM[0] = "CSULA";
+		infoM[1] = "Engineering";
+		Faculty fM = new Faculty("sdfd", "sfdfg", "fdsfdf", "fdgewer", infoM, 'M');
+		fM.setSchool(csula);
+		fM.setDept(eng);
+		System.out.println(fM.addDept("CSULA", new Department("Science")));
+		System.out.println(fM.addMajor("CSULA", "Engineering", new Major("dsdaas")));
+//		fM.addCourse("CSULA", "Engineering", "Computer Science", new Course("3035"));
 		System.out.println(csula);
+//		fM.removeCourse("CSULA", "Science", "Bio", "CS3337");
+//		fM.removeMajor("CSULA", "Science", "Bio");
+//		fM.removeDept("CSULA", "Science");
+//		System.out.println(csula);
 	}
 
 }
