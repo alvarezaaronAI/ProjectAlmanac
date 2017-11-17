@@ -36,15 +36,17 @@ public class RegisterFaculty extends HttpServlet {
 		//---------------------------------------------------------------------
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		String firstName=request.getParameter("firstName");
-		String lastName=request.getParameter("lastName");
-		String email=request.getParameter("email");
+		String firstName=request.getParameter("fName");
+		String lastName=request.getParameter("lName");
+		String email=request.getParameter("username");
 		String password1=request.getParameter("password1");
 		String password2=request.getParameter("password2");
 		String passwordByDeveloper=request.getParameter("passwordByDeveloper");
-		String nameError=(String) request.getAttribute("nameError");
+		String fError=(String) request.getAttribute("fError");
+		String lError=(String) request.getAttribute("lError");
 		String emailError=(String) request.getAttribute("emailError");
-		String passwordError=(String) request.getAttribute("passwordError");
+		String passwordError1=(String) request.getAttribute("passwordError1");
+		String passwordError2=(String) request.getAttribute("passwordError2");
 		
 		//---------------------------------------------------------------------
 		out.println("<doctype html>\r\n" + 
@@ -101,52 +103,89 @@ public class RegisterFaculty extends HttpServlet {
 				"                    </div>\r\n" + 
 				"                </div>\r\n" + 
 				"                <!-- Content -->\r\n" + 
-				"                <form action=\"RegisterFaculty\" method=\"post\">");
-				if(nameError!=null){
-				out.println(		"                    <div class=\"form-group has-error\">"+"<span class=\"help-block\">"+nameError+"</span>");
+				"                <form action= \"RegisterFaculty\" method= \"post\">");
+		
+		
+		
+		        out.println("<div class=\"form-group\">");
+		        firstName=firstName==null?"":firstName;
+		        lastName=lastName==null?"":lastName;
+		        if (fError != null) {
+					out.println("                        <label class=\"control-label text-danger\"> First Name</label>\r\n"
+							+"<p class =\"text-danger\">"+fError +" </p>");
+				} else{
+				out.println("                        <label class=\"control-label\"> First Name</label>\r\n");
 				}
-				else
-				out.println("<div class =\"form-group\">");
-				firstName=firstName==null?"":firstName;
-				lastName=lastName==null?"":lastName;
-				out.println(
-				"                        <label class=\"control-label\"> First Name</label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"" + firstName + "\" name=\"fName\" placeholder=\"Enter First Name\">\r\n" + 
-				"                    </div>\r\n" + 
-				"                    <div class=\"form-group\">\r\n" + 
-				"                        <label class=\"control-label\"> Last Name</label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"" + lastName + "\" name=\"lName\" placeholder=\" Enter Last Name\">\r\n" + 
-				"                    </div>\r\n");  
-				if(emailError!=null){
-					out.println("<div class=\"form-group has-error\">"+"<span class=\"help-block\">"+emailError+"</span>");
+				out.println("<input class=\"form-control\" type=\"text\" value=\"" + firstName
+						+ "\" name=\"fName\" placeholder=\"Enter First Name\">\r\n"+"</div>\r\n" );
+				
+				
+				out.println("<div class=\"form-group\">");
+				if(lError !=null){
+					out.println(" <label class=\"control-label text-danger\"> Last Name</label>\r\n"
+							+"<p class =\"text-danger\">"+lError +" </p>"); 
+				}else{
+					out.println("                        <label class=\"control-label\"> Last Name</label>\r\n");
+				}	
+					out.println("       <input class=\"form-control\" type=\"text\" value=\"" + lastName  
+							+   "\" name=\"lName\" placeholder=\"Enter Last Name\">\r\n" +"</div>\r\n");
+				
+				
+				
+				
+				
+				out.println("<div class=\"form-group\">");
+				if (emailError != null) {
+					out.println(
+							    "<label class=\"control-label text-danger\"> Email</label>\r\n"
+									+"<p class =\"text-danger\">"+emailError +" </p>");
 				}
-				else
-						out.println("                    <div class=\"form-group\">\r\n"); 
-				email=email==null?"":email;
-				out.println(
-						"                        <label class=\"control-label\"> Your Email Adress </label>\r\n" + 
-						"                        <input class=\"form-control\" type=\"text\" value=\"" + email + "\" name=\"username\" placeholder=\"Enter New Email\">\r\n" + 
-						"                    </div>\r\n"); 
-				if(passwordError!=null){
-		          out.println("<div class=\"form-group has-error\">"+"<span class=\"help-block\">"+passwordError+"</span>");         
+				else{
+					out.println("<label class=\"control-label\"> Email</label>\r\n");
+			    }
+			    
+				email = email == null ? "" : email;
+				out.println( "                        <input class=\"form-control\" type=\"text\" value=\"" + email
+						+ "\" name=\"username\" placeholder=\"Enter New Email\">\r\n" + "</div>\r\n");
+				
+				
+				
+				out.println("<div class=\"form-group\">");
+				if (passwordError1 != null) {
+					out.println(
+							"<label class=\"control-label text-danger\"> Password</label>\r\n"
+									+"<p class =\"text-danger\">"+passwordError1 +" </p>");
+				} else {
+						out.println("<label class=\"control-label\"> Password</label>\r\n");
 				}
-				else
-					out.println("<div class=\"form-group\">\r\n"); 
-				password1=password1==null?"":password1;
-				password2=password2==null?"":password2;
-		        passwordByDeveloper=passwordByDeveloper==null?"":passwordByDeveloper;
-				out.println(
-				"                        <label class=\"control-label\"> Password </label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"" + password1 + "\" name=\"password1\" placeholder=\"Enter New Password\">\r\n" + 
-				"                    </div>\r\n" + 
-				"                    <div class=\"form-group\">\r\n" + 
-				"                        <label class=\"control-label\"> Retype Password </label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"" + password2 + "\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n" + 
-				"                    </div>\r\n" + 
-				"                    <div class=\"form-group\">\r\n" + 
-				"                        <label class=\"control-label\"> Unique Faculty Password </label>\r\n" + 
-				"                        <input class=\"form-control\" type=\"text\" value=\"" + passwordByDeveloper + "\" name=\"passwordByDeveloper\" placeholder=\"Enter the Password Given By Developer\">\r\n" + 
-				"                    </div>\r\n"); 
+					
+					password1 = password1 == null ? "" : password1;
+					password2 = password2 == null ? "" : password2;
+					out.println(
+							    "                        <input class=\"form-control\" type=\"text\" value=\"" + password1
+							+ "\" name=\"password1\" placeholder=\"Enter New Password\">\r\n" + "  </div>\r\n"
+							+ "                    <div class=\"form-group\">\r\n"
+							+ "                        <label class=\"control-label\"> Retype Password </label>\r\n"
+							+ "                        <input class=\"form-control\" type=\"text\" value=\"" + password2
+							+ "\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n"
+							+ "                    </div>\r\n");
+				
+				out.println("<div class=\"form-group\">");
+				if (passwordError2 != null) {
+					out.println(
+							"<label class=\"control-label text-danger\"> Password Provided By Developer</label>\r\n"
+									+"<p class =\"text-danger\">"+passwordError2 +" </p>");
+				}else{
+					out.println("<label class=\"control-label\"> Password Provided By Developer</label>\r\n");
+				}
+				passwordByDeveloper=passwordByDeveloper==null?"":passwordByDeveloper;
+				out.println( "                        <input class=\"form-control\" type=\"text\" value=\"" + passwordByDeveloper
+						+ "\" name=\"passwordByDeveloper\" placeholder=\"Enter Password Provided By Developer\">\r\n" + "</div>\r\n");
+				
+				
+				
+				
+				
 				out.println("<fieldset class=\"form-group\">\r\n" + 
 						"                        <div class=\"container-fluid \">\r\n" + 
 						"                            <div class=\"row\">\r\n" + 
@@ -278,20 +317,20 @@ public class RegisterFaculty extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String firstName=request.getParameter("firstName");
-		String lastName=request.getParameter("lastName");
-		String email=request.getParameter("email");
+		String firstName=request.getParameter("fName");
+		String lastName=request.getParameter("lName");
+		String email=request.getParameter("username");
 		String password1=request.getParameter("password1");
 		String password2=request.getParameter("password2");
 		String passwordByDeveloper=request.getParameter("passwordByDeveloper");
 		
 		boolean hasError=false;
-		if (firstName==null||firstName.matches("[a-zA-Z]{2,} [a-zA-Z]{2,}")){
-			request.setAttribute("nameError","You must enter a first name");
+		if (firstName.isEmpty()||firstName.matches("[a-zA-Z]")){
+			request.setAttribute("fError","You must enter a first name");
 			hasError=true;
 		}
-		if (lastName==null||lastName.matches("[a-zA-Z]{2,} [a-zA-Z]{2,}")){
-			request.setAttribute("nameError","You must enter a last name");
+		if (lastName.isEmpty()||lastName.matches("[a-zA-Z]")){
+			request.setAttribute("lError","You must enter a last name");
 			hasError=true;
 		}
 		if (email==null||email.trim().length()==0){
@@ -302,16 +341,16 @@ public class RegisterFaculty extends HttpServlet {
 			request.setAttribute("emailError", "This email is already registered");
 			hasError=true;
 		}
-		if (password1==null||password1.trim().length()==0){
-			request.setAttribute("passwordError", "You must enter a password");
+		if (password1.isEmpty()||password1.trim().length()==0){
+			request.setAttribute("passwordError1", "You must enter a password");
             hasError=true;
 		}
-		else if (password2==null||!password1.equals(password2)){
-			request.setAttribute("passwordError", "Passwords don't match");
+		else if (password2.isEmpty()||!password1.equals(password2)){
+			request.setAttribute("passwordError1", "Passwords don't match");
 			hasError=true;
 		}
-		if(passwordByDeveloper==null||passwordByDeveloper.trim().length()==0){
-			request.setAttribute("passwordError", "Password you enter does not match any password provided by developer");
+		if(!passwordByDeveloper.equals("ABCD")){
+			request.setAttribute("passwordError2", "Password you enter does not match any password provided by developer");
 		    hasError=true;
 		}
 		if (hasError){
@@ -320,12 +359,11 @@ public class RegisterFaculty extends HttpServlet {
 			}
 		else{
 			ArrayList<Faculty> faculties=(ArrayList<Faculty>) getServletContext().getAttribute("faculties");
-			//Fix Code here in the indented comments
-				//Faculty newFaculty=new Faculty(firstName, lastName, email, password1);
-			//new faculty
-				//faculties.add(newFaculty);
+			//Faculty newFaculty=new Faculty(firstName, lastName, email, password1);
+			         //new faculty
+			//faculties.add(newFaculty);
 			HttpSession session=request.getSession();
-				//session.setAttribute("authenticatedFaculty", newFaculty);
+			//session.setAttribute("authenticatedFaculty", newFaculty);
 			response.sendRedirect("sessions/Login");
 			return;
 		}
