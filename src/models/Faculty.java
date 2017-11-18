@@ -1,7 +1,5 @@
 package models;
 
-import java.util.ArrayList;
-
 import structure.Course;
 import structure.Department;
 import structure.Major;
@@ -236,52 +234,6 @@ public class Faculty extends User {
 	@Override
 	public String toString() {
 		return "Faculty: " + super.toString();
-	}
-	
-	// TESTING
-	public static void main(String[] args) {
-		School csula = new School("CSULA");
-		Department eng = new Department("Engineering");
-		Major cs = new Major("Computer Science");
-		ArrayList<String> semesters = new ArrayList<>();
-		semesters.add("Fall");
-		semesters.add("Spring");
-		Course cs3337 = new Course("CS", 3337, "Software Engineering", 3, semesters);
-		Course cs3112 = new Course("CS", 3112, "Analysis of Algorithms", 3, semesters);
-		csula.addDept(eng);
-		eng.addMajor(cs);
-		cs.addCourse(cs3337);
-		cs.addCourse(cs3112);
-		System.out.println(csula);
-		System.out.println();
-		
-//		String[] infoD = new String[1];
-//		infoD[0] = "CSULA";
-//		Faculty fD = new Faculty("sdfd", "sfdfg", "fdsfdf", "fdgewer", infoD, 'D');
-//		fD.setSchool(csula);
-//		fD.addDept("CSULA", new Department("Science"));
-//		fD.addMajor("CSULA", "Science", new Major("Bio"));
-//		fD.addCourse("CSULA", "Science", "Bio", cs3337);
-//		System.out.println(csula);
-//		fD.removeCourse("CSULA", "Science", "Bio", "CS3337");
-//		fD.removeMajor("CSULA", "Science", "Bio");
-//		fD.removeDept("CSULA", "Science");
-//		System.out.println(csula);
-		
-		String[] infoM = new String[2];
-		infoM[0] = "CSULA";
-		infoM[1] = "Engineering";
-		Faculty fM = new Faculty("sdfd", "sfdfg", "fdsfdf", "fdgewer", infoM, 'M');
-		fM.setSchool(csula);
-		fM.setDept(eng);
-		System.out.println(fM.addDept("CSULA", new Department("Science")));
-		System.out.println(fM.addMajor("CSULA", "Engineering", new Major("dsdaas")));
-//		fM.addCourse("CSULA", "Engineering", "Computer Science", new Course("3035"));
-		System.out.println(csula);
-//		fM.removeCourse("CSULA", "Science", "Bio", "CS3337");
-//		fM.removeMajor("CSULA", "Science", "Bio");
-//		fM.removeDept("CSULA", "Science");
-//		System.out.println(csula);
 	}
 
 }
