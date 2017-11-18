@@ -88,4 +88,13 @@ public class Semester implements Comparable<Semester> {
 			}
 		}
 	}
+	
+	@Override
+	public String toString() {
+		String str = name + " " + year;
+		for (Course c : courses) {
+			str += "\n-" + c;
+		}
+		return str;
+	}
 }
