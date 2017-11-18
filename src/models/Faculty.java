@@ -27,16 +27,16 @@ public class Faculty extends User {
 		
 		switch (level) {
 		case 'D':
-			school = determineSchool(info[0]);
+			school = Global.findSchool(info[0]);
 			break;
 		case 'M':
-			school = determineSchool(info[0]);
+			school = Global.findSchool(info[0]);
 			if (school != null) {
 				dept = school.findDept(info[1]);
 			}
 			break;
 		case 'C':
-			school = determineSchool(info[0]);
+			school = Global.findSchool(info[0]);
 			if (school != null) {
 				dept = school.findDept(info[1]);
 				if (dept != null) {
