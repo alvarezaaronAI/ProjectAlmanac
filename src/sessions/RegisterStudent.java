@@ -299,7 +299,10 @@ public class RegisterStudent extends HttpServlet {
 		
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
-		 
+		//With the arraylist of majorOptions and DeptOptions, check what dept they choose and add it in the New Student
+		ArrayList<String> deptOptions = (ArrayList<String>) getServletContext().getAttribute("deptOption");
+		ArrayList<String> majorOption = (ArrayList<String>) getServletContext().getAttribute("majorOptions");
+		
 		boolean hasError = false;
 		if (firstName.isEmpty() || firstName.matches("[A-Za-z]")) {
 			request.setAttribute("fError", "You must enter a first name");
