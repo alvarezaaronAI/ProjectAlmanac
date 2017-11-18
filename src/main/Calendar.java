@@ -77,7 +77,7 @@ public class Calendar extends HttpServlet {
 				"            <div class=\"container-fluid text-center\">\r\n" + 
 				"                <!-- Heading of the Page -->\r\n" + 
 				"                <div class=\"jumbotron text-center mini-boxes\">\r\n" + 
-				"                    <h1> My Profile: Name of the Student</h1>\r\n" + 
+				"                    <h1> My Profile: "+ studentTemp.getFirstName() +"</h1>\r\n" + 
 				"                    <aside title=\"Projects Logo\">\r\n" + 
 				"                        <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                    </aside>\r\n" + 

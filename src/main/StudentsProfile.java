@@ -86,13 +86,18 @@ public class StudentsProfile extends HttpServlet {
 				"        <div class=\"container-fluid\">\r\n" + 
 				"            <!-- Heading of the Page -->\r\n" + 
 				"            <div class=\"jumbotron text-center mini-boxes\">\r\n" + 
-				"                <h1> My Profile: Name of the Student</h1>\r\n" + 
+				"                <h1> My Profile: "+ student.getFullName()+"</h1>\r\n" + 
 				"                <aside title=\"Projects Logo\">\r\n" + 
 				"                    <img width=\"150px\" height=\"150px\" src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png\" alt=\"Logo Picture\">\r\n" + 
 				"                </aside>\r\n" + 
 				"            </div>\r\n" + 
-				"            <!-- Content -->\r\n" + 
-				"            <!-- Log Out Button -->\r\n" + 
+				"            <!-- Content -->\r\n" );
+				out.println("<div class=\"row\">\r\n" + 
+						"                <div class=\"col-lg-12 col-md-12  col-sm-12\">\r\n" + 
+						"                    <img  src=\"http://cs3.calstatela.edu:8080/cs3337stu10/Images/RoadMap.png\" alt=\"Road Map Picture\">\r\n" + 
+						"                </div>\r\n" + 
+						"            </div>");
+				out.println("            <!-- Log Out Button -->\r\n" + 
 				"            <div class=\"text-center\">\r\n" + 
 				"                <form action=\"LogoutSessions\" method=\"get\">\r\n" + 
 				"                    <a class=\"btn btn-primary\" href=\"../sessions/Logout\">Log Out</a>\r\n" + 

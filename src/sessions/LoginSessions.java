@@ -40,7 +40,7 @@ public class LoginSessions extends HttpServlet {
 		info2[0] = "CSULA";
 		info2[1] = "Engr";
 		info2[2] = "Computer Science";
-		students.add(new Student("harry", "potter", "h@p.com", "asdf", info1));
+		students.add(new Student("Joe", "Bob", "j@b.com", "asdf", info1));
 		students.add(new Student("joe", "low", "j@l.com", "ghjk", info2));
 		for (int i = 0; i < students.size(); i++) {
 			System.out.println("Student " + i + " is -" + students.get(i).getFirstName());
