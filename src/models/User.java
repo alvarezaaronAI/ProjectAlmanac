@@ -94,15 +94,6 @@ public class User {
 	 * More
 	 */
 	
-	protected School determineSchool(String schoolName) {
-		for (School s : Global.databases) {
-			if (s.getName().equals(schoolName)) {
-				return s;
-			}
-		}
-		return null;
-	}
-	
 	@Override
 	public String toString() {
 		return getFullName() + " | Email: " + email + " | Unique identity: " + identity;

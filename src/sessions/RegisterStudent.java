@@ -3,7 +3,6 @@ package sessions;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.Global;
 import models.Student;
+import structure.Department;
+import structure.Major;
 
 /**
  * Servlet implementation class RegisterStudent
@@ -51,7 +53,7 @@ public class RegisterStudent extends HttpServlet {
 				+ "                background-color: darkcyan;\r\n" + "            }\r\n" + "            .nav-link{\r\n"
 				+ "                font-weight: bold;\r\n" + "            }\r\n" + "            body{\r\n"
 				+ "                zoom: 80%;\r\n" + "            }\r\n" + "        </style>\r\n" + "    </head>\r\n"
-				+ "    <!-- Body of the page -->\r\n" + "\r\n" + "    <body class=\"body-main\">\r\n"
+				+ "    <!-- Body of the page -->\r\n" + "\r\n"  + "    <body class=\"body-main\">\r\n"
 				+ "        <!-- Heading of the page -->\r\n" + "        <div class=\"container-fluid\">\r\n"
 				+ "            <div class=\"container-fluid text-center\">\r\n" + "                <!-- Header -->\r\n"
 				+ "                <div class=\"jumbotron mini-boxes\">\r\n" + "                    <!-- Logo -->\r\n"
@@ -137,17 +139,27 @@ public class RegisterStudent extends HttpServlet {
 					+ "\" name=\"password2\" placeholder=\"Enter New Password Again\">\r\n"
 					+ "                    </div>\r\n");
 			
-			
+		Global mainDB = (Global) getServletContext().getAttribute("mainDB");
+		System.out.println("Maindb is " + mainDB.toString());
+		
+		//An ArrayList of Schools
+			//mainDB ArrayList
 		out.println(" <fieldset class=\"form-group\">\r\n"
 				+ "                        <div class=\"container-fluid \">\r\n"
 				+ "                            <div class=\"row\">\r\n"
 				+ "                                <div class=\"col-sm-4\">\r\n"
 				+ "                                    <legend class=\"legend-text\">School Selection</legend>\r\n"
 				+ "                                    <div class=\"form-check\">\r\n"
-				+ "                                        <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + schoolOption + name=\"schoolOption\" id=\"schoolOption\" checked> One School\r\n"
+				);
+		//do a for loop that goes through the arraylost of Databases and prints out the schools
+		
+		//Here print just one school for demo
+			out.println("                                      <label class=\"form-check-label\">\r\n"
+				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"" + mainDB.getDefaultSchool().getName() + "\" name=\"schoolOption\" id=\"schoolOption\" checked> "+ mainDB.getDefaultSchool().getName()+"\r\n"
 				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n"
+				);
+		//For loop that goes through the the list of departments
+			out.println("                                    	</div>\r\n"
 				+ "                                    <div class=\"form-check\">\r\n"
 				+ "                                        <label class=\"form-check-label\">\r\n"
 				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + schoolOption2 + name=\"schoolOption\" id=\"schoolOption\"> Second School\r\n"
@@ -160,12 +172,24 @@ public class RegisterStudent extends HttpServlet {
 				+ "                                    </div>\r\n" + "                                </div>\r\n"
 				+ "                                <div class=\"col-sm-4\">\r\n"
 				+ "                                    <legend class=\"legend-text\">Department Selection</legend>\r\n"
-				+ "                                    <div class=\"form-check\">\r\n"
-				+ "                                        <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + deptOption + name=\"deptOption\" id=\"deptOption\" checked> One Department\r\n"
+				);
+		/*	csulaDepts gets an arraylist of departments for me to transverse
+			departmentOptions is what i am saving in order to retrieve it in Post method*/
+			ArrayList<Department> csulaDepts = mainDB.getDefaultSchool().getDepts();
+			ArrayList<String> departmentOptions = new ArrayList<>();
+			for (int i = 0; i < csulaDepts.size(); i++) {
+				String tempDeptSetUp = csulaDepts.get(i).getName(); 
+				departmentOptions.add(tempDeptSetUp);
+				out.println("                          <div class=\"form-check\">\r\n" 
+				
+				+ "                                    <label class=\"form-check-label\">\r\n"
+				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"" + tempDeptSetUp + "\" + name=\"deptOption\" id=\"deptOption\" checked>"+ tempDeptSetUp + "\r\n"
 				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n"
-				+ "                                    <div class=\"form-check\">\r\n"
+				+ "                                    </div>\r\n");
+			}
+			//Send to the server the Arraylist of departementOptions for me to read in the post method
+			getServletContext().setAttribute("deptOptions", departmentOptions);
+				out.println( "                                    <div class=\"form-check\">\r\n"
 				+ "                                        <label class=\"form-check-label\">\r\n"
 				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + deptOption2 + name=\"deptOption\" id=\"deptOption2\"> Second Department\r\n"
 				+ "                                        </label>\r\n"
@@ -174,26 +198,31 @@ public class RegisterStudent extends HttpServlet {
 				+ "                                        <label class=\"form-check-label\">\r\n"
 				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + deptOption3 + name=\"deptOption\" id=\"deptOption3\" disabled> Not an Option Department\r\n"
 				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n" + "                                </div>\r\n"
-				+ "                                <div class=\"col-sm-4\">\r\n"
-				+ "                                    <legend class=\"legend-text\">Major Selection</legend>\r\n"
-				+ "                                    <div class=\"form-check\">\r\n"
-				+ "                                        <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + majOption + name=\"majOption\" id=\"majOption\" checked> One Major\r\n"
-				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n"
-				+ "                                    <div class=\"form-check\">\r\n"
-				+ "                                        <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + majOption2 + name=\"majOption\" id=\"majOption2\"> Second Major\r\n"
-				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n"
-				+ "                                    <div class=\"form-check disabled\">\r\n"
-				+ "                                        <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + majOption3 + name=\"majOption\" id=\"majOption3\" disabled> Not an Option Major\r\n"
-				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n" + "                                </div>\r\n"
-				+ "                            </div>\r\n" + "                        </div>\r\n"
+				+ "                                    </div>\r\n" + "                                </div>\r\n");
+		/*	Make an arraylist of majors to get all the majors listed in each dept.
+			Store a list of majors, from each dept.*/
+			ArrayList<String> majorOptions = new ArrayList<>();
+			for (int i = 0; i < csulaDepts.size(); i++) {
+				ArrayList<Major> tempMajors = csulaDepts.get(i).getMajors();
+				out.println("                       <div class=\"col-sm-4\">\r\n"
+				+ "                                    <legend class=\"legend-text\">Major Selection for " + departmentOptions.get(i) +"</legend>\r\n"
+				+ "                                    <div class=\"form-check\">\r\n");
+				//for loop that goes through every department and prints out each major in that department
+				for (int j = 0; j < tempMajors.size(); j++) {
+					String tempOneMajor = tempMajors.get(j).getName();
+					majorOptions.add(tempOneMajor);
+					out.println("                                        <label class=\"form-check-label\">\r\n"
+					+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"" + tempOneMajor + "\" + name=\"majOption\" id=\"majOption\" checked>" + tempOneMajor +"\r\n"
+					+ "                                        </label>\r\n" );
+					}
+				out.println("                                    </div>\r\n"                             
+				+ "                                 </div>\r\n"
+				);
+			}
+			getServletContext().setAttribute("majorOptions", majorOptions);
+				out.println( "                            </div>\r\n" + "                        </div>\r\n"
 				+ "                    </fieldset>");
+		
 		out.println("<button type=\"submit\" class=\"btn btn-primary\">Register</button>\r\n"
 				+ "                </form>\r\n" + "\r\n" + "                <!-- Footer of the page -->\r\n"
 				+ "                <div>\r\n" + "                    <footer class=\"footer\">\r\n"
@@ -248,7 +277,14 @@ public class RegisterStudent extends HttpServlet {
 	 *      response)
 	 */
     boolean emailInUse(String email) {
-		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
+    	Global mainDB = (Global) getServletContext().getAttribute("mainDB");
+    	ArrayList<Student> students = mainDB.students;
+		if(students == null) {
+			System.out.println("Theres nothing in students");
+		}
+		for (int i = 0; i < students.size(); i++) {
+			System.out.println("Student " + i + " is -" + students.get(i));
+		}
 		for (Student student : students) {
 			if (student.getEmail().toLowerCase().matches(email.toLowerCase()))
 				return true;
@@ -263,10 +299,19 @@ public class RegisterStudent extends HttpServlet {
 		String lastName = request.getParameter("lName");
 		
 		String email = request.getParameter("username");
-		
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
-        
+		//With the arraylist of majorOptions and DeptOptions, check what dept they choose and add it in the New Student
+		ArrayList<String> deptOptions = (ArrayList<String>) getServletContext().getAttribute("deptOption");
+		ArrayList<String> majorOption = (ArrayList<String>) getServletContext().getAttribute("majorOptions");
+		String[] info = new String[3];
+		String school = request.getParameter("schoolOption");
+		info[0] = school;
+		String dept = request.getParameter("deptOption");
+		info[1] = dept;
+		String major = request.getParameter("majOption");
+		info[2] = major;
+		System.out.println("School----" + school + " dept----" + dept + " major----" + major);
 		boolean hasError = false;
 		if (firstName.isEmpty() || firstName.matches("[A-Za-z]")) {
 			request.setAttribute("fError", "You must enter a first name");
@@ -295,12 +340,18 @@ public class RegisterStudent extends HttpServlet {
 			return;
 		} else {
 			ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
+			Global mainDB = (Global) getServletContext().getAttribute("mainDB");
+			Student newStudent = new Student(firstName, lastName, email, password1,info);
+			mainDB.addUser(newStudent);
+			for (int i = 0; i < mainDB.students.size(); i++) {
+				if(newStudent.getIdentity() == mainDB.students.get(i).getIdentity()) {
+					getServletContext().setAttribute("authenticatedStudent", mainDB.students.get(i));
+				}
+				
+				System.out.println("Tried -- " + mainDB.students.get(i).getIdentity() + "with" + newStudent.getIdentity());
+			}
 			
-			//Student newStudent = new Student(firstName, lastName, email, password1);
-		    //students.add(newStudent);
-			HttpSession session = request.getSession();
-			//session.setAttribute("authenticatedStudent", newStudent);
-			response.sendRedirect("sessions/Login");
+			response.sendRedirect("../sessions/Login");
 			return;
 
 		}

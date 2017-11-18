@@ -13,7 +13,7 @@ public class Student extends User {
 	Major major;
 	Forum forum;
 	RecomendationsAndModifications recsAndMods;
-	CalendarModel calendar;
+	Planner planner; // has both recommended and custom schedules
 	
 	/**
 	 * Constructor-When creating a student you want to create a unique identity
@@ -21,13 +21,14 @@ public class Student extends User {
 	public Student(String firstNameIn, String lastNameIn, String emailIn, String passwordIn, String[] info) {
 		super(firstNameIn, lastNameIn, emailIn, passwordIn);
 		
-		School school = determineSchool(info[0]);
+		School school = Global.findSchool(info[0]);
 		if (school != null) {
 			Department dept = school.findDept(info[1]);
 			if (dept != null) {
 				major = dept.findMajor(info[2]);
 			}
 		}
+		this.planner = new Planner("California State University of Los Angeles", "Engineering", "Computer Science", "Fall", 2018);
 	}
 	/**
 	 * Methods About the Student
@@ -49,8 +50,8 @@ public class Student extends User {
 		return recsAndMods;
 	}
 	
-	public CalendarModel getCalendar() {
-		return calendar;
+	public Planner getPlanner() {
+		return planner;
 	}
 	
 	/*
@@ -69,8 +70,8 @@ public class Student extends User {
 		this.recsAndMods = recsAndMods;
 	}
 	
-	public void setCalendarModel(CalendarModel calendar) {
-		this.calendar = calendar;
+	public void setPlanner(Planner planner) {
+		this.planner = planner;
 	}
 	
 	

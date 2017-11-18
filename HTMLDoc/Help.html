@@ -1,4 +1,4 @@
-<doctype html>
+﻿<doctype html>
     <html lang="en">
 
     <head>
@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
             crossorigin="anonymous">
-        <title> Students Profile </title>
+        <title> Help </title>
         <style type="text/css">
             .control-label {
                 font-weight: bold;
@@ -31,6 +31,16 @@
             body {
                 zoom: 80%;
             }
+			
+			textarea {
+			 
+	
+	width: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;	
+	
+	height: 60px;
+			}
         </style>
     </head>
 
@@ -38,17 +48,73 @@
         <div class="container-fluid">
             <!-- Heading of the Page -->
             <div class="jumbotron text-center mini-boxes">
-                <h1> My Profile: Name of the Student</h1>
+                <h1> Help</h1>
                 <aside title="Projects Logo">
                     <img width="150px" height="150px" src="http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png" alt="Logo Picture">
                 </aside>
             </div>
             <!-- Content -->
-            <div class="row">
-                <div class="col-lg-12 col-md-12  col-sm-12">
-                    <img  src="http://cs3.calstatela.edu:8080/cs3337stu10/Images/RoadMap.png" alt="Road Map Picture">
-                </div>
-            </div>
+			<h2>Most Popular Questions</h2>
+			
+			<div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Register Questions
+        </a>
+      </h5>
+    </div>
+	
+
+    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        <p>If you register as a student, please enter your first name, last name, email address, set a password and retype that password.</p>
+		<p>If you register as a faculty, besides everything mentioned above, please also enter the password provided by developer. Ask developers for more details.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Login Questions
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="card-block">
+        <p>Please enter the email and password you used to register. Note that the password here is not the password provided by developer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Other Questions
+        </a>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-block">
+       <p>If you have any other questions, feel free to leave a message and your contact information here, we will reply to you as soon as possible.</p>
+	   <form action="myform.cgi">
+			 
+			 <!--<input type="questions" name="questions" id="questions" maxlength="200">-->
+			 <label for="questions">Enter Your Questions Here</label></br>
+			 
+			 <textarea></textarea></br>
+			 <input type="submit" value="Submit">
+			 
+			 </form>
+			 
+			 
+      </div>
+    </div>
+  </div>
+</div>
+			
             <!-- Log Out Button -->
             <div class="text-center">
                 <form action="LogoutSessions" method="get">
@@ -83,11 +149,15 @@
                                             <a class="nav-link" href="../sessions/Logout">Log Out</a>
                                         </form>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../Info/Help">Help</a>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="Help.html">Help
+										<span class="sr-only">(current)</span>
+										</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../Info/ContactAlmanac">Contact and Suggestions </a>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="ContactAndSuggestions.html">Contact and Suggestions 
+										<span class="sr-only">(current)</span>
+										</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="Forum">Forum</a>
@@ -101,6 +171,7 @@
                                 </ul>
                             </div>
                         </nav>
+					
                         <p class="p1">&copy;2017 Almanac, All Rights Reserve.</p>
                     </div>
             </div>
@@ -118,3 +189,4 @@
     </body>
 
     </html>
+	

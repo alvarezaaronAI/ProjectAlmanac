@@ -1,5 +1,6 @@
 package sessions;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import models.Faculty;
+import models.Global;
 import models.Student;
 import models.User;
 
@@ -28,21 +30,34 @@ public class LoginSessions extends HttpServlet {
 		super.init(config);
 		// ---------------------------------------------------------------------
 		// Create a few students
-		
-		ArrayList<User> students = new ArrayList<User>();
-		String[] info1 = new String[3];
-		info1[1] = "CSULA";
-		info1[2] = "Engr";
-		info1[3] = "Computer Science";
-		String[] info2 = new String[3];
-		info2[1] = "CSULA";
-		info2[2] = "Engr";
-		info2[3] = "Computer Science";
-		students.add(new Student("harry", "potter", "h@p.com", "asdf", info1));
-		students.add(new Student("joe", "low", "j@l.com", "ghjk", info2));
-		// Add the students to the application scope (Servlet Context)
-		//Global bla = new Global(students);
-		getServletContext().setAttribute("students", students);
+		Global mainDB;
+		try {
+			mainDB = new Global();
+			ArrayList<User> students = new ArrayList<User>(); // -- harry -joe
+			String[] info1 = new String[3];
+			info1[0] = "CSULA";
+			info1[1] = "Engr";
+			info1[2] = "Computer Science";
+			String[] info2 = new String[3];
+			info2[0] = "CSULA";
+			info2[1] = "Engr";
+			info2[2] = "Computer Science";
+			students.add(new Student("Joe", "Bob", "j@b.com", "asdf", info1));
+			students.add(new Student("joe", "low", "j@l.com", "ghjk", info2));
+			for (int i = 0; i < students.size(); i++) {
+				System.out.println("Student " + i + " is -" + students.get(i).getFirstName());
+			}
+			// Add the students to the application scope (Servlet Context)
+				mainDB.setUsers(students);
+				getServletContext().setAttribute("mainDB",mainDB);
+				getServletContext().setAttribute("students", students);
+				
+			
+		} catch (FileNotFoundException e1) {
+			
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		// ---------------------------------------------------------------------
 		// Create a few faculties
 		ArrayList<Faculty> faculties = new ArrayList<Faculty>();
@@ -50,6 +65,8 @@ public class LoginSessions extends HttpServlet {
 		// faculties.add(new Faculty("Jose", "Richard", "j@r.com", "ghjk"));
 		// // Add the students to the application scope (Servlet Context)
 		getServletContext().setAttribute("faculties", faculties);
+		//Create a global database from where I can access every thing
+		
 
 	}
 
@@ -62,6 +79,7 @@ public class LoginSessions extends HttpServlet {
 		// ---------------------------------------------------------------------
 		// Checking cookies first to see if a student wanted to stay logged in.
 		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
+		Global mainDB = (Global) getServletContext().getAttribute("mainDB");
 		Cookie[] cookies = request.getCookies();
 		// For every cookie that it was requested we must athenticate the student log in
 		// and by pass the password.
@@ -134,8 +152,9 @@ public class LoginSessions extends HttpServlet {
 						"\r\n" + 
 						"                    </div>\r\n" + 
 						"                </div>\r\n" + 
-						"                <!-- Content -->\r\n" + 
-						"                <div class=\"container-fluid text-center\">\r\n" + 
+						"                <!-- Content -->\r\n" );
+				//out.println("File outOut: " + mainDB.getDefaultFile().getAbsolutePath());
+						out.println("                <div class=\"container-fluid text-center\">\r\n" + 
 						"                    <span>\r\n" + 
 						"                        <ul style=\"list-style-type: none; display: inline-block;\">\r\n" + 
 						"                            <li>\r\n" + 

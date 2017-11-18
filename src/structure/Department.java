@@ -48,12 +48,37 @@ public class Department {
 	 * Others
 	 */
 	
-	public void addMajor(Major major) {
-		majors.add(major);
+	/*
+	 * Adds a major
+	 * Returns false if a major already exists with the same name
+	 */
+	public boolean addMajor(Major major) {
+		if (findMajor(major.getName()) == null) {
+			return majors.add(major);
+		}
+		return false;
 	}
 	
-	public void removeMajor(Major major) {
-		majors.remove(major);
+	/*
+	 * Removes a major
+	 * Returns false if the major does not exist
+	 */
+	public boolean removeMajor(Major major) {
+		return majors.remove(major);
+	}
+	
+	/*
+	 * Removes a major by name
+	 * Returns false if the major does not exist
+	 */
+	public boolean removeMajor(String majorName) {
+		for (int i = 0; i < majors.size(); i++) {
+			if (majors.get(i).getName().equals(majorName)) {
+				majors.remove(i);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public Major findMajor(int majorID) {
@@ -67,6 +92,7 @@ public class Department {
 	
 	public Major findMajor(String majorName) {
 		for (Major m : majors) {
+			System.out.println("Major Name In-" + majorName + "Check with " +m.getName() );
 			if (m.getName().equals(majorName)) {
 				return m;
 			}
