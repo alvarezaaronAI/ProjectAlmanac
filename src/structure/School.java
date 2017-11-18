@@ -109,26 +109,4 @@ public class School {
 		}
 		return schoolInfo;
 	}
-	
-	// TESTING
-	public static void main(String[] args) {
-		School csula = new School("CSULA");
-		Department eng = new Department("Engineering");
-		Major cs = new Major("Computer Science");
-		ArrayList<String> semesters = new ArrayList<>();
-		semesters.add("Fall");
-		semesters.add("Spring");
-		Course cs3337 = new Course("CS", 3337, "Software Engineering", 3, semesters);
-		Course cs3112 = new Course("CS", 3112, "Analysis of Algorithms", 3, semesters);
-		csula.addDept(eng);
-		eng.addMajor(cs);
-		cs.addCourse(cs3337);
-		cs.addCourse(cs3112);
-
-		System.out.println(csula);
-		
-		// testing search methods
-		Course cs3337Found = csula.findDept("Engineering").findMajor("Computer Science").findCourse("CS3337");
-		System.out.println("found: " + cs3337Found);
-	}
 }

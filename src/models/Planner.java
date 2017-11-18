@@ -185,6 +185,15 @@ public class Planner {
 		return null;
 	}
 	
+	@Override
+	public String toString() {
+		String str = new String();
+		for (Semester s : customSchedule) {
+			str += s + "\n";
+		}
+		return str;
+	}
+	
 	/*
 	 * Methods for both the recommended and custom schedule
 	 */
