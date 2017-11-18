@@ -277,7 +277,8 @@ public class RegisterStudent extends HttpServlet {
 	 *      response)
 	 */
     boolean emailInUse(String email) {
-		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
+    	Global mainDB = (Global) getServletContext().getAttribute("mainDB");
+    	ArrayList<Student> students = mainDB.students;
 		if(students == null) {
 			System.out.println("Theres nothing in students");
 		}
@@ -342,8 +343,14 @@ public class RegisterStudent extends HttpServlet {
 			Global mainDB = (Global) getServletContext().getAttribute("mainDB");
 			Student newStudent = new Student(firstName, lastName, email, password1,info);
 			mainDB.addUser(newStudent);
-			HttpSession session = request.getSession();
-			session.setAttribute("authenticatedStudent", newStudent);
+			for (int i = 0; i < mainDB.students.size(); i++) {
+				if(newStudent.getIdentity() == mainDB.students.get(i).getIdentity()) {
+					getServletContext().setAttribute("authenticatedStudent", mainDB.students.get(i));
+				}
+				
+				System.out.println("Tried -- " + mainDB.students.get(i).getIdentity() + "with" + newStudent.getIdentity());
+			}
+			
 			response.sendRedirect("../sessions/Login");
 			return;
 

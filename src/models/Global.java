@@ -26,7 +26,9 @@ public class Global {
 	 * Constructors
 	 */
 
-	public Global() {
+	public Global() throws FileNotFoundException {
+		this.defaultSchool = generateSchool(defaultFile);
+		databases.add(defaultSchool);
 	}
 
 	public Global(ArrayList<User> users) throws FileNotFoundException {
@@ -35,6 +37,7 @@ public class Global {
 		// make default database for CSULA
 		this.defaultSchool = generateSchool(defaultFile);
 		databases.add(defaultSchool);
+		//System.out.println("Data base size" + databases.size());
 	}
 
 	public Global(ArrayList<User> users, ArrayList<File> databasesFile) throws FileNotFoundException {
@@ -200,11 +203,15 @@ public class Global {
 	}
 
 	public static School findSchool(String name) {
+		System.out.println(databases.size());
 		for (School s : databases) {
+			System.out.println(s.getName() + " --- " + name);
 			if (s.getName().equals(name)) {
+				System.out.println("Returned a school");
 				return s;
 			}
 		}
+		System.out.println("Returned Null");
 		return null;
 	}
 	public static void main(String[] args) throws FileNotFoundException {

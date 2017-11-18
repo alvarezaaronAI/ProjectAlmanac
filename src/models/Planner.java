@@ -22,8 +22,11 @@ public class Planner {
 	 */
 	
 	public Planner(String schoolName, String deptName, String majorName, String earliestSemName, int earliestYear) {
+		System.out.println("This is the school" + schoolName);
 		School school = Global.findSchool(schoolName);
+		System.out.println("School name" + school.toString());
 		Department dept = school.findDept(deptName);
+		System.out.println("0-0"+dept.toString());
 		major = dept.findMajor(majorName);
 		earliestSem = new Semester(earliestSemName, earliestYear);
 		generateRecSchedule();
@@ -86,6 +89,7 @@ public class Planner {
 	 * Custom schedule starts out the same as the recommended schedule
 	 */
 	private void generateRecSchedule() {
+		System.out.println("Major---)" + major.toString());
 		ArrayList<Course> reqs = major.getCourses();
 		int semInd = 0;
 		for (Course c : reqs) {

@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Semester;
 import models.Student;
+import structure.Course;
 
 /**
  * Servlet implementation class Calendar
@@ -36,7 +38,8 @@ public class Calendar extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		Student studentTemp = (Student) request.getAttribute("authenticatedStudent");
+		Student studentTemp = (Student) getServletContext().getAttribute("authenticatedStudent");
+		System.out.println(studentTemp == null);
 		out.println("<doctype html>\r\n" + 
 				"    <html lang=\"en\">\r\n" + 
 				"\r\n" + 
@@ -121,47 +124,38 @@ public class Calendar extends HttpServlet {
 				"                                            <div class=\"agenda-time\">\r\n" + 
 				"                                                7:00 - 9:00 PM\r\n" + 
 				"                                            </div>\r\n" + 
-				"                                        </td>\r\n" + 
-				"                                    </tr>\r\n" + 
-				"\r\n" + 
-				"                                    <!-- Multiple events in a single day (note the rowspan) -->\r\n" + 
-				"                                    <tr>\r\n" + 
-				"                                        <td class=\"agenda-date\" class=\"active\" rowspan=\"3\">\r\n" + 
-				"                                            <!-- <div class=\"dayofmonth\">24</div>\r\n" + 
-				"                                        <div class=\"dayofweek\">Thursday</div>\r\n" + 
-				"                                        <div class=\"shortdate text-muted\">July, 2014</div> -->\r\n" + 
-				"                                            <div>\r\n" + 
+				"                                        </td>\r\n");
+		System.out.println("Planner To String"+studentTemp.getPlanner().toString());
+		for (int i = 0; i < studentTemp.getPlanner().getRecommendedSchedule().size(); i++) {
+			Semester tempSem = studentTemp.getPlanner().getRecommendedSchedule().get(i);
+			
+				out.println("                        </tr>\r\n" +
+				                                           "<div>\r\n" + 
 				"                                                <p class=\"text-center\">\r\n" + 
-				"                                                    Fall\r\n" + 
+				"                                                   "+ tempSem.getName()+"\r\n" + 
 				"                                                </p>\r\n" + 
 				"                                            </div>\r\n" + 
-				"                                        </td>\r\n" + 
-				"                                        <td class=\"course text-center\">\r\n" + 
-				"                                            CS 2013 Data Structures\r\n" + 
+				"                                        </td>\r\n" );
+				for (int j = 0; j < tempSem.getCourses().size(); j++) {
+					Course tempCourse = tempSem.getCourses().get(i);
+				out.println("                             <td class=\"course text-center\">\r\n" + 
+				"                                           "+tempCourse.toString()+"\r\n" + 
 				"                                        </td>\r\n" + 
 				"                                        <td class=\"agenda-events\">\r\n" + 
 				"                                            <div class=\"agenda-time\">\r\n" + 
-				"                                                10:15 AM - 12:00 PM\r\n" + 
+				"                                                Time of the course PM\r\n" + 
 				"                                            </div>\r\n" + 
 				"                                        </td>\r\n" + 
-				"                                    </tr>\r\n" + 
-				"                                    <tr>\r\n" + 
+				"                                    </tr>\r\n");
+				}
+		}
+				out.println("                             <tr>\r\n" + 
 				"                                        <td class=\"course text-center\">\r\n" + 
-				"                                            CS 3112 Web Development\r\n" + 
+				"                                           Other Courses..\r\n" + 
 				"                                        </td>\r\n" + 
 				"                                        <td class=\"agenda-events\">\r\n" + 
 				"                                            <div class=\"agenda-time\">\r\n" + 
-				"                                                10:15 AM - 12:00 PM\r\n" + 
-				"                                            </div>\r\n" + 
-				"                                        </td>\r\n" + 
-				"                                    </tr>\r\n" + 
-				"                                    <tr>\r\n" + 
-				"                                        <td class=\"course text-center\">\r\n" + 
-				"                                            CS 3337 Software Engineer\r\n" + 
-				"                                        </td>\r\n" + 
-				"                                        <td class=\"agenda-events\">\r\n" + 
-				"                                            <div class=\"agenda-time\">\r\n" + 
-				"                                                7:00 - 9:00 PM\r\n" + 
+				"                                                Times of other courses\r\n" + 
 				"                                            </div>\r\n" + 
 				"                                        </td>\r\n" + 
 				"                                    </tr>\r\n" + 

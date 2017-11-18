@@ -30,32 +30,34 @@ public class LoginSessions extends HttpServlet {
 		super.init(config);
 		// ---------------------------------------------------------------------
 		// Create a few students
-		
-		ArrayList<User> students = new ArrayList<User>(); // -- harry -joe
-		String[] info1 = new String[3];
-		info1[0] = "CSULA";
-		info1[1] = "Engr";
-		info1[2] = "Computer Science";
-		String[] info2 = new String[3];
-		info2[0] = "CSULA";
-		info2[1] = "Engr";
-		info2[2] = "Computer Science";
-		students.add(new Student("Joe", "Bob", "j@b.com", "asdf", info1));
-		students.add(new Student("joe", "low", "j@l.com", "ghjk", info2));
-		for (int i = 0; i < students.size(); i++) {
-			System.out.println("Student " + i + " is -" + students.get(i).getFirstName());
-		}
-		// Add the students to the application scope (Servlet Context)
 		Global mainDB;
 		try {
-			mainDB = new Global(students);
-			getServletContext().setAttribute("mainDB",mainDB);
-		} catch (FileNotFoundException e) {
+			mainDB = new Global();
+			ArrayList<User> students = new ArrayList<User>(); // -- harry -joe
+			String[] info1 = new String[3];
+			info1[0] = "CSULA";
+			info1[1] = "Engr";
+			info1[2] = "Computer Science";
+			String[] info2 = new String[3];
+			info2[0] = "CSULA";
+			info2[1] = "Engr";
+			info2[2] = "Computer Science";
+			students.add(new Student("Joe", "Bob", "j@b.com", "asdf", info1));
+			students.add(new Student("joe", "low", "j@l.com", "ghjk", info2));
+			for (int i = 0; i < students.size(); i++) {
+				System.out.println("Student " + i + " is -" + students.get(i).getFirstName());
+			}
+			// Add the students to the application scope (Servlet Context)
+				mainDB.setUsers(students);
+				getServletContext().setAttribute("mainDB",mainDB);
+				getServletContext().setAttribute("students", students);
+				
+			
+		} catch (FileNotFoundException e1) {
+			
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
-		getServletContext().setAttribute("students", students);
-		
 		// ---------------------------------------------------------------------
 		// Create a few faculties
 		ArrayList<Faculty> faculties = new ArrayList<Faculty>();

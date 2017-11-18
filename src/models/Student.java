@@ -28,6 +28,7 @@ public class Student extends User {
 				major = dept.findMajor(info[2]);
 			}
 		}
+		this.planner = new Planner("California State University of Los Angeles", "Engineering", "Computer Science", "Fall", 2018);
 	}
 	/**
 	 * Methods About the Student

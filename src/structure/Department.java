@@ -92,6 +92,7 @@ public class Department {
 	
 	public Major findMajor(String majorName) {
 		for (Major m : majors) {
+			System.out.println("Major Name In-" + majorName + "Check with " +m.getName() );
 			if (m.getName().equals(majorName)) {
 				return m;
 			}
