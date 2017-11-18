@@ -11,7 +11,9 @@ public class School {
 	/*
 	 * Constructors
 	 */
-	
+	public School() {
+		
+	}
 	public School(String name) {
 		this.name = name;
 	}

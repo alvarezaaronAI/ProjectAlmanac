@@ -20,7 +20,7 @@ public class Global {
 	public static ArrayList<School> databases = new ArrayList<>();
 	private ArrayList<File> databasesFile = new ArrayList<>();
 	private File defaultFile = new File("DataBase/CSULA.txt"); // CSULA data file
-	private School defaultSchool; // CSULA
+	private School defaultSchool = new School(); // CSULA
 
 	/*
 	 * Constructors
@@ -33,7 +33,7 @@ public class Global {
 		setUsers(users);
 
 		// make default database for CSULA
-		defaultSchool = generateSchool(defaultFile);
+		this.defaultSchool = generateSchool(defaultFile);
 		databases.add(defaultSchool);
 	}
 
@@ -49,6 +49,13 @@ public class Global {
 	/*
 	 * Accessors
 	 */
+	
+	public School getDefaultSchool() {
+		return defaultSchool;
+	}
+	public void setDefaultFile(File defaultFile) {
+		this.defaultFile = defaultFile;
+	}
 
 	public ArrayList<File> getDatabasesFile() {
 		return databasesFile;
@@ -57,11 +64,13 @@ public class Global {
 	public File getDefaultFile() {
 		return defaultFile;
 	}
-
+	
 	/*
 	 * Mutators
 	 */
-
+	public void setDefaultSchool(School defaultSchool) {
+		this.defaultSchool = defaultSchool;
+	}
 	public void setUsers(ArrayList<User> users) {
 		Global.users = users;
 		for (User u : users) {
@@ -164,14 +173,12 @@ public class Global {
 					System.out.println("---Major for this dept is " + tempMajor.getName());
 				}
 			}
-			this.defaultSchool = tempSchool;
-			System.out.println(this.defaultSchool.getName());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return tempSchool;
 	}
 
 	public void addUser(User user) {
@@ -232,4 +239,11 @@ public class Global {
 		}
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Global [databasesFile=" + databasesFile + ", defaultFile=" + defaultFile + ", defaultSchool="
+				+ defaultSchool + "]";
+	}
+	
 }

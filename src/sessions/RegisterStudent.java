@@ -140,6 +140,8 @@ public class RegisterStudent extends HttpServlet {
 					+ "                    </div>\r\n");
 			
 		Global mainDB = (Global) getServletContext().getAttribute("mainDB");
+		System.out.println("Maindb is " + mainDB.toString());
+		
 		//An ArrayList of Schools
 			//mainDB ArrayList
 		out.println(" <fieldset class=\"form-group\">\r\n"
@@ -153,7 +155,7 @@ public class RegisterStudent extends HttpServlet {
 		
 		//Here print just one school for demo
 			out.println("                                      <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + " + mainDB.defaultSchool().getName() + " name=\"schoolOption\" id=\"schoolOption\" checked> "+ mainDB.defaultSchool().getName()+"l\r\n"
+				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"" + mainDB.getDefaultSchool().getName() + "\" name=\"schoolOption\" id=\"schoolOption\" checked> "+ mainDB.getDefaultSchool().getName()+"\r\n"
 				+ "                                        </label>\r\n"
 				);
 		//For loop that goes through the the list of departments
@@ -169,10 +171,11 @@ public class RegisterStudent extends HttpServlet {
 				+ "                                        </label>\r\n"
 				+ "                                    </div>\r\n" + "                                </div>\r\n"
 				+ "                                <div class=\"col-sm-4\">\r\n"
-				+ "                                    <legend class=\"legend-text\">Department Selection</legend>\r\n");
+				+ "                                    <legend class=\"legend-text\">Department Selection</legend>\r\n"
+				);
 		/*	csulaDepts gets an arraylist of departments for me to transverse
 			departmentOptions is what i am saving in order to retrieve it in Post method*/
-			ArrayList<Department> csulaDepts = mainDB.defaultSchool().getDepts();
+			ArrayList<Department> csulaDepts = mainDB.getDefaultSchool().getDepts();
 			ArrayList<String> departmentOptions = new ArrayList<>();
 			for (int i = 0; i < csulaDepts.size(); i++) {
 				String tempDeptSetUp = csulaDepts.get(i).getName(); 
@@ -180,7 +183,7 @@ public class RegisterStudent extends HttpServlet {
 				out.println("                          <div class=\"form-check\">\r\n" 
 				
 				+ "                                    <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + "+ tempDeptSetUp + " + name=\"deptOption\" id=\"deptOption\" checked>"+ tempDeptSetUp + "\r\n"
+				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"" + tempDeptSetUp + "\" + name=\"deptOption\" id=\"deptOption\" checked>"+ tempDeptSetUp + "\r\n"
 				+ "                                        </label>\r\n"
 				+ "                                    </div>\r\n");
 			}
@@ -209,7 +212,7 @@ public class RegisterStudent extends HttpServlet {
 					String tempOneMajor = tempMajors.get(j).getName();
 					majorOptions.add(tempOneMajor);
 					out.println("                                        <label class=\"form-check-label\">\r\n"
-					+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + "+ tempOneMajor + " + name=\"majOption\" id=\"majOption\" checked>" + tempOneMajor +"\r\n"
+					+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"" + tempOneMajor + "\" + name=\"majOption\" id=\"majOption\" checked>" + tempOneMajor +"\r\n"
 					+ "                                        </label>\r\n" );
 					}
 				out.println("                                    </div>\r\n"                             
@@ -295,14 +298,19 @@ public class RegisterStudent extends HttpServlet {
 		String lastName = request.getParameter("lName");
 		
 		String email = request.getParameter("username");
-		System.out.println("This is an email" + email);
-		
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
 		//With the arraylist of majorOptions and DeptOptions, check what dept they choose and add it in the New Student
 		ArrayList<String> deptOptions = (ArrayList<String>) getServletContext().getAttribute("deptOption");
 		ArrayList<String> majorOption = (ArrayList<String>) getServletContext().getAttribute("majorOptions");
-		
+		String[] info = new String[3];
+		String school = request.getParameter("schoolOption");
+		info[0] = school;
+		String dept = request.getParameter("deptOption");
+		info[1] = dept;
+		String major = request.getParameter("majOption");
+		info[2] = major;
+		System.out.println("School----" + school + " dept----" + dept + " major----" + major);
 		boolean hasError = false;
 		if (firstName.isEmpty() || firstName.matches("[A-Za-z]")) {
 			request.setAttribute("fError", "You must enter a first name");
@@ -332,11 +340,11 @@ public class RegisterStudent extends HttpServlet {
 		} else {
 			ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
 			Global mainDB = (Global) getServletContext().getAttribute("mainDB");
-			//Student newStudent = new Student(firstName, lastName, email, password1,info[]);
-			//students.add(newStudent);
+			Student newStudent = new Student(firstName, lastName, email, password1,info);
+			mainDB.addUser(newStudent);
 			HttpSession session = request.getSession();
-			//session.setAttribute("authenticatedStudent", newStudent);
-			response.sendRedirect("sessions/Login");
+			session.setAttribute("authenticatedStudent", newStudent);
+			response.sendRedirect("../sessions/Login");
 			return;
 
 		}

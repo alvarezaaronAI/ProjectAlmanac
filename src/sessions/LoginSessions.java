@@ -1,5 +1,6 @@
 package sessions;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -45,7 +46,14 @@ public class LoginSessions extends HttpServlet {
 			System.out.println("Student " + i + " is -" + students.get(i).getFirstName());
 		}
 		// Add the students to the application scope (Servlet Context)
-		Global mainDB = new Global(students);
+		Global mainDB;
+		try {
+			mainDB = new Global(students);
+			getServletContext().setAttribute("mainDB",mainDB);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		getServletContext().setAttribute("students", students);
 		
 		// ---------------------------------------------------------------------
@@ -56,7 +64,6 @@ public class LoginSessions extends HttpServlet {
 		// // Add the students to the application scope (Servlet Context)
 		getServletContext().setAttribute("faculties", faculties);
 		//Create a global database from where I can access every thing
-		getServletContext().setAttribute("mainDB",mainDB);
 		
 
 	}
@@ -70,6 +77,7 @@ public class LoginSessions extends HttpServlet {
 		// ---------------------------------------------------------------------
 		// Checking cookies first to see if a student wanted to stay logged in.
 		ArrayList<Student> students = (ArrayList<Student>) getServletContext().getAttribute("students");
+		Global mainDB = (Global) getServletContext().getAttribute("mainDB");
 		Cookie[] cookies = request.getCookies();
 		// For every cookie that it was requested we must athenticate the student log in
 		// and by pass the password.
@@ -142,8 +150,9 @@ public class LoginSessions extends HttpServlet {
 						"\r\n" + 
 						"                    </div>\r\n" + 
 						"                </div>\r\n" + 
-						"                <!-- Content -->\r\n" + 
-						"                <div class=\"container-fluid text-center\">\r\n" + 
+						"                <!-- Content -->\r\n" );
+				//out.println("File outOut: " + mainDB.getDefaultFile().getAbsolutePath());
+						out.println("                <div class=\"container-fluid text-center\">\r\n" + 
 						"                    <span>\r\n" + 
 						"                        <ul style=\"list-style-type: none; display: inline-block;\">\r\n" + 
 						"                            <li>\r\n" + 
