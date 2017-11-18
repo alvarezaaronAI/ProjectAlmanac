@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import models.Global;
 import models.Student;
+import structure.Department;
+import structure.Major;
 
 /**
  * Servlet implementation class RegisterStudent
@@ -151,11 +153,11 @@ public class RegisterStudent extends HttpServlet {
 		
 		//Here print just one school for demo
 			out.println("                                      <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + " + mainDB.getDefaultFile().getName() + " name=\"schoolOption\" id=\"schoolOption\" checked> "+ mainDB.getDefaultFile().getName()+"l\r\n"
+				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + " + mainDB.defaultSchool().getName() + " name=\"schoolOption\" id=\"schoolOption\" checked> "+ mainDB.defaultSchool().getName()+"l\r\n"
 				+ "                                        </label>\r\n"
 				);
-			
-				out.println("                                    </div>\r\n"
+		//For loop that goes through the the list of departments
+			out.println("                                    	</div>\r\n"
 				+ "                                    <div class=\"form-check\">\r\n"
 				+ "                                        <label class=\"form-check-label\">\r\n"
 				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + schoolOption2 + name=\"schoolOption\" id=\"schoolOption\"> Second School\r\n"
@@ -167,13 +169,24 @@ public class RegisterStudent extends HttpServlet {
 				+ "                                        </label>\r\n"
 				+ "                                    </div>\r\n" + "                                </div>\r\n"
 				+ "                                <div class=\"col-sm-4\">\r\n"
-				+ "                                    <legend class=\"legend-text\">Department Selection</legend>\r\n"
-				+ "                                    <div class=\"form-check\">\r\n"
-				+ "                                        <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + deptOption + name=\"deptOption\" id=\"deptOption\" checked> One Department\r\n"
+				+ "                                    <legend class=\"legend-text\">Department Selection</legend>\r\n");
+		/*	csulaDepts gets an arraylist of departments for me to transverse
+			departmentOptions is what i am saving in order to retrieve it in Post method*/
+			ArrayList<Department> csulaDepts = mainDB.defaultSchool().getDepts();
+			ArrayList<String> departmentOptions = new ArrayList<>();
+			for (int i = 0; i < csulaDepts.size(); i++) {
+				String tempDeptSetUp = csulaDepts.get(i).getName(); 
+				departmentOptions.add(tempDeptSetUp);
+				out.println("                          <div class=\"form-check\">\r\n" 
+				
+				+ "                                    <label class=\"form-check-label\">\r\n"
+				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + "+ tempDeptSetUp + " + name=\"deptOption\" id=\"deptOption\" checked>"+ tempDeptSetUp + "\r\n"
 				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n"
-				+ "                                    <div class=\"form-check\">\r\n"
+				+ "                                    </div>\r\n");
+			}
+			//Send to the server the Arraylist of departementOptions for me to read in the post method
+			getServletContext().setAttribute("deptOptions", departmentOptions);
+				out.println( "                                    <div class=\"form-check\">\r\n"
 				+ "                                        <label class=\"form-check-label\">\r\n"
 				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + deptOption2 + name=\"deptOption\" id=\"deptOption2\"> Second Department\r\n"
 				+ "                                        </label>\r\n"
@@ -182,25 +195,29 @@ public class RegisterStudent extends HttpServlet {
 				+ "                                        <label class=\"form-check-label\">\r\n"
 				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + deptOption3 + name=\"deptOption\" id=\"deptOption3\" disabled> Not an Option Department\r\n"
 				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n" + "                                </div>\r\n"
-				+ "                                <div class=\"col-sm-4\">\r\n"
-				+ "                                    <legend class=\"legend-text\">Major Selection</legend>\r\n"
-				+ "                                    <div class=\"form-check\">\r\n"
-				+ "                                        <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + majOption + name=\"majOption\" id=\"majOption\" checked> One Major\r\n"
-				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n"
-				+ "                                    <div class=\"form-check\">\r\n"
-				+ "                                        <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + majOption2 + name=\"majOption\" id=\"majOption2\"> Second Major\r\n"
-				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n"
-				+ "                                    <div class=\"form-check disabled\">\r\n"
-				+ "                                        <label class=\"form-check-label\">\r\n"
-				+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + majOption3 + name=\"majOption\" id=\"majOption3\" disabled> Not an Option Major\r\n"
-				+ "                                        </label>\r\n"
-				+ "                                    </div>\r\n" + "                                </div>\r\n"
-				+ "                            </div>\r\n" + "                        </div>\r\n"
+				+ "                                    </div>\r\n" + "                                </div>\r\n");
+		/*	Make an arraylist of majors to get all the majors listed in each dept.
+			Store a list of majors, from each dept.*/
+			ArrayList<String> majorOptions = new ArrayList<>();
+			for (int i = 0; i < csulaDepts.size(); i++) {
+				ArrayList<Major> tempMajors = csulaDepts.get(i).getMajors();
+				out.println("                       <div class=\"col-sm-4\">\r\n"
+				+ "                                    <legend class=\"legend-text\">Major Selection for " + departmentOptions.get(i) +"</legend>\r\n"
+				+ "                                    <div class=\"form-check\">\r\n");
+				//for loop that goes through every department and prints out each major in that department
+				for (int j = 0; j < tempMajors.size(); j++) {
+					String tempOneMajor = tempMajors.get(j).getName();
+					majorOptions.add(tempOneMajor);
+					out.println("                                        <label class=\"form-check-label\">\r\n"
+					+ "                                            <input type=\"radio\" class=\"form-check-input\" value=\"\" + "+ tempOneMajor + " + name=\"majOption\" id=\"majOption\" checked>" + tempOneMajor +"\r\n"
+					+ "                                        </label>\r\n" );
+					}
+				out.println("                                    </div>\r\n"                             
+				+ "                                 </div>\r\n"
+				);
+			}
+			getServletContext().setAttribute("majorOptions", majorOptions);
+				out.println( "                            </div>\r\n" + "                        </div>\r\n"
 				+ "                    </fieldset>");
 		
 		out.println("<button type=\"submit\" class=\"btn btn-primary\">Register</button>\r\n"
@@ -282,6 +299,7 @@ public class RegisterStudent extends HttpServlet {
 		
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
+		 
 		boolean hasError = false;
 		if (firstName.isEmpty() || firstName.matches("[A-Za-z]")) {
 			request.setAttribute("fError", "You must enter a first name");
