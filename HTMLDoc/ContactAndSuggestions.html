@@ -1,0 +1,177 @@
+﻿<doctype html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+            crossorigin="anonymous">
+        <title> Contact And Suggestions </title>
+        <style type="text/css">
+            .control-label {
+                font-weight: bold;
+            }
+
+            .legend-text {
+                font-weight: bold;
+            }
+
+            .body-main {
+                background-color: beige;
+            }
+
+            .mini-boxes {
+                background-color: darkcyan;
+            }
+
+            .nav-link {
+                font-weight: bold;
+            }
+
+            body {
+                zoom: 80%;
+            }
+			
+			textarea {
+			    display: block;
+	float: left;
+	width: 60%;
+	margin-top: 5px;
+	margin-bottom: 5px;	
+	margin-left: 300px;
+	margin-right: 250px;
+	height: 100px;
+			}
+			
+        </style>
+    </head>
+	
+    <body class="body-main">
+        <div class="container-fluid">
+            <!-- Heading of the Page -->
+            <div class="jumbotron text-center mini-boxes">
+                <h1> Contact and Suggestions</h1>
+                <aside title="Projects Logo">
+                    <img width="150px" height="150px" src="http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png" alt="Logo Picture">
+                </aside>
+            </div>
+            <!-- Content -->
+			
+			
+			<table align="center" cellpadding="5" class="dept_contact" style="width: 429px;">
+			    <tbody>
+				 
+				 <tr>
+				  <th style="width: 68px;"><font size="5">Office</font></th>
+				  <td style="width: 317px;"><font size="5">E&amp;T 322</font></td>
+				 </tr>
+				 <tr>
+				  <th style="width: 68px;"><font size="5">Phone</font></th>
+				  <td style="width: 317px;"><font size="5">(323) 343-6690</font></td>
+				 </tr>
+				 <tr><th style="width: 68px;"><font size="5">Fax</font></th>
+				 <td style="width: 317px;"><font size="5">(323) 343-6672</font></td>
+				 </tr>
+				 <tr><th style="width: 68px;"><font size="5">Email</font></th>
+				 <td style="width: 317px;"><a href="mailto:cs@calstatela.edu"><font size="5">cs@calstatela.edu</font></a></td>
+				 </tr>
+				 <tr><th style="width: 68px;"><font size="5">Address</font></th><td style="width: 317px;"><font size="5">5151 State University Drive, Los Angeles, CA 90032</font></td>
+				 </tr>
+				 <tr><th style="width: 68px;"><font size="5">Web</th>
+				 <td style="width: 317px;"><a href="http://cs.calstatela.edu" title="Computer Science Department"><font size="5">cs.calstatela.edu</font></a><font size="5">  or</font>  <a href="http://www.calstatela.edu/cs" title="Computer Science Department"><font size="5">www.calstatela.edu/cs</font></a></td>
+				 </tr>
+				</tbody>
+				</font>
+			  </table>
+			  </br>
+			<textarea></textarea></br>
+
+			<div class="text-center">
+            <div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-0">
+			<form action="myform.cgi">
+			 <!--<input style="height:200px;font-size:14pt" type="suggestions" align="center" class="form-control" aria-describedby="sizing-addon1">-->
+			 
+			 
+			 
+			 </div>
+			 <label for="suggestion">Enter Your Suggestions Here</label>
+			 <br><input type="submit" value="Submit">
+			 </form>
+			 </div>
+
+             </br>
+			 <!-- Log Out Button -->
+            <div class="text-center">
+                <form action="LogoutSessions" method="get">
+                    <a class="btn btn-primary" href="../sessions/Logout">Log Out</a>
+                </form>
+            </div>
+            <!-- Footer of the page -->
+            <div>
+                <footer class="footer ">
+                    <!-- Mini Naviation-->
+                    <div class="container text-center">
+                        <nav class="navbar navbar-toggleable-md navbar-light bg-faded mini-boxes">
+                            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <!-- Logo -->
+                            <div class="navbar-brand">
+                                <aside title="Projects Logo">
+                                    <img width="150px" height="150px" src="http://cs3.calstatela.edu:8080/cs3337stu10/Images/Logo.png" alt="Logo Picture">
+                                </aside>
+                            </div>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="../sessions/Login">Login
+                                            <span class="sr-only">(current)</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <form action="LogoutSessions" method="get">
+                                            <a class="nav-link" href="../sessions/Logout">Log Out</a>
+                                        </form>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="Help.html">Help
+										<span class="sr-only">(current)</span>
+										</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="ContactAndSuggestions.html">Contact and Suggestions 
+										<span class="sr-only">(current)</span>
+										</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="Forum">Forum</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="RAndMod">Recomendations and Modifications</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="Calendar">Calendar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+					
+                        <p class="p1">&copy;2017 Almanac, All Rights Reserve.</p>
+                    </div>
+            </div>
+            <!-- Other Resources Needed By Bootstrap -->
+            <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+                crossorigin="anonymous">
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+                crossorigin="anonymous">
+            </script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+                crossorigin="anonymous">
+            </script>
+        </div>
+    </body>
+
+    </html>
+	
