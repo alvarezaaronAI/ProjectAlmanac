@@ -1,0 +1,20 @@
+California State University of Los Angeles
+Engineering
+Computer Science
+CS, 1010, Introduction to Computer Science, 3, none, Fall--Spring
+CS, 1222, Introduction to Relational Databases, 3, none, Fall--Spring
+CS, 2011, Introduction to Programming I, 3, Math1040, Fall--Spring--Summer
+CS, 2012, Introduction to Programming II, 3, CS2011, Fall--Spring--Summer
+CS, 2013, Programming with Data Structures, 3, CS2012, Fall--Spring--Summer
+CS, 2148, Discrete Structures, 3, CS2012-Math2120, Fall--Spring--Summer
+CS, 3035, Programming Language Paradigms, 3, CS2013, Fall--Spring
+CS, 3112, Analysis of Algorithms, 3, CS2148-CS2013, Fall--Spring--Summer
+CS, 3186, Introduction to Automata Theory, 3, CS2148-CS2013, Fall--Spring
+CS, 3220, Web and Internet Programming, 3, CS1222-CS2013, Fall--Spring--Summer
+CS, 3337, Software Engineering, 3, CS2013, Fall--Spring
+CS, 3801, Societal and Ethical Issues in Computing, 3, CS2013, Spring
+CS, 3445, Computer Organization, 3, CS2013, Fall--Spring
+CS, 4440, Introduction to Operating Systems, 3, CS2013, Fall--Spring
+CS, 4961, Software Design Laboratory I, 3, CS3220-CS4440-EE3445-CS3035-CS3801-CS3337-CS3112-CS3186, Fall
+CS, 4962, Software Design Laboratory II, 3, CS4961, Spring
+CS, 4963, Computer Science Recapitulation, 3, Math2550-Phys2200, Spring

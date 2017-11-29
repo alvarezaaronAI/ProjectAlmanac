@@ -19,5 +19,8 @@
 !WebContent/
 !WebContent/**
 !Web
+!DataBase
+!DataBase/
+!DataBase/**
 !*.txt
 !*.md
